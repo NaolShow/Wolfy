@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wolfy.Windows"
         mc:Ignorable="d"
-        Title="Main" Height="450" Width="800"
+        Title="Wolfy" Height="160" Width="720"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,13 +13,38 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" Closing="Window_Closing">
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="179*"/>
+            <ColumnDefinition Width="177*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:Card Padding="32" Margin="16,16,16,0" Height="89">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Main Window : https://github.com/NaolShow</TextBlock>
-        </materialDesign:Card>
+        <ComboBox HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Height="32"/>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="299,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
+            <materialDesign:PackIcon Kind="HamburgerMenu" Margin="-6" Height="32" Width="32"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="332,15,0,0" VerticalAlignment="Top" Width="28" Height="27" Grid.ColumnSpan="2">
+            <materialDesign:PackIcon Kind="Edit" Margin="-6" Height="32" Width="32"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="28" Height="27" Grid.Column="1">
+            <materialDesign:PackIcon Kind="SettingsOutline" Margin="-6" Height="32" Width="32"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="283,10,0,0" VerticalAlignment="Top" Width="28" Height="27" Grid.Column="1">
+            <materialDesign:PackIcon Kind="MicrophoneVariant" Margin="-6" Height="32" Width="32"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top" Width="28" Height="27" Grid.Column="1">
+            <materialDesign:PackIcon Kind="Stop" Margin="-6" Height="32" Width="32"/>
+        </Button>
+
+        <TextBox
+            TextWrapping="Wrap"
+            VerticalAlignment="Stretch"
+            MinWidth="280"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto"
+            IsReadOnly="True"
+            Margin="10,47,10,11" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>

@@ -20,7 +20,7 @@ namespace Wolfy.Classes {
         public static Main MainWindow;
 
         /** ----------------| Folders Variables |---------------- **/
-        public static readonly String UpdateLink = @"";
+        public static readonly String UpdateLink = @"https://dl.dropbox.com/s/09rmbalpk1exlr9/update.txt";
         public static readonly String TempUpdateFile = TempUpdatePath + "update.exe";
         // Update files
         public static readonly String TempUpdatePath = AppPath + @"update.temp\";
