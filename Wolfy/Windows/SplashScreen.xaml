@@ -5,18 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wolfy"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="450" Width="800"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        Title="Wolfy" Height="350" Width="620" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="/Files/Images/splashscreen.png"/>
+    </Window.Background>
     <Grid>
-        <materialDesign:Card Padding="32" Margin="16,16,16,0" Height="89">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">WPF MaterialDesign template by NaolShow</TextBlock>
-        </materialDesign:Card>
+
+            
+
     </Grid>
 </Window>
