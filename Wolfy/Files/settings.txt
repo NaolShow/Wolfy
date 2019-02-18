@@ -1,0 +1,12 @@
+{
+	// To avoid any problems, please do not manually 
+	// change the settings from this file.
+
+	/* ----- General ----- */
+	"Language": null,
+	"Check_for_updates": true,
+
+	/* ----- Visual ----- */
+	"Theme": "light",
+	"Color": "blue"
+}

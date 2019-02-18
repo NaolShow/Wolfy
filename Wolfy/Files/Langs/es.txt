@@ -1,0 +1,21 @@
+{
+	"Name": "Español",
+	"Description": "Archivo de idioma del idioma español",
+	"Version": "1.0",
+	"Translations": {
+
+		/* ----- General ----- */
+		"cancel": "Cancelar",
+
+		/* ----- Update ----- */
+		"update_request": "Una nueva versión del software está disponible.\n ¿Desea instalarlo?",
+		"update_downloading": "Descarga {0}/{1} [{2}%]",
+		"update_install": "Instalar ({0}s)",
+		"update_check_error": "Se ha producido un error al comprobar una posible nueva versión disponible.",
+		"update_install_error": "Se ha producido un error durante la instalación de la actualización.\n (Faltan archivos y/o no hay derechos de acceso)",
+		
+		/* ----- Settings ----- */
+		"settings_file_error": "El archivo de configuración no está en un formato correcto o legible.\n ¿Desea restablecer su configuración?"
+
+	}
+}

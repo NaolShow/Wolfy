@@ -1,0 +1,21 @@
+{
+	"Name": "Français",
+	"Description": "Fichier langue de la langue Française",
+	"Version": "1.0",
+	"Translations": {
+
+		/* ----- General ----- */
+		"cancel": "Annuler",
+
+		/* ----- Update ----- */
+		"update_request": "Une nouvelle version du logiciel est disponible.\n Voulez vous l'installer ?",
+		"update_downloading": "Téléchargement {0}/{1} [{2}%]",
+		"update_install": "Installer ({0}s)",
+		"update_check_error": "Une erreur est survenue lors de la vérification d'une potentielle nouvelle version disponible.",
+		"update_install_error": "Une erreur est survenue lors de l'installation de la mise à jours.\n (Fichiers manquants et/ou aucun droits d'accès)",
+		
+		/* ----- Settings ----- */
+		"settings_file_error": "Le fichier des réglages n'est pas dans un format correct/lisible.\n Voulez vous réinitialiser vos paramètres ?"
+
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"Name": "Deutsch",
+	"Description": "Sprachdatei der deutschen Sprache",
+	"Version": "1.0",
+	"Translations": {
+
+		/* ----- General ----- */
+		"cancel": "Abbrechen",
+
+		/* ----- Update ----- */
+		"update_request": "Eine neue Version der Software ist verfügbar.\n Möchten Sie es installieren?",
+		"update_downloading": "Herunterladen {0}/{1} [{2}%]",
+		"update_install": "Installieren ({0}s)",
+		"update_check_error": "Bei der Überprüfung einer eventuell verfügbaren neuen Version ist ein Fehler aufgetreten.",
+		"update_install_error": "Bei der Installation des Updates ist ein Fehler aufgetreten.\n (Fehlende Dateien und/oder keine Zugriffsrechte)",
+		
+		/* ----- Settings ----- */
+		"settings_file_error": "Die Einstellungsdatei ist nicht in einem korrekten/lesbaren Format.\n Möchten Sie Ihre Einstellungen zurücksetzen?"
+
+	}
+}
