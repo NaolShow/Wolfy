@@ -51,6 +51,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ITranslation.cs" />
+    <Compile Include="Classes\Recognition\SpeechRecognition.cs" />
+    <Compile Include="Classes\Recognition\Synthesizer.cs" />
     <Compile Include="Classes\Translation.cs" />
     <Compile Include="Classes\SkinManager.cs" />
     <Compile Include="Files\Json\JsonLang.cs" />

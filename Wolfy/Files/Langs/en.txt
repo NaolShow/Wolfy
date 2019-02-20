@@ -14,6 +14,16 @@
 		"update_check_error": "An error occurred when checking a potential new version available.",
 		"update_install_error": "An error occurred during the installation of the update.\n (Missing files and/or no access rights)",
 		
+		/* ----- Synthesizer ----- */
+		"synthesizerLoaded": "The voice synthesizer has been successfully loaded",
+		"synthesizerNoVoice": "The voice synthesizer cannot be loaded. No voice is installed.",
+		
+		/* ----- Recognizer ----- */
+		"noMicrophone": "No microphone was detected",
+		"recognizerLoaded": "The recognizer module has been successfully loaded",
+		"noSpeechLanguage": "No recognition language was found",
+		"commandRecognized": "The '{0}' command has been recognized with a threshold of '{1}'",
+
 		/* ----- Settings ----- */
 		"settings_file_error": "The settings file is not in a correct/readable format.\n Do you want to reset your settings? "
 

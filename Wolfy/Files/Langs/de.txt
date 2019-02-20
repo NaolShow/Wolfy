@@ -14,6 +14,16 @@
 		"update_check_error": "Bei der Überprüfung einer eventuell verfügbaren neuen Version ist ein Fehler aufgetreten.",
 		"update_install_error": "Bei der Installation des Updates ist ein Fehler aufgetreten.\n (Fehlende Dateien und/oder keine Zugriffsrechte)",
 		
+		/* ----- Synthesizer ----- */
+		"synthesizerLoaded": "Der Sprachsynthesizer wurde erfolgreich geladen.",
+		"synthesizerNoVoice": "Der Sprachsynthesizer kann nicht geladen werden. Es ist keine Stimme installiert.",
+		
+		/* ----- Recognizer ----- */
+		"noMicrophone": "Es wurde kein Mikrofon erkannt.",
+		"recognizerLoaded": "Das Erkennungsmodul wurde erfolgreich geladen.",
+		"noSpeechLanguage": "Es wurde keine Erkennungssprache gefunden.",
+		"commandRecognized": "Der Befehl '{0}' wurde mit einem Schwellenwert von '{1}' erkannt.",
+
 		/* ----- Settings ----- */
 		"settings_file_error": "Die Einstellungsdatei ist nicht in einem korrekten/lesbaren Format.\n Möchten Sie Ihre Einstellungen zurücksetzen?"
 

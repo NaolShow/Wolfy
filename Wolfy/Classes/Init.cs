@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Wolfy.Classes.Recognition;
 
 namespace Wolfy.Classes {
     public static class Init {
@@ -34,6 +35,10 @@ namespace Wolfy.Classes {
             Application.Current.MainWindow.Hide();
             // Show MainWindow
             Reference.MainWindow.Show();
+
+            // ----------------| Recognition |---------------- //
+            Synthesizer.Init();
+            SpeechRecognition.Init();
 
         }
 

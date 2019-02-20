@@ -14,6 +14,16 @@
 		"update_check_error": "Une erreur est survenue lors de la vérification d'une potentielle nouvelle version disponible.",
 		"update_install_error": "Une erreur est survenue lors de l'installation de la mise à jours.\n (Fichiers manquants et/ou aucun droits d'accès)",
 		
+		/* ----- Synthesizer ----- */
+		"synthesizerLoaded": "Le synthétiseur vocal a été chargé avec succès",
+		"synthesizerNoVoice": "Le synthétiseur vocal ne peut être chargé. Aucune voix n'est installée.",
+		
+		/* ----- Recognizer ----- */
+		"noMicrophone": "Aucun microphone n'a été détecté",
+		"recognizerLoaded": "Le module de reconnaissance a été chargé avec succès",
+		"noSpeechLanguage": "Aucune langue de reconnaissance a été trouvée",
+		"commandRecognized": "La commande '{0}' a été reconnue avec un seuil de '{1}'",
+
 		/* ----- Settings ----- */
 		"settings_file_error": "Le fichier des réglages n'est pas dans un format correct/lisible.\n Voulez vous réinitialiser vos paramètres ?"
 

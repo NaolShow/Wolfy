@@ -2,12 +2,14 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Wolfy.Classes {
     public static class Utils {
@@ -136,6 +138,21 @@ namespace Wolfy.Classes {
             int place = Convert.ToInt32(Math.Floor(Math.Log(bytes, 1024)));
             double num = Math.Round(bytes / Math.Pow(1024, place), 1);
             return (Math.Sign(byteCount) * num).ToString() + suf[place];
+        }
+
+        #endregion
+
+        #region Logs
+
+        public static void Log(String Text) {
+
+            // Add new line
+            if (Reference.MainWindow.LogsTxt.Text != "")
+                Reference.MainWindow.LogsTxt.AppendText(Environment.NewLine);
+
+            // Add text
+            Reference.MainWindow.LogsTxt.AppendText(Text);
+
         }
 
         #endregion

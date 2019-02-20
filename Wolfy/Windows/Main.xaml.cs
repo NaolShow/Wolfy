@@ -31,5 +31,10 @@ namespace Wolfy.Windows {
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             Utils.CloseApplication();
         }
+        
+        // Auto scroll
+        private void LogsTxt_TextChanged(object sender, TextChangedEventArgs e) {
+            LogsTxt.ScrollToEnd();
+        }
     }
 }

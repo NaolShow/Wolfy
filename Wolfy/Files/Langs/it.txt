@@ -14,6 +14,16 @@
 		"update_check_error": "Si è verificato un errore durante la verifica di una potenziale nuova versione disponibile.",
 		"update_install_error": "Si è verificato un errore durante l'installazione dell'aggiornamento.\n (File mancanti e/o nessun diritto di accesso)",
 		
+		/* ----- Synthesizer ----- */
+		"synthesizerLoaded": "Il sintetizzatore vocale è stato caricato con successo",
+		"synthesizerNoVoice": "Il sintetizzatore vocale non può essere caricato. Non è installata alcuna voce.",
+		
+		/* ----- Recognizer ----- */
+		"noMicrophone": "Nessun microfono è stato rilevato",
+		"recognizerLoaded": "Il modulo di riconoscimento è stato caricato con successo",
+		"noSpeechLanguage": "Non è stata trovata una lingua di riconoscimento",
+		"commandRecognized": "Il comando '{0}' è stato riconosciuto con una soglia di '{1}'",
+
 		/* ----- Settings ----- */
 		"settings_file_error": "Il file delle impostazioni non è in un formato corretto/ leggibile.\n Vuoi reimpostare le impostazioni?"
 
