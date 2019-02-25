@@ -76,10 +76,31 @@
     <Compile Include="Classes\Translation.cs" />
     <Compile Include="Classes\SkinManager.cs" />
     <Compile Include="Files\Json\JsonLang.cs" />
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindows\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindows\Recognition.xaml.cs">
+      <DependentUpon>Recognition.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Update.xaml.cs">
       <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindows\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindows\Recognition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

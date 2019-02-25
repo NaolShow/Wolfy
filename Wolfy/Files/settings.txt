@@ -5,8 +5,16 @@
 	/* ----- General ----- */
 	"Language": null,
 	"Check_for_updates": true,
+	"Launch_startup": false,
+	"Reduce_system_tray": false,
 
 	/* ----- Visual ----- */
 	"Theme": "light",
-	"Color": "blue"
+	"Color": "blue",
+
+	/* ----- Recognition ----- */
+	"Synthesizer_voice": null,
+	"Speech_language": null,
+	"Confidence": 80
+
 }

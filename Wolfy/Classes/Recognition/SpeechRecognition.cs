@@ -64,10 +64,8 @@ namespace Wolfy.Classes.Recognition
                     Reference.JsonSettings.Confidence = 80;
                 }
 
-                Utils.Log(Translation.Get("recognizerLoaded"));
+                Utils.Log(String.Format(Translation.Get("recognizerLoaded"), recognizerInfo.Culture.NativeName));
                 IsReady = true;
-
-                Utils.Log(Reference.JsonSettings.Confidence.ToString());
 
                 // Temporary
                 LoadCommands();

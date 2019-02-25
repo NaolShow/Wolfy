@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Wolfy.Windows.SettingsWindows.General"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wolfy.Windows.SettingsWindows"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="550">
+    <Grid Height="450" Width="550">
+        <!-- Title -->
+        <Label Tag="tr:application" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24">
+            Application
+        </Label>
+
+        <!-- Lang container -->
+        <StackPanel Margin="0,40" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
+            <Label Tag="tr:language" Content="Language:" VerticalContentAlignment="Center"/>
+            <ComboBox SelectionChanged="LangCombo_SelectionChanged" SelectedValuePath="Tag" Name="LangCombo" Width="240" Height="Auto"/>
+        </StackPanel>
+        <!-- Theme container -->
+        <StackPanel Margin="0,80" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
+            <Label Tag="tr:theme" Content="Theme:" VerticalContentAlignment="Center"/>
+            <ComboBox SelectionChanged="ThemeCombo_SelectionChanged" SelectedValuePath="Tag" Name="ThemeCombo" Width="200" Height="Auto"/>
+        </StackPanel>
+        <!-- Color container -->
+        <StackPanel Margin="0,120" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
+            <Label Tag="tr:color" Content="Color:" VerticalContentAlignment="Center"/>
+            <ComboBox SelectionChanged="ColorCombo_SelectionChanged" SelectedValuePath="Tag" Name="ColorCombo" Width="280" Height="Auto"/>
+        </StackPanel>
+        
+        <!-- Checkboxes -->
+        <Canvas Margin="20,160,20,0" Height="80" VerticalAlignment="Top">
+            <CheckBox Tag="tr:launch_startup" Name="LaunchStartupCb" Unchecked="LaunchStartupCb_Checked" Checked="LaunchStartupCb_Checked" Content="Launch at system startup" Canvas.Left="10" Canvas.Top="10"/>
+            <CheckBox Tag="tr:check_for_updates" Name="CheckUpdateCb" Unchecked="CheckUpdateCb_Checked" Checked="CheckUpdateCb_Checked"  Content="Checking updates at launch" Canvas.Left="10" Canvas.Bottom="10"/>
+            <CheckBox Tag="tr:system_tray_startup" Name="SystemTrayCb" Unchecked="SystemTrayCb_Checked" Checked="SystemTrayCb_Checked"  Content="Reduce to system tray at startup" Canvas.Left="10" Canvas.Top="30"/>
+        </Canvas>
+
+    </Grid>
+</UserControl>

@@ -14,13 +14,10 @@ namespace Wolfy.Classes {
         public static readonly String[] Colors = {
             "amber",
             "blue",
-            "bluegrey",
-            "brown",
             "cyan",
             "deeporange",
             "deeppurple",
             "green",
-            "grey",
             "indigo",
             "lightblue",
             "lightgreen",
@@ -56,9 +53,8 @@ namespace Wolfy.Classes {
 
             // If the theme does not exist, apply the default theme
             _Theme = _Theme.ToLower();
-            if (!Themes.Contains(_Theme)) {
+            if (!Themes.Contains(_Theme))
                 _Theme = "light";
-            }
 
             // Save
             Reference.JsonSettings.Theme = _Theme;

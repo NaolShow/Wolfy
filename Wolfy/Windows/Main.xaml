@@ -26,7 +26,7 @@
         <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="332,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Kind="Edit" Margin="-6" Height="32" Width="32"/>
         </Button>
-        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="609,10,0,0" VerticalAlignment="Top" Width="28" Height="27">
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="609,10,0,0" VerticalAlignment="Top" Width="28" Height="27" Click="SettingsBtn_Click">
             <materialDesign:PackIcon Kind="SettingsOutline" Margin="-6" Height="32" Width="32"/>
         </Button>
         <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="642,10,0,0" VerticalAlignment="Top" Width="28" Height="27">

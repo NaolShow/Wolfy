@@ -30,7 +30,7 @@ namespace Wolfy.Classes.Recognition
                 synthesizerVoice = GetVoice(Reference.JsonSettings.Synthesizer_voice);
                 Reference.JsonSettings.Synthesizer_voice = synthesizerVoice.Id;
 
-                Utils.Log(Translation.Get("synthesizerLoaded"));
+                Utils.Log(String.Format(Translation.Get("synthesizerLoaded"), synthesizerVoice.Culture.NativeName));
             } else {
                 Utils.Log(Translation.Get("synthesizerNoVoice"));
             }

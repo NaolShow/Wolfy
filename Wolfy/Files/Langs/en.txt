@@ -6,6 +6,7 @@
 
 		/* ----- General ----- */
 		"cancel": "Cancel",
+		"general": "General",
 
 		/* ----- Update ----- */
 		"update_request": "A new version of the software is available.\n Do you want to install it?",
@@ -15,17 +16,33 @@
 		"update_install_error": "An error occurred during the installation of the update.\n (Missing files and/or no access rights)",
 		
 		/* ----- Synthesizer ----- */
-		"synthesizerLoaded": "The voice synthesizer has been successfully loaded",
+		"synthesizerLoaded": "The voice synthesizer has been successfully loaded ({0})",
 		"synthesizerNoVoice": "The voice synthesizer cannot be loaded. No voice is installed.",
 		
 		/* ----- Recognizer ----- */
 		"noMicrophone": "No microphone was detected",
-		"recognizerLoaded": "The recognizer module has been successfully loaded",
+		"recognizerLoaded": "The recognizer module has been successfully loaded ({0})",
 		"noSpeechLanguage": "No recognition language was found",
 		"commandRecognized": "The '{0}' command has been recognized with a threshold of '{1}'",
 
 		/* ----- Settings ----- */
-		"settings_file_error": "The settings file is not in a correct/readable format.\n Do you want to reset your settings? "
+		"settings_file_error": "The settings file is not in a correct/readable format.\n Do you want to reset your settings? ",
+		"settings": "Settings",
+
+		"application": "Application",
+		"language": "Language:",
+		"theme": "Theme:",
+		"color": "Color:",
+
+		"launch_startup": "Launch the software at startup",
+		"check_for_updates": "Check for updates at launch",
+		"system_tray_startup": "Reduce to system tray",
+
+		"recognition": "Recognition",
+		"recognition_threshold": "Recognition threshold:",
+
+		"synthesizer": "Synthesizer",
+		"voice": "Voice:"
 
 	}
 }

@@ -6,6 +6,7 @@
 
 		/* ----- General ----- */
 		"cancel": "Annuler",
+		"general": "Général",
 
 		/* ----- Update ----- */
 		"update_request": "Une nouvelle version du logiciel est disponible.\n Voulez vous l'installer ?",
@@ -15,17 +16,33 @@
 		"update_install_error": "Une erreur est survenue lors de l'installation de la mise à jours.\n (Fichiers manquants et/ou aucun droits d'accès)",
 		
 		/* ----- Synthesizer ----- */
-		"synthesizerLoaded": "Le synthétiseur vocal a été chargé avec succès",
+		"synthesizerLoaded": "Le synthétiseur vocal a été chargé avec succès ({0})",
 		"synthesizerNoVoice": "Le synthétiseur vocal ne peut être chargé. Aucune voix n'est installée.",
 		
 		/* ----- Recognizer ----- */
 		"noMicrophone": "Aucun microphone n'a été détecté",
-		"recognizerLoaded": "Le module de reconnaissance a été chargé avec succès",
+		"recognizerLoaded": "Le module de reconnaissance a été chargé avec succès ({0})",
 		"noSpeechLanguage": "Aucune langue de reconnaissance a été trouvée",
 		"commandRecognized": "La commande '{0}' a été reconnue avec un seuil de '{1}'",
 
 		/* ----- Settings ----- */
-		"settings_file_error": "Le fichier des réglages n'est pas dans un format correct/lisible.\n Voulez vous réinitialiser vos paramètres ?"
+		"settings_file_error": "Le fichier des réglages n'est pas dans un format correct/lisible.\n Voulez vous réinitialiser vos paramètres ?",
+		"settings": "Paramètres",
+
+		"application": "Application",
+		"language": "Langage:",
+		"theme": "Thème:",
+		"color": "Couleur:",
+
+		"launch_startup": "Lancer le logiciel au démarrage",
+		"check_for_updates": "Vérifier les mises à jours au lancement",
+		"system_tray_startup": "Réduire à la barre d'état système",
+
+		"recognition": "Reconnaissance",
+		"recognition_threshold": "Seuil de reconnaissance:",
+
+		"synthesizer": "Synthétiseur",
+		"voice": "Voix:"
 
 	}
 }

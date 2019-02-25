@@ -44,6 +44,18 @@ namespace Wolfy.Classes {
 
         }
 
+        /// <summary>
+        /// Returns the input string with the first character converted to uppercase
+        /// </summary>
+        public static string FirstLetterToUpperCase(this string _s) {
+            if (string.IsNullOrEmpty(_s))
+                return string.Empty;
+
+            char[] _a = _s.ToCharArray();
+            _a[0] = char.ToUpper(_a[0]);
+            return new string(_a);
+        }
+
         #endregion
 
         #region Windows

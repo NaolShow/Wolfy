@@ -12,6 +12,8 @@ namespace Wolfy.Files.Json {
         // General
         public String Language { get; set; }
         public Boolean Check_for_updates { get; set; }
+        public Boolean Launch_startup { get; set; }
+        public Boolean Reduce_system_tray { get; set; }
 
         // Recognition
         public String Synthesizer_voice { get; set; }

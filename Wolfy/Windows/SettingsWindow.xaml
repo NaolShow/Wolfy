@@ -1,0 +1,28 @@
+﻿<Window x:Class="Wolfy.Windows.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wolfy.Windows"
+        mc:Ignorable="d"
+        Tag="tr:settings" Height="480" Width="720"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="160">
+            <Button Name="GeneralBtn" Tag="tr:general" Content="General" Style="{DynamicResource MaterialDesignFlatButton}" Click="GeneralBtn_Click"/>
+            <Button Name="RecognitionBtn" Tag="tr:recognition" Content="Recognition" Style="{DynamicResource MaterialDesignFlatButton}" Click="RecognitionBtn_Click"/>
+        </StackPanel>
+        <Border BorderThickness="1 0 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="160,0,538,0"/>
+        
+        <Grid Width="550" Height="450" Name="Grid" Margin="161,0,0,0" />
+        
+    </Grid>
+</Window>

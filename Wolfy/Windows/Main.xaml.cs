@@ -36,5 +36,14 @@ namespace Wolfy.Windows {
         private void LogsTxt_TextChanged(object sender, TextChangedEventArgs e) {
             LogsTxt.ScrollToEnd();
         }
+
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e) {
+
+            // Show settings window
+            SettingsWindow _settings = new SettingsWindow();
+            Translation.TranslateWindow(_settings);
+            _settings.ShowDialog();
+
+        }
     }
 }
