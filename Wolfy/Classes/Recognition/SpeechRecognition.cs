@@ -107,6 +107,7 @@ namespace Wolfy.Classes.Recognition
             } else {
                 recognizer.RecognizeAsyncStop();
             }
+            Reference.MainWindow.RecognizerBar.Value = 0;
         }
 
         // Load commands

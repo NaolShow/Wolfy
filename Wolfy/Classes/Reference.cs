@@ -29,9 +29,11 @@ namespace Wolfy.Classes {
         /** ----------------| Folders Variables |---------------- **/
         public static readonly String SettingsPath = AppPath + @"Settings\";
         public static readonly String LangsPath = AppPath + @"Langs\";
+        public static readonly String ProfilesPath = AppPath + @"Profiles\";
         public static readonly String[] Folders = new String[] {
             SettingsPath,
-            LangsPath
+            LangsPath,
+            ProfilesPath
         };
 
         /** ----------------| Files Variables |---------------- **/

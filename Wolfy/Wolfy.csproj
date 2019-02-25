@@ -71,11 +71,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\ITranslation.cs" />
+    <Compile Include="Classes\Profiles.cs" />
     <Compile Include="Classes\Recognition\SpeechRecognition.cs" />
     <Compile Include="Classes\Recognition\Synthesizer.cs" />
     <Compile Include="Classes\Translation.cs" />
     <Compile Include="Classes\SkinManager.cs" />
     <Compile Include="Files\Json\JsonLang.cs" />
+    <Compile Include="Files\Json\JsonProfile.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>

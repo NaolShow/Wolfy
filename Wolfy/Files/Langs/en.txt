@@ -7,6 +7,12 @@
 		/* ----- General ----- */
 		"cancel": "Cancel",
 		"general": "General",
+		
+		/* ----- Profiles ----- */
+		"add_profile": "Add a profile",
+		"edit_profile": "Edit profile",
+		"remove_profile": "Delete the profile",
+		"commands_stopped": "All commands has been stopped",
 
 		/* ----- Update ----- */
 		"update_request": "A new version of the software is available.\n Do you want to install it?",
@@ -24,6 +30,9 @@
 		"recognizerLoaded": "The recognizer module has been successfully loaded ({0})",
 		"noSpeechLanguage": "No recognition language was found",
 		"commandRecognized": "The '{0}' command has been recognized with a threshold of '{1}'",
+		
+		"microphone_disabled": "The microphone is now muted",
+		"microphone_enabled": "The microphone is now activated",
 
 		/* ----- Settings ----- */
 		"settings_file_error": "The settings file is not in a correct/readable format.\n Do you want to reset your settings? ",

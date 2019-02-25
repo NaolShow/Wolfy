@@ -7,6 +7,12 @@
 		/* ----- General ----- */
 		"cancel": "Annulla",
 		"general": "Generale",
+		
+		/* ----- Profiles ----- */
+		"add_profile": "Aggiungere un profilo",
+		"edit_profile": "Modifica del profilo",
+		"remove_profile": "Cancellare il profilo",
+		"commands_stopped": "Tutti i comandi sono stati fermati",
 
 		/* ----- Update ----- */
 		"update_request": "È disponibile una nuova versione del software.\n Vuoi installarlo?",
@@ -24,6 +30,9 @@
 		"recognizerLoaded": "Il modulo di riconoscimento è stato caricato con successo ({0})",
 		"noSpeechLanguage": "Non è stata trovata una lingua di riconoscimento",
 		"commandRecognized": "Il comando '{0}' è stato riconosciuto con una soglia di '{1}'",
+		
+		"microphone_disabled": "Il microfono è stato disattivato",
+		"microphone_enabled": "Il microfono è ora attivato",
 
 		/* ----- Settings ----- */
 		"settings_file_error": "Il file delle impostazioni non è in un formato corretto/ leggibile.\n Vuoi reimpostare le impostazioni?",

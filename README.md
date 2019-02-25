@@ -9,7 +9,19 @@ Wolfy was created in C#, so it is available on: [(You must have .NET Framework)]
 - Linux/Mac with the Mono project                                
                                                                                                                                                                          
 You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube         
-          
+         
+### Images
+
+##### Light Theme
+
+![Light Blue](https://i.imgur.com/U0rCT8H.png)
+![Light Red](https://i.imgur.com/tsIPLUs.png)
+
+##### Dark Theme
+
+![Dark Blue](https://i.imgur.com/axpyceR.png)
+![Dark Red](https://i.imgur.com/PoMRh0w.png)
+
 ### TheseScripts is available in several languages*:
 - English
 - French

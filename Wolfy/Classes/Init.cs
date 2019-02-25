@@ -36,6 +36,9 @@ namespace Wolfy.Classes {
             // Show MainWindow
             Reference.MainWindow.Show();
 
+            // ----------------| Profiles |---------------- //
+            Profiles.Init();
+
             // ----------------| Recognition |---------------- //
             Synthesizer.Init();
             SpeechRecognition.Init();
