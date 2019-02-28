@@ -15,32 +15,15 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}" 
         Closing="Window_Closing" ResizeMode="NoResize">
+
     <Grid>
+
         <ComboBox Name="ProfilesCombo" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Height="32"/>
 
-        <Menu Margin="0,0,50,0" IsMainMenu="True" Width="60" VerticalAlignment="Top">
-            <MenuItem Margin="7" Width="60" Header="{materialDesign:PackIcon HamburgerMenu}">
-
-                <MenuItem Name="AddProfileBtn" Header="Add profile">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="AddBox" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Name="EditProfileBtn" Header="Edit profile">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="Edit" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Name="RemoveProfileBtn" Header="Remove profile">
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon Kind="MinusBox" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-            </MenuItem>
-        </Menu>
-
-        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="370,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
+        <Button Name="AddProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="299,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
+            <materialDesign:PackIcon Kind="AddBox" Margin="-6" Height="32" Width="32"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="339,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Kind="Edit" Margin="-6" Height="32" Width="32"/>
         </Button>
         <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27" Click="SettingsBtn_Click">
@@ -54,15 +37,14 @@
         </Button>
 
         <TextBox
-            Name="LogsTxt"
-            TextWrapping="Wrap"
-            VerticalAlignment="Stretch"
-            MinWidth="280"
-            AcceptsReturn="True"
-            VerticalScrollBarVisibility="Auto"
-            IsReadOnly="True"
-            Margin="10,53,10,19" TextChanged="LogsTxt_TextChanged"/>
+                Name="LogsTxt"
+                TextWrapping="Wrap"
+                VerticalAlignment="Stretch"
+                MinWidth="280"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Auto"
+                IsReadOnly="True"
+                Margin="10,53,10,19" TextChanged="LogsTxt_TextChanged"/>
         <ProgressBar Name="RecognizerBar" Width="694" Height="4" Margin="10,0,10,10" VerticalAlignment="Bottom"/>
-
     </Grid>
 </Window>

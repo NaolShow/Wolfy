@@ -60,5 +60,9 @@ namespace Wolfy.Windows {
 
         #endregion
 
+        // Close settings window
+        private void OkBtn_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
     }
 }

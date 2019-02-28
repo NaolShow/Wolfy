@@ -5,35 +5,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wolfy.Windows.SettingsWindows"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="550">
-    <Grid Height="450" Width="550">
+             d:DesignHeight="400" d:DesignWidth="530">
+    <StackPanel>
         <!-- Title -->
-        <Label Tag="tr:application" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24">
+        <Label Tag="tr:application" FontSize="24">
             Application
         </Label>
 
-        <!-- Lang container -->
-        <StackPanel Margin="0,40" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
-            <Label Tag="tr:language" Content="Language:" VerticalContentAlignment="Center"/>
-            <ComboBox SelectionChanged="LangCombo_SelectionChanged" SelectedValuePath="Tag" Name="LangCombo" Width="240" Height="Auto"/>
-        </StackPanel>
-        <!-- Theme container -->
-        <StackPanel Margin="0,80" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
-            <Label Tag="tr:theme" Content="Theme:" VerticalContentAlignment="Center"/>
-            <ComboBox SelectionChanged="ThemeCombo_SelectionChanged" SelectedValuePath="Tag" Name="ThemeCombo" Width="200" Height="Auto"/>
-        </StackPanel>
-        <!-- Color container -->
-        <StackPanel Margin="0,120" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
-            <Label Tag="tr:color" Content="Color:" VerticalContentAlignment="Center"/>
-            <ComboBox SelectionChanged="ColorCombo_SelectionChanged" SelectedValuePath="Tag" Name="ColorCombo" Width="280" Height="Auto"/>
-        </StackPanel>
+        <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
         
-        <!-- Checkboxes -->
-        <Canvas Margin="20,160,20,0" Height="80" VerticalAlignment="Top">
-            <CheckBox Tag="tr:launch_startup" Name="LaunchStartupCb" Unchecked="LaunchStartupCb_Checked" Checked="LaunchStartupCb_Checked" Content="Launch at system startup" Canvas.Left="10" Canvas.Top="10"/>
-            <CheckBox Tag="tr:check_for_updates" Name="CheckUpdateCb" Unchecked="CheckUpdateCb_Checked" Checked="CheckUpdateCb_Checked"  Content="Checking updates at launch" Canvas.Left="10" Canvas.Bottom="10"/>
-            <CheckBox Tag="tr:system_tray_startup" Name="SystemTrayCb" Unchecked="SystemTrayCb_Checked" Checked="SystemTrayCb_Checked"  Content="Reduce to system tray at startup" Canvas.Left="10" Canvas.Top="30"/>
-        </Canvas>
+        <!-- Lang container -->
+        <WrapPanel>
+            <Label Tag="tr:language" Content="Language:"/>
+            <ComboBox Margin="8,0" SelectionChanged="LangCombo_SelectionChanged" SelectedValuePath="Tag" Name="LangCombo"/>
+            <Button Tag="tr:translation_error" Click="TranslationError_Click" Margin="8,0" Style="{DynamicResource MaterialDesignFlatButton}">
+                Translation error ?
+            </Button>
+        </WrapPanel>
+        <!-- Theme container -->
+        <WrapPanel>
+            <Label Tag="tr:theme" Content="Theme:"/>
+            <ComboBox Margin="8,0" SelectionChanged="ThemeCombo_SelectionChanged" SelectedValuePath="Tag" Name="ThemeCombo"/>
+        </WrapPanel>
+        <!-- Color container -->
+        <WrapPanel>
+            <Label Tag="tr:color" Content="Color:" VerticalContentAlignment="Center"/>
+            <ComboBox Margin="8,0" SelectionChanged="ColorCombo_SelectionChanged" SelectedValuePath="Tag" Name="ColorCombo"/>
+        </WrapPanel>
 
-    </Grid>
+        <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+
+        <!-- Checkboxes -->
+        <WrapPanel>
+            <CheckBox Tag="tr:launch_startup" Name="LaunchStartupCb" Unchecked="LaunchStartupCb_Checked" Checked="LaunchStartupCb_Checked" Content="Launch at system startup" Margin="0,4,8,0"/>
+            <CheckBox Tag="tr:check_for_updates" Name="CheckUpdateCb" Unchecked="CheckUpdateCb_Checked" Checked="CheckUpdateCb_Checked"  Content="Checking updates at launch" Margin="0,4,8,0"/>
+            <CheckBox Tag="tr:system_tray_startup" Name="SystemTrayCb" Unchecked="SystemTrayCb_Checked" Checked="SystemTrayCb_Checked"  Content="Reduce to system tray at startup" Margin="0,4,8,0"/>
+        </WrapPanel>
+
+    </StackPanel>
 </UserControl>

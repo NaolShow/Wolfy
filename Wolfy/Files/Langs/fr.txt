@@ -7,11 +7,9 @@
 		/* ----- General ----- */
 		"cancel": "Annuler",
 		"general": "Général",
+		"ok": "OK",
 		
 		/* ----- Profiles ----- */
-		"add_profile": "Ajouter un profil",
-		"edit_profile": "Éditer le profil",
-		"remove_profile": "Supprimer le profil",
 		"commands_stopped": "Toutes les commandes ont été arrêtées",
 
 		/* ----- Update ----- */
@@ -39,6 +37,7 @@
 		"settings": "Paramètres",
 
 		"application": "Application",
+		"translation_error": "Erreur de traduction ?",
 		"language": "Langage:",
 		"theme": "Thème:",
 		"color": "Couleur:",

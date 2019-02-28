@@ -5,40 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wolfy.Windows.SettingsWindows"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="550">
-    <Grid Height="450" Width="550">
+             d:DesignHeight="415" d:DesignWidth="550">
+    <StackPanel>
         <!-- Title -->
-        <Label Tag="tr:recognition" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24">
+        <Label Tag="tr:recognition" FontSize="24">
             Recognition
         </Label>
 
+        <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+        
         <!-- Lang container -->
-        <StackPanel Margin="0,40" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
-            <Label Tag="tr:language" Content="Language:" VerticalContentAlignment="Center"/>
-            <ComboBox SelectionChanged="RecognitionLangCombo_SelectionChanged" SelectedValuePath="Tag" Name="RecognitionLangCombo" Width="240" Height="Auto"/>
-        </StackPanel>
+        <WrapPanel>
+            <Label Tag="tr:language" Content="Language:"/>
+            <ComboBox Margin="8,0" SelectionChanged="RecognitionLangCombo_SelectionChanged" SelectedValuePath="Tag" Name="RecognitionLangCombo"/>
+        </WrapPanel>
         <!-- Threshold container -->
-        <StackPanel Margin="0,80" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
-            <Label Tag="tr:recognition_threshold" Content="Recognition threshold:" VerticalContentAlignment="Center"/>
+        <DockPanel>
+            <Label Tag="tr:recognition_threshold" Content="Recognition threshold:" VerticalContentAlignment="Bottom"/>
             <Slider
-              Name="RecognitionThresholdSlider"
-              Minimum="0"
-              Maximum="100"
-              Style="{StaticResource MaterialDesignDiscreteSlider}"
-              Margin="0,-35,0,0"
-              Height="52"
-              Width="320" ValueChanged="RecognitionThresholdSlider_ValueChanged"/>
-        </StackPanel>
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Stretch"
+                Margin="8,0"
+                Name="RecognitionThresholdSlider"
+                Minimum="0"
+                Maximum="100"
+                Style="{StaticResource MaterialDesignDiscreteSlider}"
+                ValueChanged="RecognitionThresholdSlider_ValueChanged"/>
+        </DockPanel>
 
+        <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+        
         <!-- Title -->
-        <Label Tag="tr:synthesizer" Margin="0,120" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24">
+        <Label Tag="tr:synthesizer" FontSize="24">
             Synthesizer
         </Label>
-        <!-- Voice container -->
-        <StackPanel Margin="0,160" Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="Auto">
-            <Label Tag="tr:voice" Content="Voice:" VerticalContentAlignment="Center"/>
-            <ComboBox SelectionChanged="SynthesizerVoiceCombo_SelectionChanged" SelectedValuePath="Tag" Name="SynthesizerVoiceCombo" Width="240" Height="Auto"/>
-        </StackPanel>
 
-    </Grid>
+        <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+
+        <!-- Voice container -->
+        <WrapPanel>
+            <Label Tag="tr:voice" Content="Voice:"/>
+            <ComboBox Margin="8,0" SelectionChanged="SynthesizerVoiceCombo_SelectionChanged" SelectedValuePath="Tag" Name="SynthesizerVoiceCombo"/>
+        </WrapPanel>
+
+    </StackPanel>
 </UserControl>

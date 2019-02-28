@@ -7,11 +7,9 @@
 		/* ----- General ----- */
 		"cancel": "Отмена",
 		"general": "Генерал",
-
+		"ok": "ХОРОШО",
+		
 		/* ----- Profiles ----- */
-		"add_profile": "Добавить профиль",
-		"edit_profile": "Редактирование профиля",
-		"remove_profile": "Удалить профиль",
 		"commands_stopped": "Все команды были остановлены.",
 
 		/* ----- Update ----- */
@@ -39,6 +37,7 @@
 		"settings": "Настройки",
 
 		"application": "Применение",
+		"translation_error": "Ошибка перевода?",
 		"language": "Язык:",
 		"theme": "Тема:",
 		"color": "Цвет:",

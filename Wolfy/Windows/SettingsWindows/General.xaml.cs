@@ -79,6 +79,11 @@ namespace Wolfy.Windows.SettingsWindows
 
         }
 
+        // Translation error redirect
+        private void TranslationError_Click(object sender, RoutedEventArgs e) {
+            System.Diagnostics.Process.Start("https://github.com/NaolShow/Wolfy/issues");
+        }
+
         #endregion
 
         #region Theme
