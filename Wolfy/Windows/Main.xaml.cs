@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using Wolfy.Classes;
+using Wolfy.Files.Json;
+using Wolfy.Windows.ProfilesWindows;
 
 namespace Wolfy.Windows {
     /// <summary>
@@ -29,6 +31,22 @@ namespace Wolfy.Windows {
         }
 
         #region Menu buttons
+
+        // Edit profile
+        private void EditProfileBtn_Click(object sender, RoutedEventArgs e) {
+
+            // If a profile is selected (Disabled for the test)
+            JsonProfile _CurrentProfile = Profiles.GetCurrentProfile();
+            if (_CurrentProfile == null) {
+
+                // Show profile window
+                ProfileWindow _ProfileWindow = new ProfileWindow(_CurrentProfile);
+                Translation.TranslateWindow(_ProfileWindow);
+                _ProfileWindow.ShowDialog();
+
+            }
+
+        }
 
         // Settings button
         private void SettingsBtn_Click(object sender, RoutedEventArgs e) {

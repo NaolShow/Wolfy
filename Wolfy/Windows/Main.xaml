@@ -23,7 +23,7 @@
         <Button Name="AddProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="299,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Kind="AddBox" Margin="-6" Height="32" Width="32"/>
         </Button>
-        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="339,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
+        <Button Name="EditProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="339,15,0,0" VerticalAlignment="Top" Width="28" Height="27" Click="EditProfileBtn_Click">
             <materialDesign:PackIcon Kind="Edit" Margin="-6" Height="32" Width="32"/>
         </Button>
         <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27" Click="SettingsBtn_Click">

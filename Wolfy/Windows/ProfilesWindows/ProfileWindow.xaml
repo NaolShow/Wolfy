@@ -1,0 +1,50 @@
+﻿<Window x:Class="Wolfy.Windows.ProfilesWindows.ProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wolfy.Windows.ProfilesWindows"
+        mc:Ignorable="d"
+        Title="Profile" Height="480" Width="720"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <!-- ScrollViewer -->
+        <ListBox Name="CommandsBox" Margin="0,0,0,32" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+        <Border Margin="200,0,0,32" VerticalAlignment="Stretch" HorizontalAlignment="Left" BorderThickness="1 0 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+
+        <!-- Content -->
+        <Grid Margin="210,10,10,42" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="Grid" />
+        
+        <!-- Bottom buttons -->
+        <Border Margin="0,0,0,31" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+        <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <!-- Search box -->
+            <TextBox Name="SearchFilter" TextChanged="SearchFilter_TextChanged" materialDesign:HintAssist.Hint="Search for a command..." Margin="5,5,5,5" Width="190"></TextBox>
+            <!-- Left -->
+            <WrapPanel Height="32" HorizontalAlignment="Stretch" FlowDirection="RightToLeft">
+                <!-- Remove -->
+                <Button Name="AddBtn" Margin="8,0" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <materialDesign:PackIcon Kind="Remove" Margin="0,-4" Height="32" Width="32"/>
+                </Button>
+                <!-- Add -->
+                <Button Name="RemoveBtn" Margin="8,0" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <materialDesign:PackIcon Kind="Add" Margin="0,-4" Height="32" Width="32"/>
+                </Button>
+            </WrapPanel>
+            <!-- Right -->
+            <WrapPanel Height="32" HorizontalAlignment="Stretch" FlowDirection="RightToLeft">
+                <Button Name="OkBtn" Tag="tr:ok" Content="OK" Style="{DynamicResource MaterialDesignFlatButton}" Click="OkBtn_Click"/>
+            </WrapPanel>
+        </DockPanel>
+
+    </Grid>
+</Window>
