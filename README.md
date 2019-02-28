@@ -14,13 +14,13 @@ You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube
 
 ##### Light Theme
 
-![Light Blue](https://i.imgur.com/U0rCT8H.png)
-![Light Red](https://i.imgur.com/tsIPLUs.png)
+![Light Blue](https://i.imgur.com/bl7EIZb.png)
+![Light Blue2](https://i.imgur.com/ThmxzEm.png)
 
 ##### Dark Theme
 
-![Dark Blue](https://i.imgur.com/axpyceR.png)
-![Dark Red](https://i.imgur.com/PoMRh0w.png)
+![Dark Blue](https://i.imgur.com/s0npXds.png)
+![Dark Blue2](https://i.imgur.com/v4D7JX0.png)
 
 ### TheseScripts is available in several languages*:
 - English
