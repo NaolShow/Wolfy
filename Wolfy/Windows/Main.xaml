@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wolfy.Windows"
         mc:Ignorable="d"
+        xml:lang="en"
         Title="Wolfy" Height="220.3" Width="720"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -20,8 +21,15 @@
 
         <ComboBox Name="ProfilesCombo" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Height="32"/>
 
-        <Button Name="AddProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="299,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
-            <materialDesign:PackIcon Kind="AddBox" Margin="-6" Height="32" Width="32"/>
+        <Button Name="MoreBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="299,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
+            <materialDesign:PackIcon Kind="DotsHorizontal" Margin="-6" Height="32" Width="32"/>
+
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="CreateBtn" Icon="{materialDesign:PackIcon AddBox}" Header="{DynamicResource create_profile}"/>
+                    <MenuItem Name="RemoveBtn" Icon="{materialDesign:PackIcon MinusBox}" Header="{DynamicResource remove_profile}"/>
+                </ContextMenu>
+            </Button.ContextMenu>
         </Button>
         <Button Name="EditProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="339,15,0,0" VerticalAlignment="Top" Width="28" Height="27" Click="EditProfileBtn_Click">
             <materialDesign:PackIcon Kind="Edit" Margin="-6" Height="32" Width="32"/>
@@ -37,14 +45,14 @@
         </Button>
 
         <TextBox
-                Name="LogsTxt"
-                TextWrapping="Wrap"
-                VerticalAlignment="Stretch"
-                MinWidth="280"
-                AcceptsReturn="True"
-                VerticalScrollBarVisibility="Auto"
-                IsReadOnly="True"
-                Margin="10,53,10,19" TextChanged="LogsTxt_TextChanged"/>
+            Name="LogsTxt"
+            VerticalAlignment="Stretch"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto"
+            IsReadOnly="True"
+            Margin="10,53,10,19"/>
         <ProgressBar Name="RecognizerBar" Width="694" Height="4" Margin="10,0,10,10" VerticalAlignment="Bottom"/>
+
     </Grid>
 </Window>

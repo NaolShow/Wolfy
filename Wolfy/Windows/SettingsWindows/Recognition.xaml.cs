@@ -1,106 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Linq;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wolfy.Classes;
+using Wolfy.Classes.Recognition;
 
-namespace Wolfy.Windows.SettingsWindows
-{
+namespace Wolfy.Windows.SettingsWindows {
 
-    public partial class Recognition : UserControl
-    {
+    public partial class Recognition : UserControl {
 
-        public Recognition()
-        {
+        public Recognition() {
             InitializeComponent();
 
             // ----------------| Recognition language |---------------- //
-            InitRecLang();
+
+            // List
+            SpeechRecognition.GetInstalledRecognizers().ToList().ForEach(a => RecognitionLangCombo.Items.Add(new ListBoxItem() { Content = a.Culture.NativeName, Tag = a.Id }));
+            // Default
+            RecognitionLangCombo.SelectedValue = Reference.JsonSettings.Speech_language;
+            // Event
+            RecognitionLangCombo.SelectionChanged += delegate { Reference.JsonSettings.Speech_language = RecognitionLangCombo.SelectedValue.ToString(); };
 
             // ----------------| Recognition threshold |---------------- //
+
+            // Default
             RecognitionThresholdSlider.Value = Reference.JsonSettings.Confidence;
+            // Event
+            RecognitionThresholdSlider.ValueChanged += delegate { Reference.JsonSettings.Confidence = (float)RecognitionThresholdSlider.Value; };
+
+            // ----------------| Recognition at launch |---------------- //
+
+            // Default
+            RecognitionAtLaunchCb.IsChecked = Reference.JsonSettings.Recognition_at_launch;
 
             // ----------------| Synthesizer voice |---------------- //
-            InitSynth();
+
+            // List
+            Synthesizer.GetInstalledVoices().ToList().ForEach(a => SynthesizerVoiceCombo.Items.Add(new ListBoxItem() { Content = a.VoiceInfo.Culture.NativeName, Tag = a.VoiceInfo.Id }));
+            // Default
+            SynthesizerVoiceCombo.SelectedValue = Reference.JsonSettings.Synthesizer_voice;
+            // Event
+            SynthesizerVoiceCombo.SelectionChanged += delegate { Reference.JsonSettings.Synthesizer_voice = SynthesizerVoiceCombo.SelectedValue.ToString(); };
 
         }
 
-        #region Recognition language
+        #region Checkboxes
 
-        private void InitRecLang() {
-
-            // List all langs
-            foreach (System.Speech.Recognition.RecognizerInfo _Lang in Classes.Recognition.SpeechRecognition.GetInstalledRecognizers()) {
-
-                ComboBoxItem _Item = new ComboBoxItem() {
-                    Content = _Lang.Culture.NativeName,
-                    Tag = _Lang.Id
-                };
-                RecognitionLangCombo.Items.Add(_Item);
-
-                // Check if this lang is in settings
-                if (_Lang.Id == Reference.JsonSettings.Speech_language)
-                    RecognitionLangCombo.Text = _Lang.Culture.NativeName;
-
-            }
-
-        }
-
-        private void RecognitionLangCombo_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
-            Reference.JsonSettings.Speech_language = RecognitionLangCombo.SelectedValue.ToString();
-
-        }
-
-
-        #endregion
-
-        #region Recognition Threshold
-
-        private void RecognitionThresholdSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-
-            Reference.JsonSettings.Confidence = (float)RecognitionThresholdSlider.Value;
-
-        }
-
-        #endregion
-
-        #region Synthesizer voice
-
-        private void InitSynth() {
-
-            // List all langs
-            foreach (System.Speech.Synthesis.InstalledVoice _Voice in Classes.Recognition.Synthesizer.GetInstalledVoices()) {
-
-                ComboBoxItem _Item = new ComboBoxItem() {
-                    Content = _Voice.VoiceInfo.Culture.NativeName,
-                    Tag = _Voice.VoiceInfo.Id
-                };
-                SynthesizerVoiceCombo.Items.Add(_Item);
-
-                // Check if this lang is in settings
-                if (_Voice.VoiceInfo.Id == Reference.JsonSettings.Synthesizer_voice)
-                    SynthesizerVoiceCombo.Text = _Voice.VoiceInfo.Culture.NativeName;
-
-            }
-
-        }
-
-        private void SynthesizerVoiceCombo_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
-            Reference.JsonSettings.Synthesizer_voice = SynthesizerVoiceCombo.SelectedValue.ToString();
-
+        // Recognition at launch
+        private void RecognitionAtLaunchCb_Checked(object sender, System.Windows.RoutedEventArgs e) {
+            Reference.JsonSettings.Recognition_at_launch = RecognitionAtLaunchCb.IsChecked.Value;
         }
 
         #endregion

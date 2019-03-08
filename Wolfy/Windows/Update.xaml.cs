@@ -1,29 +1,19 @@
-﻿using Wolfy.Classes;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
+using Wolfy.Classes;
 
 namespace Wolfy.Windows {
     /// <summary>
     /// Interaction logic for Update.xaml
     /// </summary>
-    public partial class Update : Window, ITranslation {
+    public partial class Update : Window {
 
         // ----------------| Variables |---------------- //
         private static WebClient Client;
@@ -44,9 +34,9 @@ namespace Wolfy.Windows {
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             // Init text
-            this.Title = String.Format(Translation.Get("update_downloading"), 0, 0, 0);
-            InstallBtn.Content = String.Format(Translation.Get("update_install"), "..");
-            CancelBtn.Content = Translation.Get("cancel");
+            this.Title = String.Format(Langs.Get("update_downloading"), 0, 0, 0);
+            InstallBtn.Content = String.Format(Langs.Get("update_install"), "..");
+            CancelBtn.Content = Langs.Get("cancel");
             // Init
             Client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(DownloadFileCompleted);
             Client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
@@ -74,14 +64,14 @@ namespace Wolfy.Windows {
             double _Total = double.Parse(e.TotalBytesToReceive.ToString());
             double _Percentage = _Received / _Total * 100;
             // Show
-            this.Title = String.Format(Translation.Get("update_downloading"), Utils.BytesToString(e.BytesReceived), Utils.BytesToString(e.TotalBytesToReceive), Math.Truncate(_Percentage));
+            this.Title = String.Format(Langs.Get("update_downloading"), Utils.BytesToString(e.BytesReceived), Utils.BytesToString(e.TotalBytesToReceive), Math.Truncate(_Percentage));
             ProgressBar.Value = int.Parse(Math.Truncate(_Percentage).ToString());
         }
 
         private void ElapsedTime(object sender, EventArgs e) {
             // Text
             InstallTime--;
-            InstallBtn.Content = String.Format(Translation.Get("update_install"), InstallTime);
+            InstallBtn.Content = String.Format(Langs.Get("update_install"), InstallTime);
             // Install
             Install();
         }
@@ -125,12 +115,12 @@ namespace Wolfy.Windows {
 
                     }
                     else {
-                        MessageBox.Show(Translation.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Langs.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                         Utils.CloseApplication();
                     }
                 }
                 catch {
-                    MessageBox.Show(Translation.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Langs.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 finally {
                     Utils.CloseApplication();

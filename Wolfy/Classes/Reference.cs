@@ -1,12 +1,8 @@
-﻿using Wolfy.Files.Json;
-using Wolfy.Properties;
-using Wolfy.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using Wolfy.Files.Json;
+using Wolfy.Windows;
 
 namespace Wolfy.Classes {
     public static class Reference {
@@ -38,13 +34,9 @@ namespace Wolfy.Classes {
 
         /** ----------------| Files Variables |---------------- **/
         public static readonly String Settings = AppPath + @"Settings\settings.json";
+
+        // These files are overwritten when the software is launched 
         public static readonly Dictionary<String, String> Files = new Dictionary<String, String> {
-            { Reference.LangsPath + "fr.json", Resources.fr },
-            { Reference.LangsPath + "en.json", Resources.en },
-            { Reference.LangsPath + "de.json", Resources.de },
-            { Reference.LangsPath + "it.json", Resources.it },
-            { Reference.LangsPath + "es.json", Resources.es },
-            { Reference.LangsPath + "ru.json", Resources.ru }
         };
 
         /** ----------------| Json Variables |---------------- **/

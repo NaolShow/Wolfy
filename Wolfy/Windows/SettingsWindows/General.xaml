@@ -7,39 +7,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="530">
     <StackPanel>
+        
         <!-- Title -->
-        <Label Tag="tr:application" FontSize="24">
-            Application
-        </Label>
+        <Label Content="{DynamicResource application}" FontSize="24"/>
 
         <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
         
         <!-- Lang container -->
         <WrapPanel>
-            <Label Tag="tr:language" Content="Language:"/>
-            <ComboBox Margin="8,0" SelectionChanged="LangCombo_SelectionChanged" SelectedValuePath="Tag" Name="LangCombo"/>
-            <Button Tag="tr:translation_error" Click="TranslationError_Click" Margin="8,0" Style="{DynamicResource MaterialDesignFlatButton}">
-                Translation error ?
-            </Button>
+            <Label Content="{DynamicResource language}"/>
+            <ComboBox Name="LangCombo" SelectedValuePath="Tag" Margin="8,0"/>
+            <Button Name="TranslationErrorBtn" Content="{DynamicResource translation_error}" Margin="8,0" Style="{DynamicResource MaterialDesignFlatButton}"/>
         </WrapPanel>
         <!-- Theme container -->
         <WrapPanel>
-            <Label Tag="tr:theme" Content="Theme:"/>
-            <ComboBox Margin="8,0" SelectionChanged="ThemeCombo_SelectionChanged" SelectedValuePath="Tag" Name="ThemeCombo"/>
+            <Label Content="{DynamicResource theme}"/>
+            <ComboBox Name="ThemeCombo" SelectedValuePath="Tag" Margin="8,0"/>
         </WrapPanel>
         <!-- Color container -->
         <WrapPanel>
-            <Label Tag="tr:color" Content="Color:" VerticalContentAlignment="Center"/>
-            <ComboBox Margin="8,0" SelectionChanged="ColorCombo_SelectionChanged" SelectedValuePath="Tag" Name="ColorCombo"/>
+            <Label Content="{DynamicResource color}" VerticalContentAlignment="Center"/>
+            <ComboBox Name="ColorCombo" SelectedValuePath="Tag" Margin="8,0"/>
         </WrapPanel>
 
         <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
 
         <!-- Checkboxes -->
         <WrapPanel>
-            <CheckBox Tag="tr:launch_startup" Name="LaunchStartupCb" Unchecked="LaunchStartupCb_Checked" Checked="LaunchStartupCb_Checked" Content="Launch at system startup" Margin="0,4,8,0"/>
-            <CheckBox Tag="tr:check_for_updates" Name="CheckUpdateCb" Unchecked="CheckUpdateCb_Checked" Checked="CheckUpdateCb_Checked"  Content="Checking updates at launch" Margin="0,4,8,0"/>
-            <CheckBox Tag="tr:system_tray_startup" Name="SystemTrayCb" Unchecked="SystemTrayCb_Checked" Checked="SystemTrayCb_Checked"  Content="Reduce to system tray at startup" Margin="0,4,8,0"/>
+            <CheckBox Name="LaunchStartupCb" Unchecked="LaunchStartupCb_Checked" Checked="LaunchStartupCb_Checked" Content="{DynamicResource launch_startup}" Margin="0,4,8,0"/>
+            <CheckBox Name="CheckUpdateCb" Unchecked="CheckUpdateCb_Checked" Checked="CheckUpdateCb_Checked"  Content="{DynamicResource check_for_updates}" Margin="0,4,8,0"/>
+            <CheckBox Name="SystemTrayCb" Unchecked="SystemTrayCb_Checked" Checked="SystemTrayCb_Checked"  Content="{DynamicResource system_tray_startup}" Margin="0,4,8,0"/>
         </WrapPanel>
 
     </StackPanel>

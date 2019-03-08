@@ -22,7 +22,7 @@ You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube
 ![Dark Blue](https://i.imgur.com/s0npXds.png)
 ![Dark Blue2](https://i.imgur.com/v4D7JX0.png)
 
-### TheseScripts is available in several languages*:
+### TheseScripts is available in several languages ( * ):
 - English
 - French
 - German
@@ -30,8 +30,8 @@ You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube
 - Italian
 - Russian
 - Custom Languages
-          
-* Languages: "French" and "English" have (normally) perfect translations. (I'm French and I'm not too bad in English ^^).
+                                                                                                              
+( * ) Languages: "French" and "English" have (normally) perfect translations. (I'm French and I'm not too bad in English ^^).
 But for the other languages, they were made from an online translator. Named DeepL. 
 [Click here if you want to see this translator](https://deepl.com/translator)
 
@@ -40,13 +40,14 @@ For people who want to help me correct incorrect translations, please contact on
 ### How to create a lang file?                                                                 
                                                                                                       
 Follow this step-by-step tutorial:                                                                    
-- Step1: Go to the installation folder of Wolfy                                  
-- Step2: Go to the "Langs" folder                                                                    
-- Step3: Copy then Paste any ".json" file (This file will be taken as a template)                                  
-- Step4: Rename the ".json" file you just copied (for example: "my_new_language.json")                                  
-- Step5: Edit the translations in the file with a text editor. (Like Notepadd ++ or Sublime Text)                                  
-- Step6: Restart Wolfy, go to settings and choose your language!       
-      
+- Go to the Wolfy installation location
+- Go to the "Langs" folder
+- Go to: https://github.com/NaolShow/Wolfy/tree/master/Wolfy/Localization, choose a model, copy all the code of the model
+- Create a new file ending with'.XAML' (in the "Langs" folder), and copy the model code
+- Change the translations!
+[THE NAME OF THE FILE MUST BE EQUAL TO THE NAME OF THE KEY "language_name",
+THE KEY "language_display_name" IS THE NAME THAT WILL BE DISPLAYED IN THE SETTINGS]
+
 # Licence                                         
                                          
 TheseScripts is licensed under the GNU General Public License 3.0                                         
@@ -65,7 +66,7 @@ Warning: in this case "Software" refers to this project (Wolfy)
 - This software may be used and modified in private                                         
                                          
 ### Conditions                                         
-- Source code must be made availablewhen the software is distributed                                         
+- Source code must be made available when the software is distributed                                         
 - A copy of the licence and copyright notice must be included with the software                                         
 - Modifications must be released under the same license when distributing the software. In some cases a similar or related license may be used                                         
 - Changes made to the code must be documented                                                                                                                       
@@ -75,6 +76,7 @@ Warning: in this case "Software" refers to this project (Wolfy)
 I use several libraries on this project:                                                            
 - [MaterialDesign by James Willock](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)                                
 - [Newtonsoft.Json by James Newton-King](https://github.com/JamesNK/Newtonsoft.Json)                                                    
+- [MoonSharp by Xanathar](https://github.com/xanathar/moonsharp/)                                                    
 
 # Releases
                                         

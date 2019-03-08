@@ -13,8 +13,11 @@
 	"Color": "blue",
 
 	/* ----- Recognition ----- */
-	"Synthesizer_voice": null,
 	"Speech_language": null,
-	"Confidence": 80
+	"Confidence": 80,
+	"Recognition_at_launch": true,
+
+	/* ----- Synthesizer ----- */
+	"Synthesizer_voice": null
 
 }

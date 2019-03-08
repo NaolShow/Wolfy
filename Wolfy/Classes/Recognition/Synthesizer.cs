@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Wolfy.Classes.Recognition
-{
-    public static class Synthesizer
-    {
+namespace Wolfy.Classes.Recognition {
+    public static class Synthesizer {
 
         // ----------------| Variables |---------------- //
         public static SpeechSynthesizer synthesizer;
@@ -30,9 +24,10 @@ namespace Wolfy.Classes.Recognition
                 synthesizerVoice = GetVoice(Reference.JsonSettings.Synthesizer_voice);
                 Reference.JsonSettings.Synthesizer_voice = synthesizerVoice.Id;
 
-                Utils.Log(String.Format(Translation.Get("synthesizerLoaded"), synthesizerVoice.Culture.NativeName));
-            } else {
-                Utils.Log(Translation.Get("synthesizerNoVoice"));
+                Utils.Log(String.Format(Langs.Get("synthesizer_loaded"), synthesizerVoice.Culture.NativeName));
+            }
+            else {
+                Utils.Log(Langs.Get("synthesizer_no_voice"));
             }
 
         }

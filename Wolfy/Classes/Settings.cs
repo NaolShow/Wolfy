@@ -28,7 +28,7 @@ namespace Wolfy.Classes {
                     File.WriteAllText(Reference.Settings, Resources.settings);
                 }
                 if (!Utils.IsValidJson(File.ReadAllText(Reference.Settings))) {
-                    if (MessageBox.Show(Translation.Get("settings_file_error"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Error) == MessageBoxResult.Yes) {
+                    if (MessageBox.Show(Langs.Get("settings_file_error"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Error) == MessageBoxResult.Yes) {
                         File.WriteAllText(Reference.Settings, Resources.settings);
                     }
                     else {

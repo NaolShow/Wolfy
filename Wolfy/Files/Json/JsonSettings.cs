@@ -1,10 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Wolfy.Files.Json {
     public class JsonSettings {
@@ -18,9 +12,8 @@ namespace Wolfy.Files.Json {
         // Recognition
         public String Synthesizer_voice { get; set; }
         public String Speech_language { get; set; }
-        [DefaultValue(80)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public float Confidence { get; set; }
+        public Boolean Recognition_at_launch { get; set; }
 
         // Material design
         public String Color { get; set; }

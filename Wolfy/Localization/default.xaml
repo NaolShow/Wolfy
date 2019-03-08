@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--
+    
+        The language files that are proposed by default by the Wolfy software,
+        are rewritten each time the software is launched.
+    
+        If you want to make changes, please copy and paste a template and rename it!
+    
+    -->
+
+    <!-- Language properties -->
+    <sys:String x:Key="language_name">default</sys:String>
+    <sys:String x:Key="language_display_name">Default</sys:String>
+
+    <!-- General -->
+    <sys:String x:Key="wolfy_loaded">Wolfy is now loaded!</sys:String>
+    <sys:String x:Key="cancel">Cancel</sys:String>
+    <sys:String x:Key="ok">OK</sys:String>
+
+    <!-- Updates -->
+    <sys:String x:Key="update_request">A new version of the software is available.\n Do you want to install it?</sys:String>
+    <sys:String x:Key="update_downloading">Downloading {0}/{1} [{2}%]</sys:String>
+    <sys:String x:Key="update_install">Install ({0}s)</sys:String>
+    <sys:String x:Key="update_check_error">An error occurred when checking a potential new version available.</sys:String>
+    <sys:String x:Key="update_install_error">An error occurred during the installation of the update.\n (Missing files and/or no access rights)</sys:String>
+
+    <!-- Profiles -->
+    <sys:String x:Key="profile_name">Profile name</sys:String>
+    <sys:String x:Key="create_profile">Create profile</sys:String>
+    <sys:String x:Key="remove_profile">Remove profile</sys:String>
+    <sys:String x:Key="remove_profile_confirm">Do you really want to delete this profile?</sys:String>
+
+    <sys:String x:Key="create_command">Create command</sys:String>
+    <sys:String x:Key="remove_command">Remove command</sys:String>
+    <sys:String x:Key="remove_command_confirm">Do you really want to delete this command?</sys:String>
+
+    <sys:String x:Key="no_profile">There are no existing profiles</sys:String>
+    <sys:String x:Key="profile_doesnt_exist">The selected profile does not exist</sys:String>
+
+    <sys:String x:Key="profile_loaded">The profile '{0}' is now loaded with '{1}' commands</sys:String>
+    <sys:String x:Key="commands_stopped">All commands has been stopped</sys:String>
+
+    <sys:String x:Key="profile_window_title">'{0}' : '{1}'</sys:String>
+    <sys:String x:Key="search_command">Search for a command...</sys:String>
+
+    <!-- Recognizer -->
+    <sys:String x:Key="no_speech_language">No recognition language was found</sys:String>
+    <sys:String x:Key="no_microphone">No microphone was detected</sys:String>
+    <sys:String x:Key="recognizer_loaded">The recognizer module has been successfully loaded ({0})</sys:String>
+    <sys:String x:Key="command_recognized">The '{0}' command has been recognized with a threshold of '{1}'</sys:String>
+
+    <sys:String x:Key="microphone_disabled">The microphone is now muted</sys:String>
+    <sys:String x:Key="microphone_enabled">The microphone is now activated</sys:String>
+    <sys:String x:Key="microphone_no_commands">You cannot turn the microphone on or off. Because the profile has no commands</sys:String>
+
+    <!-- Synthesizer -->
+    <sys:String x:Key="synthesizer_no_voice">The voice synthesizer cannot be loaded. No voice is installed.</sys:String>
+    <sys:String x:Key="synthesizer_loaded">The voice synthesizer has been successfully loaded ({0})</sys:String>
+
+    <!-- Settings -->
+    <sys:String x:Key="settings_file_error">The settings file is not in a correct/readable format.\n Do you want to reset your settings?</sys:String>
+    <sys:String x:Key="settings">Settings</sys:String>
+
+    <sys:String x:Key="general">General</sys:String>
+    <sys:String x:Key="application">Application</sys:String>
+    <sys:String x:Key="language">Language:</sys:String>
+    <sys:String x:Key="translation_error">Translation error?</sys:String>
+    <sys:String x:Key="theme">Theme:</sys:String>
+    <sys:String x:Key="color">Color:</sys:String>
+
+    <sys:String x:Key="launch_startup">Launch the software at startup</sys:String>
+    <sys:String x:Key="check_for_updates">Check for updates at launch</sys:String>
+    <sys:String x:Key="system_tray_startup">Reduce to system tray</sys:String>
+
+    <sys:String x:Key="recognition">Recognition</sys:String>
+    <sys:String x:Key="recognition_threshold">Recognition threshold:</sys:String>
+    <sys:String x:Key="recognition_at_launch">Enable speech recognition at launch</sys:String>
+
+    <sys:String x:Key="synthesizer">Synthesizer</sys:String>
+    <sys:String x:Key="voice">Voice:</sys:String>
+
+</ResourceDictionary>

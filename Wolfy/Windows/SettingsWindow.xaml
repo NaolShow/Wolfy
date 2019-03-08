@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wolfy.Windows"
         mc:Ignorable="d"
-        Tag="tr:settings" Height="480" Width="720"
+        Height="480" Width="720"
+        Title="{DynamicResource settings}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -18,12 +19,7 @@
     <Grid>
 
         <!-- ScrollViewer -->
-        <ScrollViewer Margin="0,0,0,32" Width="160" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Stretch">
-            <StackPanel>
-                <Button Name="GeneralBtn" Tag="tr:general" Content="General" Style="{DynamicResource MaterialDesignFlatButton}" Click="GeneralBtn_Click"/>
-                <Button Name="RecognitionBtn" Tag="tr:recognition" Content="Recognition" Style="{DynamicResource MaterialDesignFlatButton}" Click="RecognitionBtn_Click"/>
-            </StackPanel>
-        </ScrollViewer>
+        <ListBox Name="Menu" Margin="0,0,0,32" Width="160" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
         <Border Margin="160,0,0,32" VerticalAlignment="Stretch" HorizontalAlignment="Left" BorderThickness="1 0 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
 
         <!-- Windows content -->
@@ -32,7 +28,7 @@
         <!-- Bottom buttons -->
         <Border Margin="0,0,0,31" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
         <WrapPanel Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FlowDirection="RightToLeft">
-            <Button Name="OkBtn" Tag="tr:ok" Content="OK" Style="{DynamicResource MaterialDesignFlatButton}" Click="OkBtn_Click"/>
+            <Button Name="OkBtn" Content="{DynamicResource ok}" Style="{DynamicResource MaterialDesignFlatButton}" Click="OkBtn_Click"/>
         </WrapPanel>
 
     </Grid>

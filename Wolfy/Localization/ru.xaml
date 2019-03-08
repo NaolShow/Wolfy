@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--
+    
+        The language files that are proposed by default by the Wolfy software,
+        are rewritten each time the software is launched.
+    
+        If you want to make changes, please copy and paste a template and rename it!
+    
+    -->
+    
+    <!-- Language properties -->
+    <sys:String x:Key="language_name">ru</sys:String>
+    <sys:String x:Key="language_display_name">усский</sys:String>
+
+    <!-- General -->
+    <sys:String x:Key="wolfy_loaded">Wolfy заряжен!</sys:String>
+    <sys:String x:Key="cancel">Отмена</sys:String>
+    <sys:String x:Key="ok">ХОРОШО</sys:String>
+
+    <!-- Updates -->
+    <sys:String x:Key="update_request">Доступна новая версия программного обеспечения.\n Хотите установить его?</sys:String>
+    <sys:String x:Key="update_downloading">Загрузка {0}/{1} [{2}%]</sys:String>
+    <sys:String x:Key="update_install">Установить ({0}s)</sys:String>
+    <sys:String x:Key="update_check_error">Возникла ошибка при проверке наличия потенциальной новой версии.</sys:String>
+    <sys:String x:Key="update_install_error">Во время установки обновления произошла ошибка.\n (Отсутствующие файлы и/или права доступа отсутствуют)</sys:String>
+
+    <!-- Profiles -->
+    <sys:String x:Key="profile_name">Имя профиля</sys:String>
+    <sys:String x:Key="create_profile">Создать профиль</sys:String>
+    <sys:String x:Key="remove_profile">Удалить профиль</sys:String>
+    <sys:String x:Key="remove_profile_confirm">Вы действительно хотите удалить этот профиль?</sys:String>
+
+    <sys:String x:Key="create_command">Создать команду</sys:String>
+    <sys:String x:Key="remove_command">Удалить команду</sys:String>
+    <sys:String x:Key="remove_command_confirm">Вы действительно хотите удалить эту команду?</sys:String>
+
+    <sys:String x:Key="no_profile">Существующих профилей нет</sys:String>
+    <sys:String x:Key="profile_doesnt_exist">Выбранный профиль не существует</sys:String>
+
+    <sys:String x:Key="profile_loaded">Профиль '{0}' теперь загружен командами '{1}'</sys:String>
+    <sys:String x:Key="commands_stopped">Все команды были остановлены.</sys:String>
+    
+    <sys:String x:Key="profile_window_title">'{0}' : '{1}'</sys:String>
+    <sys:String x:Key="search_command">Поиск команды...</sys:String>
+
+    <!-- Recognizer -->
+    <sys:String x:Key="no_speech_language">Язык распознавания не был найден</sys:String>
+    <sys:String x:Key="no_microphone">Микрофон не был обнаружен</sys:String>
+    <sys:String x:Key="recognizer_loaded">Модуль распознавателя успешно загружен ({0})</sys:String>
+    <sys:String x:Key="command_recognized">Команда '{0}' распознана с порогом '{1}'</sys:String>
+
+    <sys:String x:Key="microphone_disabled">Микрофон отключен.</sys:String>
+    <sys:String x:Key="microphone_enabled">Микрофон активирован.</sys:String>
+    <sys:String x:Key="microphone_no_commands">Микрофон нельзя включать и выключать. Потому что в профиле нет команд</sys:String>
+
+    <!-- Synthesizer -->
+    <sys:String x:Key="synthesizer_no_voice">Синтезатор голоса не может быть загружен. Голос не установлен.</sys:String>
+    <sys:String x:Key="synthesizer_loaded">Синтезатор голоса был успешно загружен. ({0})</sys:String>
+    
+    <!-- Settings -->
+    <sys:String x:Key="settings_file_error">Файл настроек не в правильном/читаемом формате.\n Хотите сбросить настройки?</sys:String>
+    <sys:String x:Key="settings">Настройки</sys:String>
+
+    <sys:String x:Key="general">Генерал</sys:String>
+    <sys:String x:Key="application">Применение</sys:String>
+    <sys:String x:Key="language">Язык:</sys:String>
+    <sys:String x:Key="translation_error">Ошибка перевода?</sys:String>
+    <sys:String x:Key="theme">Тема:</sys:String>
+    <sys:String x:Key="color">Цвет:</sys:String>
+
+    <sys:String x:Key="launch_startup">Запуск программного обеспечения при запуске</sys:String>
+    <sys:String x:Key="check_for_updates">Проверьте наличие обновлений при запуске</sys:String>
+    <sys:String x:Key="system_tray_startup">Уменьшить до системного трея</sys:String>
+
+    <sys:String x:Key="recognition">Признание</sys:String>
+    <sys:String x:Key="recognition_threshold">Порог признания:</sys:String>
+    <sys:String x:Key="recognition_at_launch">Включить распознавание речи при запуске</sys:String>
+
+    <sys:String x:Key="synthesizer">синтезатор</sys:String>
+    <sys:String x:Key="voice">Голос:</sys:String>
+
+</ResourceDictionary>

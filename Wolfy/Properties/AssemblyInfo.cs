@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ToWolf")]
 [assembly: AssemblyProduct("Wolfy")]
-[assembly: AssemblyCopyright("ToWolf ©  2019")]
+[assembly: AssemblyCopyright("ToWolf © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

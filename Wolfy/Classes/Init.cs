@@ -1,12 +1,10 @@
-﻿using Wolfy.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Wolfy.Classes.Recognition;
+using Wolfy.Windows;
 
 namespace Wolfy.Classes {
     public static class Init {
@@ -19,9 +17,10 @@ namespace Wolfy.Classes {
             // ----------------| Settings |---------------- //
             Settings.Init();
             // ----------------| Lang |---------------- //
-            Translation.LoadLang();
+            Langs.Init();
+
             // ----------------| Visuals |---------------- //
-            SkinManager.Init();
+            SkinManager.ApplySkin();
 
             // ----------------| Check for updates |---------------- //
             Update.CheckForUpdates();
@@ -29,19 +28,19 @@ namespace Wolfy.Classes {
             // Load all windows to be applied by the translator
             Reference.MainWindow = new Main();
 
-            Translation.Translate();
+            // ----------------| Recognition |---------------- //
+            Synthesizer.Init();
+            SpeechRecognition.Init();
+
+            // ----------------| Profiles | ---------------- //
+            Profiles.Init();
 
             // Hide SplashScreen
             Application.Current.MainWindow.Hide();
             // Show MainWindow
             Reference.MainWindow.Show();
 
-            // ----------------| Profiles |---------------- //
-            Profiles.Init();
-
-            // ----------------| Recognition |---------------- //
-            Synthesizer.Init();
-            SpeechRecognition.Init();
+            Utils.Log(Langs.Get("wolfy_loaded"));
 
         }
 

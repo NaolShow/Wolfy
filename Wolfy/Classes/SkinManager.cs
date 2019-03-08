@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Wolfy.Classes {
@@ -11,7 +9,7 @@ namespace Wolfy.Classes {
         // ----------------| Variables |---------------- //
 
         // The colours are linked together (PRIMARY Amber with ACCENT Amber)..
-        public static readonly String[] Colors = {
+        public static readonly List<String> Colors = new List<String>() {
             "amber",
             "blue",
             "cyan",
@@ -29,27 +27,18 @@ namespace Wolfy.Classes {
             "teal",
             "yellow"
         };
-        public static readonly String[] Themes = {
+
+        public static readonly List<String> Themes = new List<String>() {
             "light",
             "dark"
         };
-
-        /// <summary>
-        /// Load the module managing the visual of the application
-        /// </summary>
-        public static void Init() {
-
-            // Load theme/color
-            ApplySkin();
-
-        }
 
         /// <summary>
         /// Apply the theme (This function checks if the theme exists, 
         /// if it does not exist, the default theme is applied)
         /// </summary>
         /// <param name="_Theme">Theme name</param>
-        public static void ApplyTheme(String _Theme, Boolean _ApplySkin = true) {
+        public static void SetTheme(String _Theme) {
 
             // If the theme does not exist, apply the default theme
             _Theme = _Theme.ToLower();
@@ -59,17 +48,16 @@ namespace Wolfy.Classes {
             // Save
             Reference.JsonSettings.Theme = _Theme;
             // Apply
-            if (_ApplySkin)
-                ApplySkin();
+            ApplySkin();
 
         }
 
         /// <summary>
-        /// Apply the color (This function checks if the color exists, 
+        /// Set the color (This function checks if the color exists, 
         /// if it does not exist, the default color is applied)
         /// </summary>
         /// <param name="_Color">Color name</param>
-        public static void ApplyColor(String _Color, Boolean _ApplySkin = true) {
+        public static void SetColor(String _Color) {
 
             // If the color does not exist, apply the default color
             _Color = _Color.ToLower();
@@ -79,8 +67,7 @@ namespace Wolfy.Classes {
             // Save
             Reference.JsonSettings.Color = _Color;
             // Apply
-            if (_ApplySkin)
-                ApplySkin();
+            ApplySkin();
 
         }
 
@@ -90,20 +77,18 @@ namespace Wolfy.Classes {
         /// </summary>
         public static void ApplySkin() {
 
-            List<String> _ResourceDictionaries = new List<String>() {
+            // Remove previous dictionaries
+            Application.Current.Resources.MergedDictionaries.ToList().Where(a =>
+                !a.Source.ToString().Contains("Localization") && !a.Source.ToString().Contains("Langs") && !a.Source.ToString().Contains("Defaults")).ToList().ForEach(a =>
+                Application.Current.Resources.MergedDictionaries.Remove(a));
+
+            // Add new dictionaries
+            List<String> _NewDictionaries = new List<String>() {
                 String.Format("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.{0}.xaml", Reference.JsonSettings.Theme),
                 String.Format("pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.{0}.xaml", Reference.JsonSettings.Color),
                 String.Format("pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.{0}.xaml", Reference.JsonSettings.Color)
             };
-            // Needed
-            _ResourceDictionaries.Add("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml");
-
-            Application.Current.Resources.MergedDictionaries.Clear();
-            foreach (String _ResourceDictionary in _ResourceDictionaries) {
-                Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() {
-                    Source = new Uri(_ResourceDictionary)
-                });
-            }
+            _NewDictionaries.ForEach(a => Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(a) }));
 
         }
 

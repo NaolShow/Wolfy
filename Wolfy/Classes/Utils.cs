@@ -2,14 +2,10 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Wolfy.Classes {
     public static class Utils {
@@ -44,6 +40,10 @@ namespace Wolfy.Classes {
 
         }
 
+        internal static void Log(int v) {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Returns the input string with the first character converted to uppercase
         /// </summary>
@@ -61,41 +61,15 @@ namespace Wolfy.Classes {
         #region Windows
 
         /// <summary>
-        /// Gets all the controls of a window, recursively
+        /// Embed a user control in a grid
         /// </summary>
-        /// <param name="_Window">Window</param>
-        /// <returns></returns>
-        public static List<Control> GetControlsOf(Window _Window) {
-            return GetLogicalChildCollection<Control>(_Window);
+        /// <param name="_UserControl">User control</param>
+        /// <param name="_Grid">Grid</param>
+        public static void EmbedUserControl(UserControl _UserControl, Grid _Grid) {
+            // Embed
+            _Grid.Children.Clear();
+            _Grid.Children.Add(_UserControl);
         }
-
-        // ---------| From https://stackoverflow.com/questions/14875042/finding-all-child-controls-wpf |--------- //
-
-        /// <summary>
-        /// Gets all the controls (of a type) of a window, recursively
-        /// </summary>
-        /// <param name="_Window">Window</param>
-        /// <returns></returns>
-        public static List<T> GetLogicalChildCollection<T>(object parent) where T : DependencyObject {
-            List<T> logicalCollection = new List<T>();
-            GetLogicalChildCollection(parent as DependencyObject, logicalCollection);
-            return logicalCollection;
-        }
-
-        private static void GetLogicalChildCollection<T>(DependencyObject parent, List<T> logicalCollection) where T : DependencyObject {
-            System.Collections.IEnumerable children = LogicalTreeHelper.GetChildren(parent);
-            foreach (object child in children) {
-                if (child is DependencyObject) {
-                    DependencyObject depChild = child as DependencyObject;
-                    if (child is T) {
-                        logicalCollection.Add(child as T);
-                    }
-                    GetLogicalChildCollection(depChild, logicalCollection);
-                }
-            }
-        }
-
-        // ---------| From https://stackoverflow.com/questions/14875042/finding-all-child-controls-wpf |--------- //
 
         #endregion
 
@@ -110,8 +84,7 @@ namespace Wolfy.Classes {
             try {
                 JToken.Parse(_Json);
                 return true;
-            }
-            catch {
+            } catch {
                 return false;
             }
         }
@@ -142,6 +115,15 @@ namespace Wolfy.Classes {
 
         #region Files
 
+        /// <summary>
+        /// Remove special characters
+        /// </summary>
+        /// <param name="_String">String</param>
+        /// <returns>Removed special characters string</returns>
+        public static String RemoveSpecialCharacters(String _String) {
+            return Regex.Replace(_String, "[^a-zA-Z0-9_]+", " ", RegexOptions.Compiled);
+        }
+
         public static String BytesToString(long byteCount) {
             string[] suf = { "B", "KB", "MB", "GB", "TB", "PB", "EB" };
             if (byteCount == 0)
@@ -152,18 +134,42 @@ namespace Wolfy.Classes {
             return (Math.Sign(byteCount) * num).ToString() + suf[place];
         }
 
+        /// <summary>
+        /// Returns the name of a valid file/folder (which does not exist)
+        /// </summary>
+        /// <param name="_IsFolder">Is folder?</param>
+        /// <param name="_Path">Path</param>
+        /// <param name="_BaseName">Base file/folder name</param>
+        /// <param name="_StartID">Start id</param>
+        /// <param name="_Extension">Extension just for files</param>
+        /// <returns></returns>
+        public static String GetValidFileID(Boolean _IsFolder, String _Path, String _BaseName, int _StartID = 0, String _Extension = null) {
+
+            while (true) {
+
+                // Check if folder/file doesn't exist
+                if ((_IsFolder && !Directory.Exists(Path.Combine(_Path, _BaseName + _StartID))) || (!_IsFolder && !File.Exists(Path.Combine(_Path, _BaseName + _StartID + _Extension)))) {
+                    return Path.Combine(_Path, _BaseName + _StartID + _Extension);
+                }
+
+                _StartID++;
+
+            }
+
+        }
+
         #endregion
 
         #region Logs
 
-        public static void Log(String Text) {
+        public static void Log(String _Text) {
 
             // Add new line
             if (Reference.MainWindow.LogsTxt.Text != "")
                 Reference.MainWindow.LogsTxt.AppendText(Environment.NewLine);
 
             // Add text
-            Reference.MainWindow.LogsTxt.AppendText(Text);
+            Reference.MainWindow.LogsTxt.AppendText(_Text);
 
         }
 

@@ -61,137 +61,11 @@ namespace Wolfy.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Name&quot;: &quot;Deutsch&quot;,
-        ///	&quot;Description&quot;: &quot;Sprachdatei der deutschen Sprache&quot;,
-        ///	&quot;Version&quot;: &quot;1.0&quot;,
-        ///	&quot;Translations&quot;: {
-        ///
-        ///		/* ----- General ----- */
-        ///		&quot;cancel&quot;: &quot;Abbrechen&quot;,
-        ///
-        ///		/* ----- Update ----- */
-        ///		&quot;update_request&quot;: &quot;Eine neue Version der Software ist verfügbar.\n Möchten Sie es installieren?&quot;,
-        ///		&quot;update_downloading&quot;: &quot;Herunterladen {0}/{1} [{2}%]&quot;,
-        ///		&quot;update_install&quot;: &quot;Installieren ({0}s)&quot;,
-        ///		&quot;update_check_error&quot;: &quot;Bei der Überprüfung einer eventuell verfügbaren neuen Version ist ein Fehler auf [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to print(&quot;Hey! I&apos;m a command&quot;).
         /// </summary>
-        internal static string de {
+        internal static string command_template {
             get {
-                return ResourceManager.GetString("de", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Name&quot;: &quot;English&quot;,
-        ///	&quot;Description&quot;: &quot;English language file&quot;,
-        ///	&quot;Version&quot;: &quot;1.0&quot;,
-        ///	&quot;Translations&quot;: {
-        ///
-        ///		/* ----- General ----- */
-        ///		&quot;cancel&quot;: &quot;Cancel&quot;,
-        ///
-        ///		/* ----- Update ----- */
-        ///		&quot;update_request&quot;: &quot;A new version of the software is available.\n Do you want to install it?&quot;,
-        ///		&quot;update_downloading&quot;: &quot;Downloading {0}/{1} [{2}%]&quot;,
-        ///		&quot;update_install&quot;: &quot;Install ({0}s)&quot;,
-        ///		&quot;update_check_error&quot;: &quot;An error occurred when checking a potential new version available.&quot;,
-        ///		&quot;update_install_error&quot;: &quot;An error  [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string en {
-            get {
-                return ResourceManager.GetString("en", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Name&quot;: &quot;Español&quot;,
-        ///	&quot;Description&quot;: &quot;Archivo de idioma del idioma español&quot;,
-        ///	&quot;Version&quot;: &quot;1.0&quot;,
-        ///	&quot;Translations&quot;: {
-        ///
-        ///		/* ----- General ----- */
-        ///		&quot;cancel&quot;: &quot;Cancelar&quot;,
-        ///
-        ///		/* ----- Update ----- */
-        ///		&quot;update_request&quot;: &quot;Una nueva versión del software está disponible.\n ¿Desea instalarlo?&quot;,
-        ///		&quot;update_downloading&quot;: &quot;Descarga {0}/{1} [{2}%]&quot;,
-        ///		&quot;update_install&quot;: &quot;Instalar ({0}s)&quot;,
-        ///		&quot;update_check_error&quot;: &quot;Se ha producido un error al comprobar una posible nueva versión disponible.&quot;,
-        ///		&quot;update_instal [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string es {
-            get {
-                return ResourceManager.GetString("es", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Name&quot;: &quot;Français&quot;,
-        ///	&quot;Description&quot;: &quot;Fichier langue de la langue Française&quot;,
-        ///	&quot;Version&quot;: &quot;1.0&quot;,
-        ///	&quot;Translations&quot;: {
-        ///
-        ///		/* ----- General ----- */
-        ///		&quot;cancel&quot;: &quot;Annuler&quot;,
-        ///
-        ///		/* ----- Update ----- */
-        ///		&quot;update_request&quot;: &quot;Une nouvelle version du logiciel est disponible.\n Voulez vous l&apos;installer ?&quot;,
-        ///		&quot;update_downloading&quot;: &quot;Téléchargement {0}/{1} [{2}%]&quot;,
-        ///		&quot;update_install&quot;: &quot;Installer ({0}s)&quot;,
-        ///		&quot;update_check_error&quot;: &quot;Une erreur est survenue lors de la vérification d&apos;une potentielle nouvelle vers [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string fr {
-            get {
-                return ResourceManager.GetString("fr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Name&quot;: &quot;Italiano&quot;,
-        ///	&quot;Description&quot;: &quot;Archivio linguistico della lingua italiana&quot;,
-        ///	&quot;Version&quot;: &quot;1.0&quot;,
-        ///	&quot;Translations&quot;: {
-        ///
-        ///		/* ----- General ----- */
-        ///		&quot;cancel&quot;: &quot;Annulla&quot;,
-        ///
-        ///		/* ----- Update ----- */
-        ///		&quot;update_request&quot;: &quot;È disponibile una nuova versione del software.\n Vuoi installarlo?&quot;,
-        ///		&quot;update_downloading&quot;: &quot;Scaricare {0}/{1} [{2}%]&quot;,
-        ///		&quot;update_install&quot;: &quot;Installare ({0}s)&quot;,
-        ///		&quot;update_check_error&quot;: &quot;Si è verificato un errore durante la verifica di una potenziale nuova versione disponibi [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string it {
-            get {
-                return ResourceManager.GetString("it", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Name&quot;: &quot;Pусский&quot;,
-        ///	&quot;Description&quot;: &quot;русскоязычный файл&quot;,
-        ///	&quot;Version&quot;: &quot;1.0&quot;,
-        ///	&quot;Translations&quot;: {
-        ///
-        ///		/* ----- General ----- */
-        ///		&quot;cancel&quot;: &quot;Отмена&quot;,
-        ///
-        ///		/* ----- Update ----- */
-        ///		&quot;update_request&quot;: &quot;Доступна новая версия программного обеспечения.\n Хотите установить его?&quot;,
-        ///		&quot;update_downloading&quot;: &quot;Загрузка {0}/{1} [{2}%]&quot;,
-        ///		&quot;update_install&quot;: &quot;Установить ({0}s)&quot;,
-        ///		&quot;update_check_error&quot;: &quot;Возникла ошибка при проверке наличия потенциальной новой версии.&quot;,
-        ///		&quot;update_install_error&quot;: &quot;Во время устан [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string ru {
-            get {
-                return ResourceManager.GetString("ru", resourceCulture);
+                return ResourceManager.GetString("command_template", resourceCulture);
             }
         }
         
@@ -203,10 +77,18 @@ namespace Wolfy.Properties {
         ///	/* ----- General ----- */
         ///	&quot;Language&quot;: null,
         ///	&quot;Check_for_updates&quot;: true,
+        ///	&quot;Launch_startup&quot;: false,
+        ///	&quot;Reduce_system_tray&quot;: false,
         ///
         ///	/* ----- Visual ----- */
         ///	&quot;Theme&quot;: &quot;light&quot;,
-        ///	&quot;Color&quot;: &quot;blue&quot;
+        ///	&quot;Color&quot;: &quot;blue&quot;,
+        ///
+        ///	/* ----- Recognition ----- */
+        ///	&quot;Synthesizer_voice&quot;: null,
+        ///	&quot;Speech_language&quot;: null,
+        ///	&quot;Confidence&quot;: 80
+        ///
         ///}.
         /// </summary>
         internal static string settings {

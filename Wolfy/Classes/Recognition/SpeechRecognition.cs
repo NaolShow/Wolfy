@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Speech.Recognition;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Wolfy.Classes.Recognition
-{
-    public static class SpeechRecognition
-    {
+namespace Wolfy.Classes.Recognition {
+    public static class SpeechRecognition {
 
         // ----------------| Variables |---------------- //
         public static SpeechRecognitionEngine recognizer;
@@ -24,7 +20,7 @@ namespace Wolfy.Classes.Recognition
 
             // Check if a recognizer is installed
             if (_InstalledRecognizers.Count > 0) {
-                
+
                 // Retrieve speech language
                 // If a speech language is set
                 if (Reference.JsonSettings.Speech_language != null) {
@@ -48,9 +44,8 @@ namespace Wolfy.Classes.Recognition
                 try {
                     // Set microphone
                     recognizer.SetInputToDefaultAudioDevice();
-                }
-                catch {
-                    Utils.Log(Translation.Get("noMicrophone"));
+                } catch {
+                    Utils.Log(Langs.Get("no_microphone"));
                     return;
                 }
 
@@ -64,14 +59,11 @@ namespace Wolfy.Classes.Recognition
                     Reference.JsonSettings.Confidence = 80;
                 }
 
-                Utils.Log(String.Format(Translation.Get("recognizerLoaded"), recognizerInfo.Culture.NativeName));
+                Utils.Log(String.Format(Langs.Get("recognizer_loaded"), recognizerInfo.Culture.NativeName));
                 IsReady = true;
 
-                // Temporary
-                LoadCommands();
-                
             } else {
-                Utils.Log(Translation.Get("noSpeechLanguage"));
+                Utils.Log(Langs.Get("no_speech_language"));
             }
 
         }
@@ -83,11 +75,11 @@ namespace Wolfy.Classes.Recognition
             if (e.Result.Confidence > Reference.JsonSettings.Confidence / 100) {
                 String _Confidence = Math.Round(e.Result.Confidence * 100, 1).ToString();
 
-                Utils.Log(String.Format(Translation.Get("commandRecognized"), e.Result.Text, _Confidence));
-                if (e.Result.Text == "Hello") {
-                    System.Diagnostics.Process.Start("http://google.com/");
-                    Synthesizer.SpeakText("Hello, opening google...");
-                }
+                Utils.Log(String.Format(Langs.Get("command_recognized"), e.Result.Text, _Confidence));
+
+                // Execute command
+                Profiles.ExecuteCommand(e.Result.Text);
+
             }
 
         }
@@ -101,42 +93,63 @@ namespace Wolfy.Classes.Recognition
         #region Manage
 
         // Enable or disable recognizer
-        public static void SetActive(Boolean _State) {
-            if (_State) {
-                recognizer.RecognizeAsync(RecognizeMode.Multiple);
-            } else {
-                recognizer.RecognizeAsyncStop();
+        private static Boolean ActiveState = Reference.JsonSettings.Recognition_at_launch;
+        public static Boolean State {
+            get { return ActiveState; }
+            set {
+
+                ActiveState = value;
+
+                // Recognition
+                if (ActiveState && Profiles.GetProfileCommands().Count() > 0) {
+                    recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                    Reference.MainWindow.MicrophoneIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.MicrophoneVariant;
+                } else {
+                    recognizer.RecognizeAsyncStop();
+                    Reference.MainWindow.MicrophoneIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.MicrophoneVariantOff;
+                }
+
+                // Bar fix
+                Reference.MainWindow.RecognizerBar.Value = 0;
+
             }
-            Reference.MainWindow.RecognizerBar.Value = 0;
         }
 
         // Load commands
         public static void LoadCommands() {
 
-            // Disable recognition
-            SetActive(false);
-
-            // Commands
-            Choices commands = new Choices();
-
-            // Unload grammer
+            // Unload gammar
             recognizer.UnloadAllGrammars();
 
-            // Add commands
-            commands.Add("Hello");
+            // Check if profile is valid
+            if (Profiles.GetProfile() != null) {
 
-            // Add grammar
-            GrammarBuilder gBuilder = new GrammarBuilder();
-            gBuilder.Append(commands);
-            gBuilder.Culture = recognizerInfo.Culture;
-            Grammar grammar = new Grammar(gBuilder);
+                // Check if there is commands
+                String[] _ProfileCommands = Profiles.GetProfileCommands();
 
-            // Load grammar
-            recognizer.LoadGrammar(grammar);
+                if (_ProfileCommands.Count() > 0) {
 
-            // Enable
-            SetActive(true);
+                    // Commands
+                    Choices _Commands = new Choices();
 
+                    // Add commands
+                    Profiles.GetProfileCommands().ToList().ForEach(a => _Commands.Add(Path.GetFileNameWithoutExtension(a)));
+
+                    // Add grammar
+                    GrammarBuilder _Builder = new GrammarBuilder();
+                    _Builder.Append(_Commands);
+                    _Builder.Culture = recognizerInfo.Culture;
+                    Grammar _Grammar = new Grammar(_Builder);
+
+                    // Load grammar
+                    recognizer.LoadGrammar(_Grammar);
+
+                }
+
+                // End
+                Utils.Log(String.Format(Langs.Get("profile_loaded"), Profiles.GetProfile(), _ProfileCommands.Count()));
+
+            }
         }
 
         #endregion

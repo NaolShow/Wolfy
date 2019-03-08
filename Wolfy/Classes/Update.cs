@@ -39,20 +39,19 @@ namespace Wolfy.Classes {
                     // Check version
                     if (UpdateJson.Latest_version != null && Reference.AppVersion != UpdateJson.Latest_version) {
                         // Request permission to download and install update
-                        if (MessageBox.Show(Translation.Get("update_request"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+                        if (MessageBox.Show(Langs.Get("update_request"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
 
                             // Hide splashscreen
                             App.Current.MainWindow.Hide();
 
                             // Show update window
                             Windows.Update _Update = new Windows.Update(UpdateJson.Latest_link);
-                            Translation.TranslateWindow(_Update);
                             _Update.ShowDialog();
                         }
                     }
                 }
                 catch {
-                    MessageBox.Show(Translation.Get("update_check_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Langs.Get("update_check_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

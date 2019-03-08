@@ -1,87 +1,131 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Wolfy.Classes;
-using Wolfy.Files.Json;
 
 namespace Wolfy.Windows.ProfilesWindows {
 
-    public partial class ProfileWindow : Window
-    {
+    public partial class ProfileWindow : Window {
 
-        #region Filter commands (search)
+        public ProfileWindow(String _Profile) {
+            InitializeComponent();
 
-        // Commands
-        private List<ListBoxItem> CommandsList;
+            // Window initialization
+            this.Title = String.Format(Langs.Get("profile_window_title"), _Profile, "?");
 
-        private bool CustomFilter(object obj) {
-            return (String.IsNullOrEmpty(SearchFilter.Text)) ? true : (obj.ToString().IndexOf(SearchFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            // Commands init
+            ReloadCommandsList();
+
+            // ----------------| Profile Name |---------------- //
+
+            // Text
+            ProfileName.Text = _Profile;
+
+            // Event
+            ProfileName.KeyDown += (s, e) => {
+                if (e.Key == Key.Enter) {
+                    OkBtn_Click(null, new RoutedEventArgs());
+                }
+            };
+
+            // ----------------| Commands Management MENU |---------------- //
+
+            CreateCommand.Click += delegate {
+
+                // Get command
+                String _CommandPath = Utils.GetValidFileID(false, Profiles.GetProfilePath(), "Command", 0, ".lua");
+
+                // Create
+                File.WriteAllText(_CommandPath, Wolfy.Properties.Resources.command_template);
+                AddCommand(_CommandPath);
+
+            };
+
+            RemoveCommand.Click += delegate {
+
+                // Command is selected
+                if (CommandsBox.SelectedItems.Count > -1) {
+
+                    // Confirm message
+                    if (MessageBox.Show(Langs.Get("remove_command_confirm"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+
+                        // Delete
+                        File.Delete(((ListBoxItem)CommandsBox.SelectedItem).Tag.ToString());
+                        ReloadCommandsList();
+
+                    }
+
+                } else {
+                    MessageBox.Show(Langs.Get("no_command_selected"));
+                }
+
+            };
+
         }
 
-        private CollectionView View;
-        private void SearchFilter_TextChanged(object sender, TextChangedEventArgs e) {
-            CollectionViewSource.GetDefaultView(CommandsBox.ItemsSource).Refresh();
+        #region Commands listbox management
+
+        /// <summary>
+        /// Reload the commands list
+        /// </summary>
+        public void ReloadCommandsList() {
+            // Clear list
+            CommandsBox.Items.Clear();
+            // Clear grid
+            Grid.Children.Clear();
+            // Add commands
+            Directory.GetFiles(Profiles.GetProfilePath(), "*.lua", SearchOption.TopDirectoryOnly).ToList().ForEach(a => AddCommand(a));
+        }
+
+        /// <summary>
+        /// Adds a command to the list of commands
+        /// </summary>
+        /// <param name="_CommandPath">Command path</param>
+        public void AddCommand(String _CommandPath) {
+
+            // Item
+            ListBoxItem _Item = new ListBoxItem() {
+                Content = Path.GetFileNameWithoutExtension(_CommandPath),
+                Tag = _CommandPath
+            };
+
+            // Event
+            _Item.Selected += delegate {
+                Utils.EmbedUserControl(new CommandBoard(_CommandPath), Grid);
+            };
+
+            // Add
+            CommandsBox.Items.Add(_Item);
+
         }
 
         #endregion
 
-        public ProfileWindow(JsonProfile _Profile)
-        {
-            InitializeComponent();
-
-            // Window initialization
-            // this.Title = String.Format(Translation.Get("profile_window_title"), _Profile.Name, "?");
-            // Temp:
-            this.Title = String.Format(Translation.Get("profile_window_title"), "Temporary profile", "?");
-
-            String[] _FakeCommands = {
-                "My command",
-                "My other command",
-                "This is for test",
-                "Please star Wolfy <3",
-                "Thanks :)",
-                "I don't know what I could write.",
-                "Super long command because this command is long okay ?"
-            };
-
-            // Add all commands to list
-            CommandsList = new List<ListBoxItem>();
-            foreach (String _Command in _FakeCommands) {
-
-                // Create item
-                ListBoxItem _Item = new ListBoxItem {
-                    Content = _Command
-                };
-
-                // Add item
-                CommandsList.Add(_Item);
-
-            }
-
-            // Search textbox
-            this.DataContext = this;
-            CommandsBox.ItemsSource = CommandsList;
-            View = (CollectionView)CollectionViewSource.GetDefaultView(CommandsBox.ItemsSource);
-            View.Filter = CustomFilter;
-
-        }
-
-
         // Close window
         private void OkBtn_Click(object sender, RoutedEventArgs e) {
+
+            // Change profile name
+            String _ProfileName = Utils.RemoveSpecialCharacters(ProfileName.Text.Trim()).Trim();
+            String _ProfilePath = Path.Combine(Reference.ProfilesPath, _ProfileName);
+            if (!String.IsNullOrEmpty(_ProfileName) && Profiles.GetProfile() != _ProfileName) {
+                if (!Directory.Exists(_ProfilePath)) {
+                    Directory.Move(Profiles.GetProfilePath(), _ProfilePath);
+                } else {
+                    Utils.Log(String.Format(Langs.Get("profile_already_exist"), _ProfileName));
+                    _ProfileName = Profiles.GetProfile();
+                }
+            }
+
+            // Refresh list
+            Profiles.RefreshList(null);
+            // Select profile
+            Profiles.Select(_ProfileName);
+
+            // Close
             this.Close();
         }
-
     }
 }

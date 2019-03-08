@@ -7,21 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="415" d:DesignWidth="550">
     <StackPanel>
+        
         <!-- Title -->
-        <Label Tag="tr:recognition" FontSize="24">
-            Recognition
-        </Label>
+        <Label Content="{DynamicResource recognition}" FontSize="24"/>
 
         <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
         
         <!-- Lang container -->
         <WrapPanel>
-            <Label Tag="tr:language" Content="Language:"/>
-            <ComboBox Margin="8,0" SelectionChanged="RecognitionLangCombo_SelectionChanged" SelectedValuePath="Tag" Name="RecognitionLangCombo"/>
+            <Label Content="{DynamicResource language}"/>
+            <ComboBox Name="RecognitionLangCombo" SelectedValuePath="Tag" Margin="8,0"/>
         </WrapPanel>
         <!-- Threshold container -->
         <DockPanel>
-            <Label Tag="tr:recognition_threshold" Content="Recognition threshold:" VerticalContentAlignment="Bottom"/>
+            <Label Content="{DynamicResource recognition_threshold}" VerticalContentAlignment="Bottom"/>
             <Slider
                 HorizontalContentAlignment="Center"
                 HorizontalAlignment="Stretch"
@@ -29,23 +28,24 @@
                 Name="RecognitionThresholdSlider"
                 Minimum="0"
                 Maximum="100"
-                Style="{StaticResource MaterialDesignDiscreteSlider}"
-                ValueChanged="RecognitionThresholdSlider_ValueChanged"/>
+                Style="{StaticResource MaterialDesignDiscreteSlider}"/>
         </DockPanel>
+        <!-- Recognition at launch -->
+        <WrapPanel>
+            <CheckBox Checked="RecognitionAtLaunchCb_Checked" Unchecked="RecognitionAtLaunchCb_Checked" Name="RecognitionAtLaunchCb" Margin="0,12" Content="{DynamicResource recognition_at_launch}"/>
+        </WrapPanel>
 
         <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
         
         <!-- Title -->
-        <Label Tag="tr:synthesizer" FontSize="24">
-            Synthesizer
-        </Label>
+        <Label Content="{DynamicResource synthesizer}" FontSize="24"/>
 
         <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
 
         <!-- Voice container -->
         <WrapPanel>
-            <Label Tag="tr:voice" Content="Voice:"/>
-            <ComboBox Margin="8,0" SelectionChanged="SynthesizerVoiceCombo_SelectionChanged" SelectedValuePath="Tag" Name="SynthesizerVoiceCombo"/>
+            <Label Content="{DynamicResource voice}"/>
+            <ComboBox Name="SynthesizerVoiceCombo" SelectedValuePath="Tag" Margin="8,0"/>
         </WrapPanel>
 
     </StackPanel>
