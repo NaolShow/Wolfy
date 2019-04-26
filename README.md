@@ -1,7 +1,7 @@
 # Info
 
 Hello everyone, just a little message to tell you that Wolfy's development doesn't stop, I've made a lot of progress, it doesn't look like what's currently on Github (code level). I'm just taking a break, because right now I'm very interested in game development instead of software. I don't know when I'll come back to Wolfy. But if you want, here's my discord server: 
-https://discord.gg/BtNA4Z
+https://discord.gg/m7CZ6md
 
 # WOLFY
 Wolfy, software created and developed by NaolShow
