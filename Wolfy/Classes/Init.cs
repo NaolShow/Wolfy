@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using Wolfy.Classes.Recognition;
+using Wolfy.Properties;
 using Wolfy.Windows;
 
 namespace Wolfy.Classes {
@@ -11,50 +12,63 @@ namespace Wolfy.Classes {
 
         public static void Start() {
 
-            // ----------------| Folders/Files |---------------- //
+            // |-------[ Folders & Files ]-------| //
             Folders();
             Files();
-            // ----------------| Settings |---------------- //
+
+            // IronPythonLib
+            File.WriteAllBytes(Reference.IronModules, Resources.IronPythonLib);
+
+            // |-------[ Settings ]-------| //
             Settings.Init();
-            // ----------------| Lang |---------------- //
+            // |-------[ Languages ]-------| //
             Langs.Init();
 
-            // ----------------| Visuals |---------------- //
+            // |-------[ Visual ]-------| //
             SkinManager.ApplySkin();
 
-            // ----------------| Check for updates |---------------- //
-            Update.CheckForUpdates();
+            // |-------[ Updates ]-------| //
+            if (Reference.JsonSettings.Check_for_updates) {
 
-            // Load all windows to be applied by the translator
-            Reference.MainWindow = new Main();
+                if (!Update.CheckForUpdates(true)) {
 
-            // ----------------| Recognition |---------------- //
-            Synthesizer.Init();
-            SpeechRecognition.Init();
+                    // |-------[ Views ]-------| //
+                    Reference.MainWindow = new Main();
 
-            // ----------------| Profiles | ---------------- //
-            Profiles.Init();
+                    // |-------[ Recognition ]-------| //
+                    Synthesizer.Init();
+                    SpeechRecognition.Init();
 
-            // Hide SplashScreen
-            Application.Current.MainWindow.Hide();
-            // Show MainWindow
-            Reference.MainWindow.Show();
+                    // |-------[ Profiles ]-------| //
+                    Profiles.Init();
 
-            Utils.Log(Langs.Get("wolfy_loaded"));
+                    // Hide SplashScreen
+                    Application.Current.MainWindow.Hide();
+                    // Show MainWindow
+                    Reference.MainWindow.Show();
+
+                    Utils.Log(Langs.Get("wolfy_loaded"));
+
+                }
+
+            }
 
         }
 
-        #region Functions
+        #region Init functions
 
         // Creates the files needed to start up
         private static void Files() {
 
-            // Checks if files need to be created
+            // Loop files
             if (Reference.Files.Count() > 0) {
+
+                // Create file
                 foreach (KeyValuePair<String, String> _Pair in Reference.Files) {
                     if (!String.IsNullOrEmpty(_Pair.Key) && !String.IsNullOrEmpty(_Pair.Value))
                         File.WriteAllText(_Pair.Key, _Pair.Value);
                 }
+
             }
 
         }
@@ -62,12 +76,15 @@ namespace Wolfy.Classes {
         // Creates the folders needed to start up
         private static void Folders() {
 
-            // Checks if folders need to be created
+            // Loop folders
             if (Reference.Folders.Count() > 0) {
+
+                // Create folder
                 foreach (String _Folder in Reference.Folders) {
                     if (!String.IsNullOrEmpty(_Folder))
                         Directory.CreateDirectory(_Folder);
                 }
+
             }
 
         }

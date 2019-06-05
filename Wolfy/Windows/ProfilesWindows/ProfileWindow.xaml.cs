@@ -1,68 +1,88 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wolfy.Classes;
+using Wolfy.Files.Json;
 
 namespace Wolfy.Windows.ProfilesWindows {
 
     public partial class ProfileWindow : Window {
 
-        public ProfileWindow(String _Profile) {
+        // |-------[ Variables ]-------| //
+        private static CommandBoard CurrentBoard;
+        private static string Profile;
+
+        public ProfileWindow(string _Profile) {
             InitializeComponent();
 
-            // Window initialization
-            this.Title = String.Format(Langs.Get("profile_window_title"), _Profile, "?");
+            // Title
+            Profile = _Profile;
+            this.Title = string.Format(Langs.Get("profile_window_title"), Profile, "?");
 
             // Commands init
             ReloadCommandsList();
 
-            // ----------------| Profile Name |---------------- //
+            #region Profile name
 
             // Text
-            ProfileName.Text = _Profile;
+            ProfileName.Text = Profile;
 
-            // Event
+            // Events
             ProfileName.KeyDown += (s, e) => {
                 if (e.Key == Key.Enter) {
-                    OkBtn_Click(null, new RoutedEventArgs());
+                    SaveExit();
+                    this.Close();
                 }
             };
+            OkBtn.Click += delegate {
+                SaveExit();
+                this.Close();
+            };
 
-            // ----------------| Commands Management MENU |---------------- //
+            #endregion
+
+            #region Commands manager
+
+            CommandMenu.Loaded += delegate {
+
+                // No command selected
+                RemoveCommand.IsEnabled = (CommandsBox.SelectedItems.Count > 0);
+
+            };
 
             CreateCommand.Click += delegate {
 
-                // Get command
-                String _CommandPath = Utils.GetValidFileID(false, Profiles.GetProfilePath(), "Command", 0, ".lua");
+                // Command informations
+                string _CommandPath = Utils.GetValidFileID(true, Profiles.GetProfilePath(), Langs.Get("default_command_name"), 0);
+                string _CommandName = Path.GetFileNameWithoutExtension(_CommandPath);
 
-                // Create
-                File.WriteAllText(_CommandPath, Wolfy.Properties.Resources.command_template);
-                AddCommand(_CommandPath);
+                // Command directory
+                Directory.CreateDirectory(_CommandPath);
+                // Command files
+                File.WriteAllText(Path.Combine(_CommandPath, "command.info"), Wolfy.Properties.Resources.command_info);
+                File.WriteAllText(Path.Combine(_CommandPath, "command.py"), Wolfy.Properties.Resources.command_template);
+
+                // Reload list
+                ReloadCommandsList();
 
             };
 
             RemoveCommand.Click += delegate {
 
-                // Command is selected
-                if (CommandsBox.SelectedItems.Count > -1) {
+                // Confirm
+                if (MessageBox.Show(Langs.Get("remove_command_confirm"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
 
-                    // Confirm message
-                    if (MessageBox.Show(Langs.Get("remove_command_confirm"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+                    // Delete
+                    Directory.Delete(((JsonCommand)((ListBoxItem)CommandsBox.SelectedItem).Tag).CommandPath, true);
+                    ReloadCommandsList();
 
-                        // Delete
-                        File.Delete(((ListBoxItem)CommandsBox.SelectedItem).Tag.ToString());
-                        ReloadCommandsList();
-
-                    }
-
-                } else {
-                    MessageBox.Show(Langs.Get("no_command_selected"));
                 }
 
             };
+
+            #endregion
 
         }
 
@@ -76,25 +96,43 @@ namespace Wolfy.Windows.ProfilesWindows {
             CommandsBox.Items.Clear();
             // Clear grid
             Grid.Children.Clear();
+            // Clear title
+            this.Title = string.Format(Langs.Get("profile_window_title"), Profile, "?");
             // Add commands
-            Directory.GetFiles(Profiles.GetProfilePath(), "*.lua", SearchOption.TopDirectoryOnly).ToList().ForEach(a => AddCommand(a));
+            Profiles.GetProfileCommands().ToList().ForEach(a => AddCommand(a));
         }
 
         /// <summary>
         /// Adds a command to the list of commands
         /// </summary>
-        /// <param name="_CommandPath">Command path</param>
-        public void AddCommand(String _CommandPath) {
+        public void AddCommand(JsonCommand _Command) {
 
             // Item
             ListBoxItem _Item = new ListBoxItem() {
-                Content = Path.GetFileNameWithoutExtension(_CommandPath),
-                Tag = _CommandPath
+                Content = _Command.CommandName,
+                Tag = _Command
             };
 
             // Event
             _Item.Selected += delegate {
-                Utils.EmbedUserControl(new CommandBoard(_CommandPath), Grid);
+
+                // Prevent crashing
+                if (Directory.Exists(_Command.CommandPath)) {
+
+                    // Edit title
+                    this.Title = string.Format(Langs.Get("profile_window_title"), Profile, _Command.CommandName);
+
+                    // Save selected command
+                    if (CurrentBoard != null) {
+                        CurrentBoard.SaveCommand();
+                    }
+
+                    // Set
+                    CurrentBoard = new CommandBoard(_Command, _Item);
+                    Utils.EmbedUserControl(CurrentBoard, Grid);
+
+                }
+
             };
 
             // Add
@@ -104,28 +142,67 @@ namespace Wolfy.Windows.ProfilesWindows {
 
         #endregion
 
-        // Close window
-        private void OkBtn_Click(object sender, RoutedEventArgs e) {
+        #region Close
 
-            // Change profile name
-            String _ProfileName = Utils.RemoveSpecialCharacters(ProfileName.Text.Trim()).Trim();
-            String _ProfilePath = Path.Combine(Reference.ProfilesPath, _ProfileName);
-            if (!String.IsNullOrEmpty(_ProfileName) && Profiles.GetProfile() != _ProfileName) {
-                if (!Directory.Exists(_ProfilePath)) {
-                    Directory.Move(Profiles.GetProfilePath(), _ProfilePath);
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            SaveExit();
+        }
+
+        private bool IsClosing = false;
+        private void SaveExit() {
+
+            // If window is closing
+            if (IsClosing) { return; }
+            IsClosing = true;
+
+            // Variables
+            string _ProfileName = Profiles.GetProfile();
+            string _ProfilePath = Profiles.GetProfilePath();
+
+            // Save profile
+            if (CurrentBoard != null) {
+                CurrentBoard.SaveCommand();
+            }
+
+            #region Edit profile name
+
+            // New profile name
+            string _NewProfileName = Utils.RemoveSpecialCharacters(ProfileName.Text.Trim()).Trim();
+
+            // Profile name is different & is not empty
+            if (!string.IsNullOrEmpty(_NewProfileName) && _NewProfileName != _ProfileName) {
+
+                // New profile path
+                string _NewProfilePath = Path.Combine(Reference.ProfilesPath, _NewProfileName);
+
+                // Profile doesn't exist
+                if (!Directory.Exists(_NewProfilePath)) {
+
+                    // Edit profile name
+                    Directory.Move(_ProfilePath, _NewProfilePath);
+
+                    // Profile vars
+                    _ProfileName = _NewProfileName;
+                    _ProfilePath = _NewProfilePath;
+
                 } else {
-                    Utils.Log(String.Format(Langs.Get("profile_already_exist"), _ProfileName));
-                    _ProfileName = Profiles.GetProfile();
+                    Utils.Log(string.Format(Langs.Get("profile_already_exist"), _ProfileName));
                 }
             }
+
+            #endregion
+
+            // Clear current board (prevent crashing)
+            CurrentBoard = null;
 
             // Refresh list
             Profiles.RefreshList(null);
             // Select profile
             Profiles.Select(_ProfileName);
 
-            // Close
-            this.Close();
         }
+
+        #endregion
+
     }
 }

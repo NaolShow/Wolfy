@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -63,8 +64,6 @@ namespace Wolfy.Classes {
         /// <summary>
         /// Embed a user control in a grid
         /// </summary>
-        /// <param name="_UserControl">User control</param>
-        /// <param name="_Grid">Grid</param>
         public static void EmbedUserControl(UserControl _UserControl, Grid _Grid) {
             // Embed
             _Grid.Children.Clear();
@@ -78,8 +77,6 @@ namespace Wolfy.Classes {
         /// <summary>
         /// Checks if the Json file is correct
         /// </summary>
-        /// <param name="_Json">Json file as String</param>
-        /// <returns></returns>
         public static bool IsValidJson(String _Json) {
             try {
                 JToken.Parse(_Json);
@@ -94,9 +91,6 @@ namespace Wolfy.Classes {
         /// Deletes the values if they do not exist in the file _Updated) 
         /// Then returns a String (being the result)
         /// </summary>
-        /// <param name="_Current">Current Json file</param>
-        /// <param name="_Updated">Updated Json file</param>
-        /// <returns></returns>
         public static String MergeJson(String _Current, String _Updated) {
 
             // Retrieve both json
@@ -118,8 +112,6 @@ namespace Wolfy.Classes {
         /// <summary>
         /// Remove special characters
         /// </summary>
-        /// <param name="_String">String</param>
-        /// <returns>Removed special characters string</returns>
         public static String RemoveSpecialCharacters(String _String) {
             return Regex.Replace(_String, "[^a-zA-Z0-9_]+", " ", RegexOptions.Compiled);
         }
@@ -137,12 +129,6 @@ namespace Wolfy.Classes {
         /// <summary>
         /// Returns the name of a valid file/folder (which does not exist)
         /// </summary>
-        /// <param name="_IsFolder">Is folder?</param>
-        /// <param name="_Path">Path</param>
-        /// <param name="_BaseName">Base file/folder name</param>
-        /// <param name="_StartID">Start id</param>
-        /// <param name="_Extension">Extension just for files</param>
-        /// <returns></returns>
         public static String GetValidFileID(Boolean _IsFolder, String _Path, String _BaseName, int _StartID = 0, String _Extension = null) {
 
             while (true) {
@@ -170,6 +156,26 @@ namespace Wolfy.Classes {
 
             // Add text
             Reference.MainWindow.LogsTxt.AppendText(_Text);
+
+        }
+
+        /// <summary>
+        /// Shows an error by a label
+        /// </summary>
+        public static async void ErrorLabel(Label _Label, string _ErrorText, int _WaitInSecond = 0) {
+
+            // Show error
+            _Label.Content = _ErrorText;
+            _Label.Visibility = Visibility.Visible;
+
+            // Timer
+            if (_WaitInSecond != 0) {
+                await Task.Delay(_WaitInSecond * 1000);
+
+                // Hide
+                _Label.Visibility = Visibility.Hidden;
+                _Label.Content = null;
+            }
 
         }
 

@@ -32,6 +32,14 @@
 
         <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
 
+        <!-- Profiles container -->
+        <WrapPanel Orientation="Vertical">
+            <CheckBox Name="ProfileStartupCb" Content="{DynamicResource load_profile_startup}" Checked="ProfileStartupCb_Checked" Unchecked="ProfileStartupCb_Checked"/>
+            <ComboBox Name="ProfileStartupCombo" SelectedValuePath="Content"/>
+        </WrapPanel>
+
+        <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+
         <!-- Checkboxes -->
         <WrapPanel>
             <CheckBox Name="LaunchStartupCb" Unchecked="LaunchStartupCb_Checked" Checked="LaunchStartupCb_Checked" Content="{DynamicResource launch_startup}" Margin="0,4,8,0"/>

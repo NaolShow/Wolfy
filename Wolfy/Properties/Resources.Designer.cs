@@ -61,11 +61,51 @@ namespace Wolfy.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;Command&quot;: &quot;command.py&quot;,
+        ///	&quot;Command_vars&quot;: {
+        ///		&quot;myvar&quot;: &quot;Hello !&quot;
+        ///	}
+        ///}.
+        /// </summary>
+        internal static string command_info {
+            get {
+                return ResourceManager.GetString("command_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to print(&quot;Hey! I&apos;m a command&quot;).
         /// </summary>
         internal static string command_template {
             get {
                 return ResourceManager.GetString("command_template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] IronPythonLib {
+            get {
+                object obj = ResourceManager.GetObject("IronPythonLib", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you want to create your own language file, please take a template from the link below:
+        ///https://github.com/NaolShow/Wolfy/tree/master/Wolfy/Localization
+        ///
+        ///The language files generated directly by the application 
+        ///(in the &quot;Langs&quot; folder are in disorder and without comments. 
+        ///Which is complicated to modify the files.
+        ///
+        ///Thank you - NaolShow.
+        /// </summary>
+        internal static string lang_readme {
+            get {
+                return ResourceManager.GetString("lang_readme", resourceCulture);
             }
         }
         
@@ -76,6 +116,8 @@ namespace Wolfy.Properties {
         ///
         ///	/* ----- General ----- */
         ///	&quot;Language&quot;: null,
+        ///	&quot;Load_profile_startup&quot;: false,
+        ///	&quot;Profile_startup&quot;: null,
         ///	&quot;Check_for_updates&quot;: true,
         ///	&quot;Launch_startup&quot;: false,
         ///	&quot;Reduce_system_tray&quot;: false,
@@ -85,11 +127,12 @@ namespace Wolfy.Properties {
         ///	&quot;Color&quot;: &quot;blue&quot;,
         ///
         ///	/* ----- Recognition ----- */
-        ///	&quot;Synthesizer_voice&quot;: null,
         ///	&quot;Speech_language&quot;: null,
-        ///	&quot;Confidence&quot;: 80
+        ///	&quot;Confidence&quot;: 80,
+        ///	&quot;Recognition_at_launch&quot;: true,
         ///
-        ///}.
+        ///	/* ----- Synthesizer ----- */
+        ///	&quot;S [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string settings {
             get {

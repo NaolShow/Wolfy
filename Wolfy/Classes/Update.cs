@@ -1,11 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Wolfy.Classes {
@@ -15,45 +10,59 @@ namespace Wolfy.Classes {
         /// Checks if a new version is available. 
         /// If a new version is available, ask the user if he wants to install it, otherwise do nothing
         /// </summary>
-        /// <returns></returns>
-        public static void CheckForUpdates() {
+        public static bool CheckForUpdates(bool _AskToInstall) {
 
-            // If an update has been made, deletes the temporary files
-            if (Directory.Exists(Reference.TempUpdatePath)) {
-                Directory.Delete(Reference.TempUpdatePath, true);
-                File.Delete(Reference.TempUpdateZip);
-            }
+            try {
 
-            // Check if "Check_for_updates" is true
-            if (Reference.JsonSettings.Check_for_updates) {
+                // Delete temporary files
+                if (Directory.Exists(Reference.TempUpdatePath)) {
+                    Directory.Delete(Reference.TempUpdatePath, true);
+                    File.Delete(Reference.TempUpdateZip);
+                }
 
-                try {
-                    // Retrieve update informatios
-                    WebClient _Client = new WebClient();
-                    var UpdateDefinition = new {
-                        Latest_link = "",
-                        Latest_version = ""
-                    };
-                    var UpdateJson = JsonConvert.DeserializeAnonymousType(_Client.DownloadString(Reference.UpdateLink), UpdateDefinition);
+                // Retrieve update informations
+                WebClient _Client = new WebClient();
+                var _JsonDefinition = new {
+                    Latest_link = "",
+                    Latest_version = ""
+                };
+                string _JsonText = _Client.DownloadString(Reference.UpdateLink);
+                var _Json = JsonConvert.DeserializeAnonymousType(_JsonText, _JsonDefinition);
 
-                    // Check version
-                    if (UpdateJson.Latest_version != null && Reference.AppVersion != UpdateJson.Latest_version) {
-                        // Request permission to download and install update
-                        if (MessageBox.Show(Langs.Get("update_request"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+                // Update is valid
+                if (Reference.AppVersion != _Json.Latest_version && Utils.IsValidJson(_JsonText)) {
 
-                            // Hide splashscreen
-                            App.Current.MainWindow.Hide();
-
-                            // Show update window
-                            Windows.Update _Update = new Windows.Update(UpdateJson.Latest_link);
-                            _Update.ShowDialog();
-                        }
+                    // Ask user to install the update
+                    if (_AskToInstall) {
+                        AskToInstall(_Json.Latest_link);
                     }
+
+                    // Return
+                    return true;
+
                 }
-                catch {
-                    MessageBox.Show(Langs.Get("update_check_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+
+            } catch {
+                MessageBox.Show(Langs.Get("update_check_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            return false;
+        }
+
+        private static void AskToInstall(string _UpdateLink) {
+
+            // User want to install the update
+            if (MessageBox.Show(Langs.Get("update_request"), Reference.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+
+                // Hide splashscreen
+                App.Current.MainWindow.Hide();
+
+                // Show update window
+                Windows.Update _Update = new Windows.Update(_UpdateLink);
+                _Update.ShowDialog();
+
+            }
+
         }
 
     }

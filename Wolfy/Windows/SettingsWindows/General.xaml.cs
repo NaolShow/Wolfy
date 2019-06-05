@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using Wolfy.Classes;
 
@@ -9,7 +11,7 @@ namespace Wolfy.Windows.SettingsWindows {
         public General() {
             InitializeComponent();
 
-            // ----------------| Language |---------------- //
+            #region Language
 
             // List
             Langs.GetLanguages().ForEach(a => LangCombo.Items.Add(new ListBoxItem() { Content = a["language_display_name"], Tag = a["language_name"] }));
@@ -24,7 +26,8 @@ namespace Wolfy.Windows.SettingsWindows {
             // Translation error button
             TranslationErrorBtn.Click += delegate { System.Diagnostics.Process.Start("https://github.com/NaolShow/Wolfy/issues"); };
 
-            // ----------------| Theme |---------------- //
+            #endregion
+            #region Themes
 
             // List
             SkinManager.Themes.ForEach(a => ThemeCombo.Items.Add(new ListBoxItem() { Content = a.FirstLetterToUpperCase(), Tag = a }));
@@ -33,7 +36,8 @@ namespace Wolfy.Windows.SettingsWindows {
             // Event
             ThemeCombo.SelectionChanged += delegate { SkinManager.SetTheme(ThemeCombo.SelectedValue.ToString()); };
 
-            // ----------------| Color |---------------- //
+            #endregion
+            #region Colors
 
             // List
             SkinManager.Colors.ForEach(a => ColorCombo.Items.Add(new ListBoxItem() { Content = a.FirstLetterToUpperCase(), Tag = a }));
@@ -42,13 +46,45 @@ namespace Wolfy.Windows.SettingsWindows {
             // Event
             ColorCombo.SelectionChanged += delegate { SkinManager.SetColor(ColorCombo.SelectedValue.ToString()); };
 
-            // ----------------| Checkboxes |---------------- //
+            #endregion
+
+            #region Profile Startup
+
+            // Value
+            Profiles.GetProfiles().ToList().ForEach(a => ProfileStartupCombo.Items.Add(new ListBoxItem() { Content = Path.GetFileNameWithoutExtension(a) }));
+            ProfileStartupCombo.SelectedValue = Reference.JsonSettings.Profile_startup;
+            ProfileStartupCombo.IsEnabled = Reference.JsonSettings.Load_profile_startup;
+
+            ProfileStartupCb.IsChecked = Reference.JsonSettings.Load_profile_startup;
+
+            // Event
+            ProfileStartupCombo.SelectionChanged += delegate {
+                Reference.JsonSettings.Profile_startup = ProfileStartupCombo.SelectedValue.ToString();
+            };
+
+            #endregion
+
+            #region Checkboxes
 
             LaunchStartupCb.IsChecked = Reference.JsonSettings.Launch_startup;
             CheckUpdateCb.IsChecked = Reference.JsonSettings.Check_for_updates;
             SystemTrayCb.IsChecked = Reference.JsonSettings.Reduce_system_tray;
 
+            #endregion
+
         }
+
+        #region Profile Startup
+
+        // Profile at startup
+        private void ProfileStartupCb_Checked(object sender, RoutedEventArgs e) {
+            Reference.JsonSettings.Load_profile_startup = ProfileStartupCb.IsChecked.Value;
+
+            // Enable/Disable combobox
+            ProfileStartupCombo.IsEnabled = ProfileStartupCb.IsChecked.Value;
+        }
+
+        #endregion
 
         #region Checkboxes
 

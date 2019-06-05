@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Wolfy.Classes;
+using Wolfy.Classes.Recognition;
 using Wolfy.Windows.ProfilesWindows;
 
 namespace Wolfy.Windows {
@@ -12,27 +13,31 @@ namespace Wolfy.Windows {
         public Main() {
             InitializeComponent();
 
-            // ----------------| Auto scroll |---------------- //
-
+            // Logs autoscroll
             LogsTxt.TextChanged += delegate {
                 LogsTxt.ScrollToEnd();
             };
 
-            // ----------------| Menu |---------------- //
+            #region Profiles menu
 
-            // Main menu
+            // Open menu
             MoreBtn.Click += delegate {
+
+                // Translate items (don't work in XAML)
+                CreateBtn.Header = Langs.Get("create_profile");
+                RemoveBtn.Header = Langs.Get("remove_profile");
+
                 MoreBtn.ContextMenu.IsOpen = true;
             };
 
             // Create | Remove
             CreateBtn.Click += delegate {
 
-                // Get profile
-                String _ProfilePath = Utils.GetValidFileID(true, Reference.ProfilesPath, "Profile", 0);
-                String _ProfileName = Path.GetFileNameWithoutExtension(_ProfilePath);
+                // Profile informations
+                string _ProfilePath = Utils.GetValidFileID(true, Reference.ProfilesPath, Langs.Get("default_profile_name"), 0);
+                string _ProfileName = Path.GetFileNameWithoutExtension(_ProfilePath);
 
-                // Create
+                // Create profile
                 Directory.CreateDirectory(_ProfilePath);
                 ProfilesCombo.Items.Add(new ListBoxItem() { Content = _ProfileName });
 
@@ -54,76 +59,77 @@ namespace Wolfy.Windows {
 
             };
 
-        }
+            #endregion
 
-        #region Menu buttons
+            #region Top menu
 
-        // Edit profile
-        private void EditProfileBtn_Click(object sender, RoutedEventArgs e) {
+            EditProfileBtn.Click += delegate {
 
-            // Check if there is a profile
-            if (Profiles.GetProfile() != null && Profiles.GetProfiles().Count() > 0) {
+                string _ProfileName = Profiles.GetProfile();
 
-                // Get current profile name
-                String _CurrentProfile = Profiles.GetProfile();
+                // A profile is selected
+                if (_ProfileName != null) {
 
-                // Profile exist
-                if (Profiles.Exist(_CurrentProfile)) {
+                    // Profile exist
+                    if (Profiles.Exist(_ProfileName)) {
 
-                    // Show profile window
-                    ProfileWindow _ProfileWindow = new ProfileWindow(_CurrentProfile);
-                    _ProfileWindow.ShowDialog();
+                        // Disable recognition
+                        Boolean _Rec = SpeechRecognition.State;
+                        SpeechRecognition.State = false;
+
+                        // Window
+                        ProfileWindow _ProfileWindow = new ProfileWindow(_ProfileName);
+                        _ProfileWindow.ShowDialog();
+
+                        // Recognition
+                        SpeechRecognition.State = _Rec;
+
+                    } else {
+                        Utils.Log(string.Format(Langs.Get("profile_doesnt_exist"), _ProfileName));
+                        Profiles.RefreshList(false);
+                    }
 
                 } else {
-                    Utils.Log(String.Format(Langs.Get("profile_doesnt_exist"), _CurrentProfile));
+                    Utils.Log(string.Format(Langs.Get("no_profile")));
                     Profiles.RefreshList(false);
                 }
 
-            } else {
-                Utils.Log(String.Format(Langs.Get("no_profile")));
-                Profiles.RefreshList(false);
-            }
+            };
 
-        }
+            SettingsBtn.Click += delegate {
 
-        // Settings button
-        private void SettingsBtn_Click(object sender, RoutedEventArgs e) {
+                // Window
+                SettingsWindow _Settings = new SettingsWindow();
+                _Settings.ShowDialog();
 
-            // Show settings window
-            SettingsWindow _settings = new SettingsWindow();
-            _settings.ShowDialog();
+            };
 
-        }
+            MicrophoneBtn.Click += delegate {
 
-        // Microphone button
-        private void MicrophoneBtn_Click(object sender, RoutedEventArgs e) {
+                // If profile has commands
+                if (Profiles.GetProfileCommands().Count() > 0) {
 
-            // If profile has commands
-            if (Profiles.GetProfileCommands().Count() > 0) {
+                    // Switch microphone state
+                    SpeechRecognition.State = !SpeechRecognition.State;
+                    Utils.Log(Langs.Get((SpeechRecognition.State) ? "microphone_enabled" : "microphone_disabled"));
 
-                // If microphone is active
-                if (MicrophoneIcon.Kind.ToString() == "MicrophoneVariant") {
-                    Classes.Recognition.SpeechRecognition.State = false;
-                    Utils.Log(Langs.Get("microphone_disabled"));
                 } else {
-                    Classes.Recognition.SpeechRecognition.State = true;
-                    Utils.Log(Langs.Get("microphone_enabled"));
+                    Utils.Log(Langs.Get("microphone_no_commands"));
                 }
 
-            } else {
-                Utils.Log(Langs.Get("microphone_no_commands"));
-            }
+            };
+
+            StopCommandsBtn.Click += delegate {
+
+                // Stop text to speech
+                Classes.Recognition.Synthesizer.SpeechSynthesizer.SpeakAsyncCancelAll();
+                Utils.Log(Langs.Get("commands_stopped"));
+
+            };
+
+            #endregion
 
         }
-
-        // Stop commands
-        private void StopCommands_Click(object sender, RoutedEventArgs e) {
-            // Stop text to speech
-            Classes.Recognition.Synthesizer.synthesizer.SpeakAsyncCancelAll();
-            Utils.Log(Langs.Get("commands_stopped"));
-        }
-
-        #endregion
 
         // Needed to close the app process
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {

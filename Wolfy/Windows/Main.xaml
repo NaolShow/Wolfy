@@ -26,21 +26,21 @@
 
             <Button.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Name="CreateBtn" Icon="{materialDesign:PackIcon AddBox}" Header="{DynamicResource create_profile}"/>
-                    <MenuItem Name="RemoveBtn" Icon="{materialDesign:PackIcon MinusBox}" Header="{DynamicResource remove_profile}"/>
+                    <MenuItem Name="CreateBtn" Icon="{materialDesign:PackIcon AddBox}"/>
+                    <MenuItem Name="RemoveBtn" Icon="{materialDesign:PackIcon MinusBox}"/>
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
-        <Button Name="EditProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="339,15,0,0" VerticalAlignment="Top" Width="28" Height="27" Click="EditProfileBtn_Click">
+        <Button Name="EditProfileBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="339,15,0,0" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Kind="Edit" Margin="-6" Height="32" Width="32"/>
         </Button>
-        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27" Click="SettingsBtn_Click">
+        <Button Name="SettingsBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Kind="SettingsOutline" Margin="-6" Height="32" Width="32"/>
         </Button>
-        <Button Name="MicrophoneBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27" Click="MicrophoneBtn_Click">
+        <Button Name="MicrophoneBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Name="MicrophoneIcon" Kind="MicrophoneVariant" Margin="-6" Height="32" Width="32"/>
         </Button>
-        <Button Name="StopCommands" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27" Click="StopCommands_Click">
+        <Button Name="StopCommandsBtn" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="27">
             <materialDesign:PackIcon Kind="Stop" Margin="-6" Height="32" Width="32"/>
         </Button>
 

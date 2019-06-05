@@ -1,23 +1,23 @@
-﻿using System;
-
-namespace Wolfy.Files.Json {
+﻿namespace Wolfy.Files.Json {
     public class JsonSettings {
 
         // General
-        public String Language { get; set; }
-        public Boolean Check_for_updates { get; set; }
-        public Boolean Launch_startup { get; set; }
-        public Boolean Reduce_system_tray { get; set; }
+        public string Language { get; set; }
+        public bool Load_profile_startup { get; set; }
+        public string Profile_startup { get; set; }
+        public bool Check_for_updates { get; set; }
+        public bool Launch_startup { get; set; }
+        public bool Reduce_system_tray { get; set; }
 
         // Recognition
-        public String Synthesizer_voice { get; set; }
-        public String Speech_language { get; set; }
+        public string Synthesizer_voice { get; set; }
+        public string Speech_language { get; set; }
         public float Confidence { get; set; }
-        public Boolean Recognition_at_launch { get; set; }
+        public bool Recognition_at_launch { get; set; }
 
         // Material design
-        public String Color { get; set; }
-        public String Theme { get; set; }
+        public string Color { get; set; }
+        public string Theme { get; set; }
 
     }
 }

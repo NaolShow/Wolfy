@@ -19,6 +19,11 @@
     <sys:String x:Key="wolfy_loaded">Wolfy ist jetzt geladen!</sys:String>
     <sys:String x:Key="cancel">Abbrechen</sys:String>
     <sys:String x:Key="ok">OK</sys:String>
+    <sys:String x:Key="apply">Anwenden</sys:String>
+
+    <sys:String x:Key="name">Name</sys:String>
+    <sys:String x:Key="value">Wert</sys:String>
+    <sys:String x:Key="add">Hinzufügen</sys:String>
 
     <!-- Updates -->
     <sys:String x:Key="update_request">Eine neue Version der Software ist verfügbar.\n Möchten Sie es installieren?</sys:String>
@@ -28,17 +33,24 @@
     <sys:String x:Key="update_install_error">Bei der Installation des Updates ist ein Fehler aufgetreten.\n (Fehlende Dateien und/oder keine Zugriffsrechte)</sys:String>
 
     <!-- Profiles -->
+    <sys:String x:Key="default_profile_name">Profil</sys:String>
     <sys:String x:Key="profile_name">Profilname</sys:String>
     <sys:String x:Key="create_profile">Profil erstellen</sys:String>
     <sys:String x:Key="remove_profile">Profil entfernen</sys:String>
     <sys:String x:Key="remove_profile_confirm">Möchten Sie dieses Profil wirklich löschen?</sys:String>
 
+    <sys:String x:Key="default_command_name">Befehl</sys:String>
     <sys:String x:Key="create_command">Befehl Create</sys:String>
     <sys:String x:Key="remove_command">Befehl entfernen</sys:String>
     <sys:String x:Key="remove_command_confirm">Möchten Sie diesen Befehl wirklich löschen?</sys:String>
 
+    <sys:String x:Key="command_name">Befehlsname</sys:String>
+    <sys:String x:Key="command_already_exist">Dieser Befehlsname wird bereits verwendet !</sys:String>
+    <sys:String x:Key="variable_already_exist">Dieser Variablenname wird bereits verwendet !</sys:String>
+
     <sys:String x:Key="no_profile">Es sind keine Profile vorhanden.</sys:String>
     <sys:String x:Key="profile_doesnt_exist">Das ausgewählte Profil ist nicht vorhanden</sys:String>
+    <sys:String x:Key="profile_already_exist">Es existiert bereits ein Profil mit diesem Namen</sys:String>
 
     <sys:String x:Key="profile_loaded">Das Profil '{0}' wird nun mit '{1}' Befehlen geladen</sys:String>
     <sys:String x:Key="commands_stopped">Alle Befehle wurden gestoppt.</sys:String>
@@ -70,6 +82,8 @@
     <sys:String x:Key="translation_error">Übersetzungsfehler?</sys:String>
     <sys:String x:Key="theme">Thema:</sys:String>
     <sys:String x:Key="color">Farbe:</sys:String>
+
+    <sys:String x:Key="load_profile_startup">Beim Start ein Profil auswählen</sys:String>
 
     <sys:String x:Key="launch_startup">Starten Sie die Software beim Start.</sys:String>
     <sys:String x:Key="check_for_updates">Nach Updates beim Start suchen</sys:String>

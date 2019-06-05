@@ -20,8 +20,8 @@
         </Grid.ColumnDefinitions>
         <ProgressBar Name="ProgressBar" HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="620" Margin="0,10,0,0"/>
         <Grid HorizontalAlignment="Left" Height="56" Margin="10,55,0,0" VerticalAlignment="Top" Width="694">
-            <Button Name="CancelBtn" Style="{DynamicResource MaterialDesignRaisedLightButton}" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Margin="200,0,0,0" Click="CancelBtn_Click"/>
-            <Button Name="InstallBtn" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Install" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Margin="-200,0,0,0" Click="InstallBtn_Click"/>
+            <Button Name="CancelBtn" Style="{DynamicResource MaterialDesignRaisedLightButton}" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Margin="200,0,0,0"/>
+            <Button Name="InstallBtn" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Install" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Margin="-200,0,0,0"/>
         </Grid>
     </Grid>
 </Window>

@@ -10,12 +10,10 @@ using System.Windows.Threading;
 using Wolfy.Classes;
 
 namespace Wolfy.Windows {
-    /// <summary>
-    /// Interaction logic for Update.xaml
-    /// </summary>
+
     public partial class Update : Window {
 
-        // ----------------| Variables |---------------- //
+        // |-------[ Variables ]-------| //
         private static WebClient Client;
         private static DispatcherTimer Timer;
         private static String LatestLink;
@@ -26,13 +24,33 @@ namespace Wolfy.Windows {
         public Update(String _LatestLink) {
             InitializeComponent();
 
-            // Variables
+            // Initialization
             Client = new WebClient();
             Timer = new DispatcherTimer();
             LatestLink = _LatestLink;
+
+
+            #region Buttons events
+
+            InstallBtn.Click += delegate {
+
+                // Force install
+                Install();
+
+            };
+            CancelBtn.Click += delegate {
+
+                Client.CancelAsync();
+                Utils.RestartApplication();
+
+            };
+
+            #endregion
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
+
             // Init text
             this.Title = String.Format(Langs.Get("update_downloading"), 0, 0, 0);
             InstallBtn.Content = String.Format(Langs.Get("update_install"), "..");
@@ -40,13 +58,13 @@ namespace Wolfy.Windows {
             // Init
             Client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(DownloadFileCompleted);
             Client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            InstallTime++;
             // Timer
             Timer.Tick += new EventHandler(ElapsedTime);
             Timer.Interval = new TimeSpan(0, 0, 1);
             // Download
             Uri _Uri = new Uri(LatestLink);
             Client.DownloadFileAsync(_Uri, Reference.TempUpdateZip);
+
         }
 
         #region Download
@@ -73,63 +91,47 @@ namespace Wolfy.Windows {
             InstallTime--;
             InstallBtn.Content = String.Format(Langs.Get("update_install"), InstallTime);
             // Install
-            Install();
-        }
+            if (InstallTime == 0) {
+                Install();
+            }
 
-        #endregion
-
-        #region Window
-
-        private void InstallBtn_Click(object sender, RoutedEventArgs e) {
-            // Force install
-            InstallTime = 0;
-            Install();
-        }
-
-        private void CancelBtn_Click(object sender, RoutedEventArgs e) {
-            Client.CancelAsync();
-            Utils.RestartApplication();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            Utils.RestartApplication();
         }
 
         #endregion
 
         private void Install() {
-            if (InstallTime == 0) {
-                // Stop timer
-                Timer.Stop();
 
-                try {
-                    // Extract files
-                    ZipFile.ExtractToDirectory(Reference.TempUpdateZip, Reference.TempUpdatePath);
-                    // Start install
-                    if (File.Exists(Reference.TempUpdateFile)) {
+            // Stop timer
+            Timer.Stop();
 
-                        Process _Update = new Process();
-                        _Update.StartInfo.FileName = Reference.TempUpdateFile;
-                        _Update.StartInfo.Arguments = String.Format(" /sp- /silent /nocancel /norestart /closeapplications /restartapplications /dir=\"{0}\"", Reference.AppPath);
-                        _Update.Start();
+            try {
+                // Extract files
+                ZipFile.ExtractToDirectory(Reference.TempUpdateZip, Reference.TempUpdatePath);
+                // Check files
+                if (File.Exists(Reference.TempUpdateFile)) {
 
-                    }
-                    else {
-                        MessageBox.Show(Langs.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
-                        Utils.CloseApplication();
-                    }
-                }
-                catch {
+                    // Start setup
+                    Process _Update = new Process();
+                    _Update.StartInfo.FileName = Reference.TempUpdateFile;
+                    _Update.StartInfo.Arguments = String.Format(" /sp- /silent /nocancel /norestart /closeapplications /restartapplications /dir=\"{0}\"", Reference.AppPath);
+                    _Update.Start();
+
+                } else {
                     MessageBox.Show(Langs.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                finally {
                     Utils.CloseApplication();
                 }
+            } catch {
+                MessageBox.Show(Langs.Get("update_install_error"), Reference.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+            } finally {
+                Utils.CloseApplication();
             }
+
         }
 
-        // Translation event
-        public void OnTranslation() {
+        // Cancel & restart
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            Utils.RestartApplication();
         }
+
     }
 }

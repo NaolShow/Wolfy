@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,13 +11,16 @@ namespace Wolfy.Windows {
         public SettingsWindow() {
             InitializeComponent();
 
-            // ----------------| Menu |---------------- //
-            Dictionary<String, UserControl> _Menus = new Dictionary<String, UserControl>() {
+            #region Menu
+
+            // KEY: Translation key, VALUE: Window
+            Dictionary<string, UserControl> _Menus = new Dictionary<string, UserControl>() {
                 { "general", new SettingsWindows.General() },
                 { "recognition", new SettingsWindows.Recognition() }
             };
 
-            foreach (KeyValuePair<String, UserControl> _Pair in _Menus) {
+            // Add items to menu
+            foreach (KeyValuePair<string, UserControl> _Pair in _Menus) {
                 // Item
                 ListBoxItem _Item = new ListBoxItem();
                 _Item.SetResourceReference(ListBoxItem.ContentProperty, _Pair.Key);
@@ -30,6 +32,9 @@ namespace Wolfy.Windows {
 
             // Embed first of list
             Utils.EmbedUserControl(_Menus.Values.First(), Grid);
+
+            #endregion
+
         }
 
         // Close settings window

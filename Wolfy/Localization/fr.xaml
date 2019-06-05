@@ -19,6 +19,11 @@
     <sys:String x:Key="wolfy_loaded">Wolfy est maintenant chargé!</sys:String>
     <sys:String x:Key="cancel">Annuler</sys:String>
     <sys:String x:Key="ok">OK</sys:String>
+    <sys:String x:Key="apply">Appliquer</sys:String>
+
+    <sys:String x:Key="name">Nom</sys:String>
+    <sys:String x:Key="value">Valeur</sys:String>
+    <sys:String x:Key="add">Ajouter</sys:String>
 
     <!-- Updates -->
     <sys:String x:Key="update_request">Une nouvelle version du logiciel est disponible.\n Voulez vous l'installer ?</sys:String>
@@ -28,17 +33,24 @@
     <sys:String x:Key="update_install_error">Une erreur est survenue lors de l'installation de la mise à jours.\n (Fichiers manquants et/ou aucun droits d'accès)</sys:String>
 
     <!-- Profiles -->
+    <sys:String x:Key="default_profile_name">Profil</sys:String>
     <sys:String x:Key="profile_name">Nom du profil</sys:String>
     <sys:String x:Key="create_profile">Créer un profil</sys:String>
     <sys:String x:Key="remove_profile">Enlever le profil</sys:String>
     <sys:String x:Key="remove_profile_confirm">Voulez vous vraiment supprimer ce profil ?</sys:String>
 
+    <sys:String x:Key="default_command_name">Commande</sys:String>
     <sys:String x:Key="create_command">Créer une commande</sys:String>
     <sys:String x:Key="remove_command">Supprimer la commande</sys:String>
     <sys:String x:Key="remove_command_confirm">Voulez-vous vraiment supprimer cette commande ?</sys:String>
 
+    <sys:String x:Key="command_name">Nom de la commande</sys:String>
+    <sys:String x:Key="command_already_exist">Le nom de cette commande est déjà utilisé !</sys:String>
+    <sys:String x:Key="variable_already_exist">Ce nom de variable est déjà utilisé !</sys:String>
+
     <sys:String x:Key="no_profile">Il y a aucun profil existant</sys:String>
     <sys:String x:Key="profile_doesnt_exist">Le profil sélectionné n'existe pas</sys:String>
+    <sys:String x:Key="profile_already_exist">Un profil existe déjà avec ce nom</sys:String>
 
     <sys:String x:Key="profile_loaded">Le profil '{0}' est maintenant chargé avec '{1}' commandes</sys:String>
     <sys:String x:Key="commands_stopped">Toutes les commandes ont été arrêtées</sys:String>
@@ -71,6 +83,8 @@
     <sys:String x:Key="theme">Thème:</sys:String>
     <sys:String x:Key="color">Couleur:</sys:String>
 
+    <sys:String x:Key="load_profile_startup">Sélectionner un profil au démarrage</sys:String>
+
     <sys:String x:Key="launch_startup">Lancer le logiciel au démarrage</sys:String>
     <sys:String x:Key="check_for_updates">Vérifier les mises à jours au lancement</sys:String>
     <sys:String x:Key="system_tray_startup">Réduire à la barre d'état système</sys:String>
@@ -80,6 +94,6 @@
     <sys:String x:Key="recognition_at_launch">Activer la reconnaissance vocale au lancement</sys:String>
 
     <sys:String x:Key="synthesizer">Synthétiseur</sys:String>
-    <sys:String x:Key="voice">Voix</sys:String>
+    <sys:String x:Key="voice">Voix:</sys:String>
 
 </ResourceDictionary>

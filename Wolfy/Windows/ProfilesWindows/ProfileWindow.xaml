@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wolfy.Windows.ProfilesWindows"
         mc:Ignorable="d"
-        Title="PROFILE" Height="480" Width="720"
+        Title="PROFILE" Height="560" Width="800"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -14,14 +14,14 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}" 
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
 
         <!-- ScrollViewer -->
         <ListBox Name="CommandsBox" Margin="0,0,0,32" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch">
 
             <ListBox.ContextMenu>
-                <ContextMenu>
+                <ContextMenu Name="CommandMenu">
                     <MenuItem Name="CreateCommand" Icon="{materialDesign:PackIcon AddBox}" Header="{DynamicResource create_command}"/>
                     <MenuItem Name="RemoveCommand" Icon="{materialDesign:PackIcon MinusBox}" Header="{DynamicResource remove_command}"/>
                 </ContextMenu>
@@ -41,8 +41,8 @@
 
             <!-- Right -->
             <WrapPanel HorizontalAlignment="Right">
-                <TextBox Name="ProfileName" materialDesign:HintAssist.Hint="{DynamicResource profile_name}" Margin="5,5,5,5" Width="200"></TextBox>
-                <Button Name="OkBtn" Content="{DynamicResource ok}" Style="{DynamicResource MaterialDesignFlatButton}" Click="OkBtn_Click"/>
+                <TextBox Name="ProfileName" MaxLength="128" materialDesign:HintAssist.Hint="{DynamicResource profile_name}" Margin="5,5,5,5" Width="200"></TextBox>
+                <Button Name="OkBtn" Content="{DynamicResource ok}" Style="{DynamicResource MaterialDesignFlatButton}"/>
             </WrapPanel>
 
         </DockPanel>

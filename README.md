@@ -9,7 +9,8 @@ Wolfy was created in C#, so it is available on: [(You must have .NET Framework)]
 - Linux/Mac with the Mono project                                
                                                                                                                                                                          
 You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube         
-         
+You can come on our discord server: https://discord.gg/m7CZ6md                                                                   
+
 ### Images
 
 ##### Light Theme

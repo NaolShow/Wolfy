@@ -5,9 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wolfy.Windows.ProfilesWindows"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="530">
-    <StackPanel>
-        <!-- Temporary -->
-        <Label Name="CommandName"/>
-    </StackPanel>
+             d:DesignHeight="400" d:DesignWidth="530"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}" >
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+        <StackPanel>
+
+            <!-- Command -->
+            <WrapPanel>
+                <!-- Name -->
+                <TextBox materialDesign:HintAssist.Hint="{DynamicResource command_name}" Name="CommandNameBox" Width="180"/>
+                <!-- Apply -->
+                <Button Name="ApplyCommandBtn" Margin="8,0,0,0" Content="{DynamicResource apply}"/>
+            </WrapPanel>
+            
+            <Label Margin="8" Foreground="Red" Name="CommandErrorLabel"/>
+
+            <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+
+            <!-- Command variables -->
+            <ScrollViewer Margin="10,10,10,0" Height="280" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+                <StackPanel Name="VarsPanel"/>
+
+            </ScrollViewer>
+            
+            <Border Margin="0,16,0,16" Height="1" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
+
+            <!-- Add variables -->
+            <WrapPanel>
+                <!-- Key -->
+                <TextBox materialDesign:HintAssist.Hint="{DynamicResource name}" Name="KeyVariableBox" Width="180"/>
+                <!-- Separator -->
+                <Label Content="  :  " VerticalContentAlignment="Bottom"/>
+                <!-- Value -->
+                <TextBox materialDesign:HintAssist.Hint="{DynamicResource value}" Name="ValueVariableBox" Width="180"/>
+                <!-- Add -->
+                <Button Name="CommandAddBtn" Margin="16,0,0,0" Content="{DynamicResource add}"/>
+            </WrapPanel>
+
+            <Label Margin="8" Foreground="Red" Name="CommandAddError"/>
+
+        </StackPanel>
+
+    </ScrollViewer>
+
 </UserControl>

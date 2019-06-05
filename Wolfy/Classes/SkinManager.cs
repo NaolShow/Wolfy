@@ -6,7 +6,9 @@ using System.Windows;
 namespace Wolfy.Classes {
     public static class SkinManager {
 
-        // ----------------| Variables |---------------- //
+        // |-------[ Variables ]-------| //
+
+        #region Colors
 
         // The colours are linked together (PRIMARY Amber with ACCENT Amber)..
         public static readonly List<String> Colors = new List<String>() {
@@ -28,19 +30,22 @@ namespace Wolfy.Classes {
             "yellow"
         };
 
+        #endregion
+        #region Themes
+
         public static readonly List<String> Themes = new List<String>() {
             "light",
             "dark"
         };
 
+        #endregion
+
         /// <summary>
-        /// Apply the theme (This function checks if the theme exists, 
-        /// if it does not exist, the default theme is applied)
+        /// Apply the theme
         /// </summary>
-        /// <param name="_Theme">Theme name</param>
         public static void SetTheme(String _Theme) {
 
-            // If the theme does not exist, apply the default theme
+            // Theme is not valid
             _Theme = _Theme.ToLower();
             if (!Themes.Contains(_Theme))
                 _Theme = "light";
@@ -53,13 +58,11 @@ namespace Wolfy.Classes {
         }
 
         /// <summary>
-        /// Set the color (This function checks if the color exists, 
-        /// if it does not exist, the default color is applied)
+        /// Set the color
         /// </summary>
-        /// <param name="_Color">Color name</param>
         public static void SetColor(String _Color) {
 
-            // If the color does not exist, apply the default color
+            // Color is not valid
             _Color = _Color.ToLower();
             if (!Colors.Contains(_Color))
                 _Color = "deeppurple";
@@ -73,7 +76,6 @@ namespace Wolfy.Classes {
 
         /// <summary>
         /// Applies the theme and color defined in the settings (Reference.JsonSettings.Color/Theme)
-        /// Warning: No verification of the existence of the theme/color
         /// </summary>
         public static void ApplySkin() {
 

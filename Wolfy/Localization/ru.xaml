@@ -19,7 +19,12 @@
     <sys:String x:Key="wolfy_loaded">Wolfy заряжен!</sys:String>
     <sys:String x:Key="cancel">Отмена</sys:String>
     <sys:String x:Key="ok">ХОРОШО</sys:String>
+    <sys:String x:Key="apply">Применить</sys:String>
 
+    <sys:String x:Key="name">Имя</sys:String>
+    <sys:String x:Key="value">Значение</sys:String>
+    <sys:String x:Key="add">Добавить</sys:String>
+    
     <!-- Updates -->
     <sys:String x:Key="update_request">Доступна новая версия программного обеспечения.\n Хотите установить его?</sys:String>
     <sys:String x:Key="update_downloading">Загрузка {0}/{1} [{2}%]</sys:String>
@@ -28,17 +33,24 @@
     <sys:String x:Key="update_install_error">Во время установки обновления произошла ошибка.\n (Отсутствующие файлы и/или права доступа отсутствуют)</sys:String>
 
     <!-- Profiles -->
+    <sys:String x:Key="default_profile_name">Profil</sys:String>
     <sys:String x:Key="profile_name">Имя профиля</sys:String>
     <sys:String x:Key="create_profile">Создать профиль</sys:String>
     <sys:String x:Key="remove_profile">Удалить профиль</sys:String>
     <sys:String x:Key="remove_profile_confirm">Вы действительно хотите удалить этот профиль?</sys:String>
 
+    <sys:String x:Key="default_command_name">Command</sys:String>
     <sys:String x:Key="create_command">Создать команду</sys:String>
     <sys:String x:Key="remove_command">Удалить команду</sys:String>
     <sys:String x:Key="remove_command_confirm">Вы действительно хотите удалить эту команду?</sys:String>
 
+    <sys:String x:Key="command_name">Имя команды</sys:String>
+    <sys:String x:Key="command_already_exist">Это имя команды уже используется !</sys:String>
+    <sys:String x:Key="variable_already_exist">Имя переменной уже используется !</sys:String>
+
     <sys:String x:Key="no_profile">Существующих профилей нет</sys:String>
     <sys:String x:Key="profile_doesnt_exist">Выбранный профиль не существует</sys:String>
+    <sys:String x:Key="profile_already_exist">Профиль с таким именем уже существует</sys:String>
 
     <sys:String x:Key="profile_loaded">Профиль '{0}' теперь загружен командами '{1}'</sys:String>
     <sys:String x:Key="commands_stopped">Все команды были остановлены.</sys:String>
@@ -70,6 +82,8 @@
     <sys:String x:Key="translation_error">Ошибка перевода?</sys:String>
     <sys:String x:Key="theme">Тема:</sys:String>
     <sys:String x:Key="color">Цвет:</sys:String>
+
+    <sys:String x:Key="load_profile_startup">Выбор профиля при вводе в эксплуатацию</sys:String>
 
     <sys:String x:Key="launch_startup">Запуск программного обеспечения при запуске</sys:String>
     <sys:String x:Key="check_for_updates">Проверьте наличие обновлений при запуске</sys:String>

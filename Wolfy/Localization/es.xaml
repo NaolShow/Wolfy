@@ -19,6 +19,11 @@
     <sys:String x:Key="wolfy_loaded">¡Wolfy está cargado!</sys:String>
     <sys:String x:Key="cancel">Cancelar</sys:String>
     <sys:String x:Key="ok">OK</sys:String>
+    <sys:String x:Key="apply">Aplicar</sys:String>
+
+    <sys:String x:Key="name">Nombre</sys:String>
+    <sys:String x:Key="value">Valor</sys:String>
+    <sys:String x:Key="add">Añadir</sys:String>
 
     <!-- Updates -->
     <sys:String x:Key="update_request">Una nueva versión del software está disponible.\n ¿Desea instalarlo?</sys:String>
@@ -28,17 +33,24 @@
     <sys:String x:Key="update_install_error">Se ha producido un error durante la instalación de la actualización.\n (Faltan archivos y/o no hay derechos de acceso)</sys:String>
 
     <!-- Profiles -->
+    <sys:String x:Key="default_profile_name">Perfil</sys:String>
     <sys:String x:Key="profile_name">Nombre del perfil</sys:String>
     <sys:String x:Key="create_profile">Crear perfil</sys:String>
     <sys:String x:Key="remove_profile">Eliminar perfil</sys:String>
     <sys:String x:Key="remove_profile_confirm">¿Realmente quieres borrar este perfil?</sys:String>
 
+    <sys:String x:Key="default_command_name">Comando</sys:String>
     <sys:String x:Key="create_command">Crear comando</sys:String>
     <sys:String x:Key="remove_command">Eliminar comando</sys:String>
     <sys:String x:Key="remove_command_confirm">¿Realmente quieres borrar este comando?</sys:String>
 
+    <sys:String x:Key="command_name">Nombre del comando</sys:String>
+    <sys:String x:Key="command_already_exist">Este nombre de comando ya se utiliza!</sys:String>
+    <sys:String x:Key="variable_already_exist">Este nombre de variable ya se utiliza!</sys:String>
+
     <sys:String x:Key="no_profile">No hay perfiles existentes</sys:String>
     <sys:String x:Key="profile_doesnt_exist">El perfil seleccionado no existe</sys:String>
+    <sys:String x:Key="profile_already_exist">Ya existe un perfil con este nombre</sys:String>
 
     <sys:String x:Key="profile_loaded">El perfil '{0}' se carga ahora con los comandos '{1}'</sys:String>
     <sys:String x:Key="commands_stopped">Todos los comandos se han detenido</sys:String>
@@ -70,6 +82,8 @@
     <sys:String x:Key="translation_error">¿Error de traducción?</sys:String>
     <sys:String x:Key="theme">Tema:</sys:String>
     <sys:String x:Key="color">Color:</sys:String>
+
+    <sys:String x:Key="load_profile_startup">Seleccione un perfil al inicio</sys:String>
 
     <sys:String x:Key="launch_startup">Inicie el software al iniciar el sistema</sys:String>
     <sys:String x:Key="check_for_updates">Buscar actualizaciones en el lanzamiento</sys:String>
