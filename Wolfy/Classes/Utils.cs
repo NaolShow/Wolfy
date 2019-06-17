@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -110,10 +109,10 @@ namespace Wolfy.Classes {
         #region Files
 
         /// <summary>
-        /// Remove special characters
+        /// Get safe file name
         /// </summary>
-        public static String RemoveSpecialCharacters(String _String) {
-            return Regex.Replace(_String, "[^a-zA-Z0-9_]+", " ", RegexOptions.Compiled);
+        public static string GetSafeFilename(string filename) {
+            return string.Join(" ", filename.Split(Path.GetInvalidFileNameChars()));
         }
 
         public static String BytesToString(long byteCount) {

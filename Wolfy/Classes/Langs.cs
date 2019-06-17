@@ -37,8 +37,17 @@ namespace Wolfy.Classes {
                     Source = new Uri("/Localization/" + _Lang, UriKind.Relative)
                 };
 
-                // TODO: Try to preserve comments & order
-                File.WriteAllText(Path.Combine(Reference.LangsPath, _Lang), XDocument.Parse(XamlWriter.Save(_Dict)).ToString());
+                // Lang path
+                string _Path = Path.Combine(Reference.LangsPath, _Lang);
+
+                // If lang file doesn't exist, create it
+                if (!File.Exists(_Path)) {
+
+                    // TODO: Try to preserve comments & order
+                    File.WriteAllText(Path.Combine(Reference.LangsPath, _Lang), XDocument.Parse(XamlWriter.Save(_Dict)).ToString());
+
+                }
+
             }
 
             #endregion

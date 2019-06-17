@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Wolfy.Classes;
 using Wolfy.Files.Json;
 
@@ -14,39 +15,34 @@ namespace Wolfy.Windows.ProfilesWindows {
 
         // |-------[ Variables ]-------| //
         private JsonCommand Command;
+        private ListBoxItem Item;
+
+        private string NewPath;
 
         public CommandBoard(JsonCommand _Command, ListBoxItem _Item) {
             InitializeComponent();
 
-            // Save command
+            // Save
             Command = _Command;
+            Item = _Item;
 
             #region Events
 
             // Command name
             CommandNameBox.Text = Command.CommandName;
-            ApplyCommandBtn.Click += delegate {
 
-                // Command name
-                string _NewCommandPath = Path.Combine(Profiles.GetProfilePath(), CommandNameBox.Text);
-                if (Command.CommandPath != _NewCommandPath) {
+            CommandNameBox.LostFocus += delegate {
 
-                    if (!Directory.Exists(_NewCommandPath)) {
+                // Name is valid
+                string _Name = Utils.GetSafeFilename(CommandNameBox.Text.Trim());
+                string _Path = Path.Combine(Profiles.GetProfilePath(), _Name);
+                bool _Valid = (_Name == Command.CommandName || !Directory.Exists(_Path));
 
-                        // Change command name
-                        _Item.Content = CommandNameBox.Text;
-                        Command.CommandName = CommandNameBox.Text;
+                // Apply
+                NameCheckIcon.Kind = _Valid ? PackIconKind.CheckCircleOutline : PackIconKind.CloseOutline;
+                NameCheckIcon.Foreground = _Valid ? new SolidColorBrush(Colors.DarkGreen) : new SolidColorBrush(Colors.DarkRed); ;
 
-                        // Change directory
-                        Directory.Move(Command.CommandPath, _NewCommandPath);
-                        Command.CommandPath = _NewCommandPath;
-
-                    } else {
-                        Utils.ErrorLabel(CommandErrorLabel, Langs.Get("command_already_exist"), 5);
-                    }
-
-                }
-
+                NewPath = (!Directory.Exists(_Path)) ? _Path : null;
             };
 
             // Add command variable
@@ -68,7 +64,7 @@ namespace Wolfy.Windows.ProfilesWindows {
 
             #endregion
 
-            #region Lua variables
+            #region Variables
 
             // Add variables
             foreach (KeyValuePair<string, string> _Pair in Command.Command_vars) {
@@ -216,6 +212,22 @@ namespace Wolfy.Windows.ProfilesWindows {
         #endregion
 
         public void SaveCommand() {
+
+            // Command name
+            if (NewPath != null) {
+
+                // New name
+                string _Name = Path.GetFileName(NewPath);
+
+                // Change command name
+                Item.Content = _Name;
+                Command.CommandName = _Name;
+
+                // Change directory
+                Directory.Move(Command.CommandPath, NewPath);
+                Command.CommandPath = NewPath;
+
+            }
 
             // Command still exist (Prevent crashing)
             if (Directory.Exists(Command.CommandPath)) {

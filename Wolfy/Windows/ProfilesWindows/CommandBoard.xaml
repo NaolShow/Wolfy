@@ -22,9 +22,9 @@
             <!-- Command -->
             <WrapPanel>
                 <!-- Name -->
-                <TextBox materialDesign:HintAssist.Hint="{DynamicResource command_name}" Name="CommandNameBox" Width="180"/>
-                <!-- Apply -->
-                <Button Name="ApplyCommandBtn" Margin="8,0,0,0" Content="{DynamicResource apply}"/>
+                <TextBox materialDesign:HintAssist.IsFloating="True" materialDesign:HintAssist.Hint="{DynamicResource command_name}" Name="CommandNameBox" Width="180"/>
+                <!-- Check already used  -->
+                <materialDesign:PackIcon Name="NameCheckIcon" Margin="15,0" Height="Auto" Width="Auto" VerticalAlignment="Bottom" Foreground="DarkGreen" Kind="CheckCircleOutline" />
             </WrapPanel>
             
             <Label Margin="8" Foreground="Red" Name="CommandErrorLabel"/>

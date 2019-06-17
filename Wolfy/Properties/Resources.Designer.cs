@@ -108,36 +108,5 @@ namespace Wolfy.Properties {
                 return ResourceManager.GetString("lang_readme", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	// To avoid any problems, please do not manually 
-        ///	// change the settings from this file.
-        ///
-        ///	/* ----- General ----- */
-        ///	&quot;Language&quot;: null,
-        ///	&quot;Load_profile_startup&quot;: false,
-        ///	&quot;Profile_startup&quot;: null,
-        ///	&quot;Check_for_updates&quot;: true,
-        ///	&quot;Launch_startup&quot;: false,
-        ///	&quot;Reduce_system_tray&quot;: false,
-        ///
-        ///	/* ----- Visual ----- */
-        ///	&quot;Theme&quot;: &quot;light&quot;,
-        ///	&quot;Color&quot;: &quot;blue&quot;,
-        ///
-        ///	/* ----- Recognition ----- */
-        ///	&quot;Speech_language&quot;: null,
-        ///	&quot;Confidence&quot;: 80,
-        ///	&quot;Recognition_at_launch&quot;: true,
-        ///
-        ///	/* ----- Synthesizer ----- */
-        ///	&quot;S [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string settings {
-            get {
-                return ResourceManager.GetString("settings", resourceCulture);
-            }
-        }
     }
 }

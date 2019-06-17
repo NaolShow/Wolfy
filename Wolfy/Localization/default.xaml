@@ -73,7 +73,6 @@
     <sys:String x:Key="synthesizer_loaded">The voice synthesizer has been successfully loaded ({0})</sys:String>
 
     <!-- Settings -->
-    <sys:String x:Key="settings_file_error">The settings file is not in a correct/readable format.\n Do you want to reset your settings?</sys:String>
     <sys:String x:Key="settings">Settings</sys:String>
 
     <sys:String x:Key="general">General</sys:String>

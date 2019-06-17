@@ -73,7 +73,6 @@
     <sys:String x:Key="synthesizer_loaded">El sintetizador de voz se ha cargado correctamente ({0})</sys:String>
     
     <!-- Settings -->
-    <sys:String x:Key="settings_file_error">El archivo de configuración no está en un formato correcto o legible.\n ¿Desea restablecer su configuración?</sys:String>
     <sys:String x:Key="settings">Ajustes</sys:String>
 
     <sys:String x:Key="general">General</sys:String>

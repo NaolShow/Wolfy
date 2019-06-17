@@ -73,7 +73,6 @@
     <sys:String x:Key="synthesizer_loaded">Le synthétiseur vocal a été chargé avec succès ({0})</sys:String>
     
     <!-- Settings -->
-    <sys:String x:Key="settings_file_error">Le fichier des réglages n'est pas dans un format correct/lisible.\n Voulez vous réinitialiser vos paramètres ?</sys:String>
     <sys:String x:Key="settings">Paramètres</sys:String>
 
     <sys:String x:Key="general">Général</sys:String>

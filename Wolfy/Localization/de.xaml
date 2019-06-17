@@ -73,7 +73,6 @@
     <sys:String x:Key="synthesizer_loaded">Der Sprachsynthesizer wurde erfolgreich geladen. ({0})</sys:String>
     
     <!-- Settings -->
-    <sys:String x:Key="settings_file_error">Die Einstellungsdatei ist nicht in einem korrekten/lesbaren Format.\n Möchten Sie Ihre Einstellungen zurücksetzen?</sys:String>
     <sys:String x:Key="settings">Einstellungen</sys:String>
 
     <sys:String x:Key="general">Allgemeines</sys:String>

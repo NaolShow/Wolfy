@@ -11,7 +11,7 @@ Wolfy is fully open source, under the GNU General Public License v3
 
 Wolfy was created in C#, so it is available on: [(You must have .NET Framework)](https://www.microsoft.com/net/download)
 - Windows
-- Linux/Mac with the Mono project                                
+- Linux/Mac with the Mono project [MAYBE ?] - (Not tested)                               
                                                                                                                                                                          
 You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube         
 You can come on our discord server: https://discord.gg/m7CZ6md                                                                   
@@ -82,7 +82,7 @@ Warning: in this case "Software" refers to this project (Wolfy)
 I use several libraries on this project:                                                            
 - [MaterialDesign by James Willock](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)                                
 - [Newtonsoft.Json by James Newton-King](https://github.com/JamesNK/Newtonsoft.Json)                                                    
-- [MoonSharp by Xanathar](https://github.com/xanathar/moonsharp/)                                                    
+- [IronPython by IronPython](https://ironpython.net/)                                                    
 
 # Releases
                                         

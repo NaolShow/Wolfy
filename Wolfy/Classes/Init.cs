@@ -28,30 +28,26 @@ namespace Wolfy.Classes {
             SkinManager.ApplySkin();
 
             // |-------[ Updates ]-------| //
-            if (Reference.JsonSettings.Check_for_updates) {
-
-                if (!Update.CheckForUpdates(true)) {
-
-                    // |-------[ Views ]-------| //
-                    Reference.MainWindow = new Main();
-
-                    // |-------[ Recognition ]-------| //
-                    Synthesizer.Init();
-                    SpeechRecognition.Init();
-
-                    // |-------[ Profiles ]-------| //
-                    Profiles.Init();
-
-                    // Hide SplashScreen
-                    Application.Current.MainWindow.Hide();
-                    // Show MainWindow
-                    Reference.MainWindow.Show();
-
-                    Utils.Log(Langs.Get("wolfy_loaded"));
-
-                }
-
+            if (Reference.JsonSettings.Check_for_updates && Update.CheckForUpdates(true)) {
+                return;
             }
+
+            // |-------[ Views ]-------| //
+            Reference.MainWindow = new Main();
+
+            // |-------[ Recognition ]-------| //
+            Synthesizer.Init();
+            SpeechRecognition.Init();
+
+            // |-------[ Profiles ]-------| //
+            Profiles.Init();
+
+            // Hide SplashScreen
+            Application.Current.MainWindow.Hide();
+            // Show MainWindow
+            Reference.MainWindow.Show();
+
+            Utils.Log(Langs.Get("wolfy_loaded"));
 
         }
 

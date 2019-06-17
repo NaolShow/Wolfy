@@ -167,7 +167,7 @@ namespace Wolfy.Windows.ProfilesWindows {
             #region Edit profile name
 
             // New profile name
-            string _NewProfileName = Utils.RemoveSpecialCharacters(ProfileName.Text.Trim()).Trim();
+            string _NewProfileName = Utils.GetSafeFilename(ProfileName.Text.Trim()).Trim();
 
             // Profile name is different & is not empty
             if (!string.IsNullOrEmpty(_NewProfileName) && _NewProfileName != _ProfileName) {
