@@ -13,7 +13,7 @@ It therefore allows through voice to execute commands that are in fact python fi
 - Russian
 - Custom Languages
 
-![](https://i.imgur.com/nMr8gZX.gifv)
+![](https://i.imgur.com/nMr8gZX.gif)
 
 # :floppy_disk: Download
 ----------
