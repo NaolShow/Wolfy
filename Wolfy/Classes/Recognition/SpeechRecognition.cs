@@ -11,7 +11,6 @@ namespace Wolfy.Classes.Recognition {
         // |-------[ Variables ]-------| //
         public static SpeechRecognitionEngine Recognizer;
         public static RecognizerInfo RecognizerInfo;
-        public static Boolean IsReady = false;
 
         public static void Init() {
 
@@ -67,7 +66,6 @@ namespace Wolfy.Classes.Recognition {
                 #endregion
 
                 Utils.Log(string.Format(Langs.Get("recognizer_loaded"), RecognizerInfo.Culture.NativeName));
-                IsReady = true;
 
             } else {
                 Utils.Log(Langs.Get("no_speech_language"));

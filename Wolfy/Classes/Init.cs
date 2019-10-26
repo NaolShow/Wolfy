@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -13,8 +12,16 @@ namespace Wolfy.Classes {
         public static void Start() {
 
             // |-------[ Folders & Files ]-------| //
-            Folders();
-            Files();
+            if (Reference.Folders.Count() > 0) {
+
+                // Create folders
+                foreach (String _Folder in Reference.Folders) {
+                    if (!String.IsNullOrEmpty(_Folder)) {
+                        Directory.CreateDirectory(_Folder);
+                    }
+                }
+
+            }
 
             // IronPythonLib
             File.WriteAllBytes(Reference.IronModules, Resources.IronPythonLib);
@@ -28,8 +35,19 @@ namespace Wolfy.Classes {
             SkinManager.ApplySkin();
 
             // |-------[ Updates ]-------| //
-            if (Reference.JsonSettings.Check_for_updates && Update.CheckForUpdates(true)) {
-                return;
+
+            // Delete temporary files
+            Update.DeleteTemporaryFiles();
+
+            // Update is available
+            if (Reference.JsonSettings.Check_for_updates && Update.UpdateAvaible()) {
+
+                // Ask user to install it, and then install
+                if (Update.InstallUpdate(true)) {
+                    // User install the update, stop execution
+                    return;
+                }
+
             }
 
             // |-------[ Views ]-------| //
@@ -50,42 +68,6 @@ namespace Wolfy.Classes {
             Utils.Log(Langs.Get("wolfy_loaded"));
 
         }
-
-        #region Init functions
-
-        // Creates the files needed to start up
-        private static void Files() {
-
-            // Loop files
-            if (Reference.Files.Count() > 0) {
-
-                // Create file
-                foreach (KeyValuePair<String, String> _Pair in Reference.Files) {
-                    if (!String.IsNullOrEmpty(_Pair.Key) && !String.IsNullOrEmpty(_Pair.Value))
-                        File.WriteAllText(_Pair.Key, _Pair.Value);
-                }
-
-            }
-
-        }
-
-        // Creates the folders needed to start up
-        private static void Folders() {
-
-            // Loop folders
-            if (Reference.Folders.Count() > 0) {
-
-                // Create folder
-                foreach (String _Folder in Reference.Folders) {
-                    if (!String.IsNullOrEmpty(_Folder))
-                        Directory.CreateDirectory(_Folder);
-                }
-
-            }
-
-        }
-
-        #endregion
 
     }
 }

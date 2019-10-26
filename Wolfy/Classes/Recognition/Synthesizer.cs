@@ -18,13 +18,13 @@ namespace Wolfy.Classes.Recognition {
             // A voice is installed 
             if (GetInstalledVoices().Count > 0) {
 
-                IsReady = true;
-
                 // Get voice
                 SynthesizerVoice = GetVoice(Reference.JsonSettings.Synthesizer_voice);
                 Reference.JsonSettings.Synthesizer_voice = SynthesizerVoice.Id;
 
                 Utils.Log(string.Format(Langs.Get("synthesizer_loaded"), SynthesizerVoice.Culture.NativeName));
+
+                IsReady = true;
 
             } else {
                 Utils.Log(Langs.Get("synthesizer_no_voice"));

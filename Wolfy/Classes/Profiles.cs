@@ -210,6 +210,7 @@ namespace Wolfy.Classes {
 
             // Modules
             var _Paths = Engine.GetSearchPaths();
+
             _Paths.Add(Reference.ModulesPath);
             _Paths.Add(Reference.IronModules);
             Engine.SetSearchPaths(_Paths);

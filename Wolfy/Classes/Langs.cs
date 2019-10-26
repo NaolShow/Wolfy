@@ -67,7 +67,7 @@ namespace Wolfy.Classes {
         /// Returns a string from a key in the current language
         /// </summary>
         public static string Get(string _Key) {
-            return (Dictionary.Contains(_Key)) ? Dictionary[_Key].ToString() : "N/A " + _Key;
+            return (Dictionary.Contains(_Key)) ? Dictionary[_Key].ToString().Replace("\\n", Environment.NewLine) : "N/A " + _Key;
         }
 
         /// <summary>

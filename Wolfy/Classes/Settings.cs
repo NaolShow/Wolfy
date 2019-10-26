@@ -47,7 +47,6 @@ namespace Wolfy.Classes {
             if (Reference.JsonSettings.Language == null) {
 
                 string _Lang = Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
-                MessageBox.Show(_Lang);
                 // Wolfy handle this language
                 if (File.Exists(Reference.LangsPath + _Lang + ".xaml")) {
                     Reference.JsonSettings.Language = _Lang;

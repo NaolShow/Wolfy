@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using Wolfy.Files.Json;
 using Wolfy.Windows;
@@ -9,13 +8,13 @@ namespace Wolfy.Classes {
 
         /** ----------------| Useful Variables |---------------- **/
         public static readonly string AppName = Application.ResourceAssembly.GetName().Name;
-        public static readonly string AppVersion = "1.0.0";
+        public static readonly string AppVersion = "1.0.1";
         public static readonly string AppPath = System.AppDomain.CurrentDomain.BaseDirectory;
 
         /** ----------------| Windows Variables |---------------- **/
         public static Main MainWindow;
 
-        /** ----------------| Folders Variables |---------------- **/
+        /** ----------------| Update Variables |---------------- **/
         public static readonly string UpdateLink = @"https://dl.dropbox.com/s/09rmbalpk1exlr9/update.txt";
         public static readonly string TempUpdateFile = TempUpdatePath + "update.exe";
         // Update files
@@ -37,10 +36,6 @@ namespace Wolfy.Classes {
         /** ----------------| Files Variables |---------------- **/
         public static readonly String Settings = AppPath + @"Settings\settings.json";
         public static readonly String IronModules = ModulesPath + @"IronPythonLib.zip";
-
-        // These files are overwritten when the software is launched 
-        public static readonly Dictionary<String, String> Files = new Dictionary<String, String> {
-        };
 
         /** ----------------| Json Variables |---------------- **/
         public static JsonSettings JsonSettings;
