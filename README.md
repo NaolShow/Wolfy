@@ -1,29 +1,10 @@
-# WOLFY
-Wolfy, software created and developed by NaolShow
+# :wolf: Wolfy
+----------
 
-Wolfy is a speech recognition software, it will allow you to create speech commands that will execute actions you have given
-Wolfy is fully open source, under the GNU General Public License v3
+Wolfy is a free speech recognition software.
+It therefore allows through voice to execute commands that are in fact python files
 
-Wolfy was created in C#, so it is available on: [(You must have .NET Framework)](https://www.microsoft.com/net/download)
-- Windows
-- Linux/Mac with the Mono project [MAYBE ?] - (Not tested)                               
-                                                                                                                                                                         
-You can visit the YouTube channel of ToWolf: http://bit.ly/ToWolf_Youtube         
-You can come on our discord server: https://discord.gg/m7CZ6md                                                                   
-
-### Images
-
-##### Light Theme
-
-![Light Blue](https://i.imgur.com/bl7EIZb.png)
-![Light Blue2](https://i.imgur.com/ThmxzEm.png)
-
-##### Dark Theme
-
-![Dark Blue](https://i.imgur.com/s0npXds.png)
-![Dark Blue2](https://i.imgur.com/v4D7JX0.png)
-
-### TheseScripts is available in several languages ( * ):
+#### Available languages:
 - English
 - French
 - German
@@ -31,54 +12,56 @@ You can come on our discord server: https://discord.gg/m7CZ6md
 - Italian
 - Russian
 - Custom Languages
-                                                                                                              
-( * ) Languages: "French" and "English" have (normally) perfect translations. (I'm French and I'm not too bad in English ^^).
-But for the other languages, they were made from an online translator. Named DeepL. 
-[Click here if you want to see this translator](https://deepl.com/translator)
 
-For people who want to help me correct incorrect translations, please contact on my youtube channel, or in "issues" tab.
-      
-### How to create a lang file?                                                                 
-                                                                                                      
-Follow this step-by-step tutorial:                                                                    
-- Go to the Wolfy installation location
-- Go to the "Langs" folder
-- Go to: https://github.com/NaolShow/Wolfy/tree/master/Wolfy/Localization, choose a model, copy all the code of the model
-- Create a new file ending with'.XAML' (in the "Langs" folder), and copy the model code
-- Change the translations!
-[THE NAME OF THE FILE MUST BE EQUAL TO THE NAME OF THE KEY "language_name",
-THE KEY "language_display_name" IS THE NAME THAT WILL BE DISPLAYED IN THE SETTINGS]
+![](https://i.imgur.com/nMr8gZX.gif)
 
-# Licence                                         
-                                         
-TheseScripts is licensed under the GNU General Public License 3.0                                         
-                                         
-You can read this license here: https://www.gnu.org/licenses/gpl-3.0.en.html                                         
-or here: https://github.com/NaolShow/Wolfy/blob/master/LICENSE                                         
-or here: https://choosealicense.com/licenses/gpl-3.0/                                         
-         
-Warning: in this case "Software" refers to this project (Wolfy)
-         
-### Permissions:                                                                                  
-- This software and derivatives may be used for commercial purposes                                         
-- This software may be distributed                                                                                  
-- This software may be modified                                         
-- This licence provides and express grant of patent rights from contributors                                         
-- This software may be used and modified in private                                         
-                                         
-### Conditions                                         
-- Source code must be made available when the software is distributed                                         
-- A copy of the licence and copyright notice must be included with the software                                         
-- Modifications must be released under the same license when distributing the software. In some cases a similar or related license may be used                                         
-- Changes made to the code must be documented                                                                                                                       
+# :floppy_disk: Download
+----------
 
-# Libraries
-                                                                                
-I use several libraries on this project:                                                            
-- [MaterialDesign by James Willock](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)                                
-- [Newtonsoft.Json by James Newton-King](https://github.com/JamesNK/Newtonsoft.Json)                                                    
-- [IronPython by IronPython](https://ironpython.net/)                                                    
+You can easily download Wolfy using a setup when it will be officially launched.
+For the moment you can compile it yourself. 
+[See how here](https://github.com/NaolShow/Wolfy/wiki/Edit-&-Compile)
 
-# Releases
-                                        
-[Download the software HERE](https://github.com/NaolShow/Wolfy/releases)                                        
+_Requirements: Windows 7, 8 or 10 and [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/thank-you/net472)_
+_(NOTE: Wolfy has not been tested on linux/mac with MONO)_
+
+# :heart: Contributions
+----------
+
+### Translations
+
+You can help me and the community by translating Wolfy into different languages.
+[See how here](https://github.com/NaolShow/Wolfy/wiki/Contributions---Translations)
+
+### Bug reports
+
+You can also help me, like, a lot by sending me informations when you have any bugs, like crashes, or juste somethings who works like he shouldn't.
+[Send bug report here](https://github.com/NaolShow/Wolfy/issues)
+
+### Ideas
+
+If you have any idea to improve the software, I'm very interested!
+[Contact me](https://github.com/NaolShow/Wolfy/wiki/Contact)
+
+### Development help
+
+If you are a C# developer, you can directly help me by making pull requests
+[See how here](https://github.com/NaolShow/Wolfy/wiki/Edit-&-Compile)
+
+# :computer: Development
+----------
+
+You can build yourself Wolfy and also make edits
+[See how here](https://github.com/NaolShow/Wolfy/wiki/Edit-&-Compile)
+
+# :open_file_folder: Libraries
+----------
+
+- [MaterialDesign by James Willock](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
+- [Newtonsoft.Json by James Newton-King](https://github.com/JamesNK/Newtonsoft.Json)
+- [IronPython by IronPython](https://ironpython.net/)
+
+# :newspaper: Licence
+----------
+
+Distributed under the GNU General Public Licence v3.0. See LICENSE for more information.
