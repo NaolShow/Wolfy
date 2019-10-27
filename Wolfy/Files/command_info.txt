@@ -1,6 +1,0 @@
-{
-	"Command": "command.py",
-	"Command_vars": {
-		"myvar": "Hello !"
-	}
-}

@@ -2,97 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!--
-    
-        The language files that are proposed by default by the Wolfy software,
-        are rewritten each time the software is launched.
-    
-        If you want to make changes, please copy and paste a template and rename it!
-    
-    -->
-    
     <!-- Language properties -->
-    <sys:String x:Key="language_name">fr</sys:String>
-    <sys:String x:Key="language_display_name">Français</sys:String>
-
+    <sys:String x:Key="lang_name">fr</sys:String>
+    <sys:String x:Key="lang_display">Français</sys:String>
+    
     <!-- General -->
-    <sys:String x:Key="wolfy_loaded">Wolfy est maintenant chargé!</sys:String>
     <sys:String x:Key="cancel">Annuler</sys:String>
-    <sys:String x:Key="ok">OK</sys:String>
-    <sys:String x:Key="apply">Appliquer</sys:String>
-
-    <sys:String x:Key="name">Nom</sys:String>
-    <sys:String x:Key="value">Valeur</sys:String>
-    <sys:String x:Key="add">Ajouter</sys:String>
 
     <!-- Updates -->
-    <sys:String x:Key="update_request">Une nouvelle version du logiciel est disponible.\n Voulez vous l'installer ?</sys:String>
-    <sys:String x:Key="update_downloading">Téléchargement {0}/{1} [{2}%]</sys:String>
-    <sys:String x:Key="update_install">Installer ({0}s)</sys:String>
-    <sys:String x:Key="update_check_error">Une erreur est survenue lors de la vérification d'une potentielle nouvelle version disponible.</sys:String>
-    <sys:String x:Key="update_install_error">Une erreur est survenue lors de l'installation de la mise à jours.\n (Fichiers manquants et/ou aucun droits d'accès)</sys:String>
-
-    <!-- Profiles -->
-    <sys:String x:Key="default_profile_name">Profil</sys:String>
-    <sys:String x:Key="profile_name">Nom du profil</sys:String>
-    <sys:String x:Key="create_profile">Créer un profil</sys:String>
-    <sys:String x:Key="remove_profile">Enlever le profil</sys:String>
-    <sys:String x:Key="remove_profile_confirm">Voulez vous vraiment supprimer ce profil ?</sys:String>
-
-    <sys:String x:Key="default_command_name">Commande</sys:String>
-    <sys:String x:Key="create_command">Créer une commande</sys:String>
-    <sys:String x:Key="remove_command">Supprimer la commande</sys:String>
-    <sys:String x:Key="remove_command_confirm">Voulez-vous vraiment supprimer cette commande ?</sys:String>
-
-    <sys:String x:Key="command_name">Nom de la commande</sys:String>
-    <sys:String x:Key="command_already_exist">Le nom de cette commande est déjà utilisé !</sys:String>
-    <sys:String x:Key="variable_already_exist">Ce nom de variable est déjà utilisé !</sys:String>
-
-    <sys:String x:Key="no_profile">Il y a aucun profil existant</sys:String>
-    <sys:String x:Key="profile_doesnt_exist">Le profil sélectionné n'existe pas</sys:String>
-    <sys:String x:Key="profile_already_exist">Un profil existe déjà avec ce nom</sys:String>
-
-    <sys:String x:Key="profile_loaded">Le profil '{0}' est maintenant chargé avec '{1}' commandes</sys:String>
-    <sys:String x:Key="commands_stopped">Toutes les commandes ont été arrêtées</sys:String>
+    <sys:String x:Key="update_ask" xml:space="preserve">Une nouvelle mise à jour est disponible.
+Voulez vous l'installer ?
     
-    <sys:String x:Key="profile_window_title">'{0}' : '{1}'</sys:String>
-    <sys:String x:Key="search_command">Rechercher une commande...</sys:String>
-
-    <!-- Recognizer -->
-    <sys:String x:Key="no_speech_language">Aucune langue de reconnaissance a été trouvée</sys:String>
-    <sys:String x:Key="no_microphone">Aucun microphone n'a été détecté</sys:String>
-    <sys:String x:Key="recognizer_loaded">Le module de reconnaissance a été chargé avec succès ({0})</sys:String>
-    <sys:String x:Key="command_recognized">La commande '{0}' a été reconnue avec un seuil de '{1}'</sys:String>
-
-    <sys:String x:Key="microphone_disabled">Le microphone est maintenant désactivé</sys:String>
-    <sys:String x:Key="microphone_enabled">Le microphone est maintenant activé</sys:String>
-    <sys:String x:Key="microphone_no_commands">Vous ne pouvez pas allumer ou éteindre le microphone. Parce que le profil n'a pas de commandes</sys:String>
-
-    <!-- Synthesizer -->
-    <sys:String x:Key="synthesizer_no_voice">Le synthétiseur vocal ne peut être chargé. Aucune voix n'est installée.</sys:String>
-    <sys:String x:Key="synthesizer_loaded">Le synthétiseur vocal a été chargé avec succès ({0})</sys:String>
+Version actuelle: {0}
+Dernière version: {1}</sys:String>
+    <sys:String x:Key="update_error" xml:space="preserve">Une erreur s'est produite, la mise à jour pourrait être corrompue. 
+Cela peut être dû à votre connexion, veuillez vérifier que vous êtes connecté à Internet. 
+Si vous êtes bien connecté à Internet, vous pouvez cliquer sur oui pour redémarrer la mise à jour.</sys:String>
+    <sys:String x:Key="update_downloading">Téléchargement... {0} / {1} ({2}%)</sys:String>
     
-    <!-- Settings -->
-    <sys:String x:Key="settings">Paramètres</sys:String>
-
-    <sys:String x:Key="general">Général</sys:String>
-    <sys:String x:Key="application">Application</sys:String>
-    <sys:String x:Key="language">Langage:</sys:String>
-    <sys:String x:Key="translation_error">Erreur de traduction ?</sys:String>
-    <sys:String x:Key="theme">Thème:</sys:String>
-    <sys:String x:Key="color">Couleur:</sys:String>
-
-    <sys:String x:Key="load_profile_startup">Sélectionner un profil au démarrage</sys:String>
-
-    <sys:String x:Key="launch_startup">Lancer le logiciel au démarrage</sys:String>
-    <sys:String x:Key="check_for_updates">Vérifier les mises à jours au lancement</sys:String>
-    <sys:String x:Key="system_tray_startup">Réduire à la barre d'état système</sys:String>
-
-    <sys:String x:Key="recognition">Reconnaissance</sys:String>
-    <sys:String x:Key="recognition_threshold">Seuil de reconnaissance:</sys:String>
-    <sys:String x:Key="recognition_at_launch">Activer la reconnaissance vocale au lancement</sys:String>
-
-    <sys:String x:Key="synthesizer">Synthétiseur</sys:String>
-    <sys:String x:Key="voice">Voix:</sys:String>
-
 </ResourceDictionary>

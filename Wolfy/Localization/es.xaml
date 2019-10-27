@@ -2,97 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!--
-    
-        The language files that are proposed by default by the Wolfy software,
-        are rewritten each time the software is launched.
-    
-        If you want to make changes, please copy and paste a template and rename it!
-    
-    -->
-    
     <!-- Language properties -->
-    <sys:String x:Key="language_name">es</sys:String>
-    <sys:String x:Key="language_display_name">Español</sys:String>
+    <sys:String x:Key="lang_name">es</sys:String>
+    <sys:String x:Key="lang_display">Español</sys:String>
 
     <!-- General -->
-    <sys:String x:Key="wolfy_loaded">¡Wolfy está cargado!</sys:String>
     <sys:String x:Key="cancel">Cancelar</sys:String>
-    <sys:String x:Key="ok">OK</sys:String>
-    <sys:String x:Key="apply">Aplicar</sys:String>
-
-    <sys:String x:Key="name">Nombre</sys:String>
-    <sys:String x:Key="value">Valor</sys:String>
-    <sys:String x:Key="add">Añadir</sys:String>
 
     <!-- Updates -->
-    <sys:String x:Key="update_request">Una nueva versión del software está disponible.\n ¿Desea instalarlo?</sys:String>
-    <sys:String x:Key="update_downloading">Descarga {0}/{1} [{2}%]</sys:String>
-    <sys:String x:Key="update_install">Instalar ({0}s)</sys:String>
-    <sys:String x:Key="update_check_error">Se ha producido un error al comprobar una posible nueva versión disponible.</sys:String>
-    <sys:String x:Key="update_install_error">Se ha producido un error durante la instalación de la actualización.\n (Faltan archivos y/o no hay derechos de acceso)</sys:String>
-
-    <!-- Profiles -->
-    <sys:String x:Key="default_profile_name">Perfil</sys:String>
-    <sys:String x:Key="profile_name">Nombre del perfil</sys:String>
-    <sys:String x:Key="create_profile">Crear perfil</sys:String>
-    <sys:String x:Key="remove_profile">Eliminar perfil</sys:String>
-    <sys:String x:Key="remove_profile_confirm">¿Realmente quieres borrar este perfil?</sys:String>
-
-    <sys:String x:Key="default_command_name">Comando</sys:String>
-    <sys:String x:Key="create_command">Crear comando</sys:String>
-    <sys:String x:Key="remove_command">Eliminar comando</sys:String>
-    <sys:String x:Key="remove_command_confirm">¿Realmente quieres borrar este comando?</sys:String>
-
-    <sys:String x:Key="command_name">Nombre del comando</sys:String>
-    <sys:String x:Key="command_already_exist">Este nombre de comando ya se utiliza!</sys:String>
-    <sys:String x:Key="variable_already_exist">Este nombre de variable ya se utiliza!</sys:String>
-
-    <sys:String x:Key="no_profile">No hay perfiles existentes</sys:String>
-    <sys:String x:Key="profile_doesnt_exist">El perfil seleccionado no existe</sys:String>
-    <sys:String x:Key="profile_already_exist">Ya existe un perfil con este nombre</sys:String>
-
-    <sys:String x:Key="profile_loaded">El perfil '{0}' se carga ahora con los comandos '{1}'</sys:String>
-    <sys:String x:Key="commands_stopped">Todos los comandos se han detenido</sys:String>
+    <sys:String x:Key="update_ask" xml:space="preserve">Una nueva actualización está disponible.
+¿Desea instalarlo?
     
-    <sys:String x:Key="profile_window_title">'{0}' : '{1}'</sys:String>
-    <sys:String x:Key="search_command">Buscar un comando...</sys:String>
-
-    <!-- Recognizer -->
-    <sys:String x:Key="no_speech_language">No se encontró ningún idioma de reconocimiento</sys:String>
-    <sys:String x:Key="no_microphone">No se detectó ningún micrófono</sys:String>
-    <sys:String x:Key="recognizer_loaded">El módulo reconocedor se ha cargado correctamente ({0})</sys:String>
-    <sys:String x:Key="command_recognized">El comando '{0}' ha sido reconocido con un umbral de '{1}'</sys:String>
-
-    <sys:String x:Key="microphone_disabled">El micrófono está ahora silenciado.</sys:String>
-    <sys:String x:Key="microphone_enabled">El micrófono está ahora activado</sys:String>
-    <sys:String x:Key="microphone_no_commands">No puede encender o apagar el micrófono. Porque el perfil no tiene comandos</sys:String>
-
-    <!-- Synthesizer -->
-    <sys:String x:Key="synthesizer_no_voice">El sintetizador de voz no se puede cargar. No hay voz instalada.</sys:String>
-    <sys:String x:Key="synthesizer_loaded">El sintetizador de voz se ha cargado correctamente ({0})</sys:String>
-    
-    <!-- Settings -->
-    <sys:String x:Key="settings">Ajustes</sys:String>
-
-    <sys:String x:Key="general">General</sys:String>
-    <sys:String x:Key="application">Aplicación</sys:String>
-    <sys:String x:Key="language">Idioma</sys:String>
-    <sys:String x:Key="translation_error">¿Error de traducción?</sys:String>
-    <sys:String x:Key="theme">Tema:</sys:String>
-    <sys:String x:Key="color">Color:</sys:String>
-
-    <sys:String x:Key="load_profile_startup">Seleccione un perfil al inicio</sys:String>
-
-    <sys:String x:Key="launch_startup">Inicie el software al iniciar el sistema</sys:String>
-    <sys:String x:Key="check_for_updates">Buscar actualizaciones en el lanzamiento</sys:String>
-    <sys:String x:Key="system_tray_startup">Reducir a la bandeja del sistema</sys:String>
-
-    <sys:String x:Key="recognition">Reconocimiento</sys:String>
-    <sys:String x:Key="recognition_threshold">Umbral de reconocimiento:</sys:String>
-    <sys:String x:Key="recognition_at_launch">Habilitar el reconocimiento de voz en el lanzamiento</sys:String>
-
-    <sys:String x:Key="synthesizer">Sintetizador</sys:String>
-    <sys:String x:Key="voice">Voz:</sys:String>
+Versión actual: {0}
+Última versión: {1}</sys:String>
+    <sys:String x:Key="update_error" xml:space="preserve">Se ha producido un error, la actualización podría estar dañada. 
+Esto puede deberse a su conexión, por favor, compruebe que está conectado a Internet. 
+Si está bien conectado a Internet, puede hacer clic en sí para reiniciar la actualización.</sys:String>
+    <sys:String x:Key="update_downloading">Descarga... {0} / {1} ({2}%)</sys:String>
 
 </ResourceDictionary>

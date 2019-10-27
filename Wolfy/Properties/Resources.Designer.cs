@@ -9,9 +9,8 @@
 //------------------------------------------------------------------------------
 
 namespace Wolfy.Properties {
-    using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,33 +18,33 @@ namespace Wolfy.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+                if ((resourceMan == null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Wolfy.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -57,55 +56,6 @@ namespace Wolfy.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Command&quot;: &quot;command.py&quot;,
-        ///	&quot;Command_vars&quot;: {
-        ///		&quot;myvar&quot;: &quot;Hello !&quot;
-        ///	}
-        ///}.
-        /// </summary>
-        internal static string command_info {
-            get {
-                return ResourceManager.GetString("command_info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to print(&quot;Hey! I&apos;m a command&quot;).
-        /// </summary>
-        internal static string command_template {
-            get {
-                return ResourceManager.GetString("command_template", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] IronPythonLib {
-            get {
-                object obj = ResourceManager.GetObject("IronPythonLib", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If you want to create your own language file, please take a template from the link below:
-        ///https://github.com/NaolShow/Wolfy/tree/master/Wolfy/Localization
-        ///
-        ///The language files generated directly by the application 
-        ///(in the &quot;Langs&quot; folder are in disorder and without comments. 
-        ///Which is complicated to modify the files.
-        ///
-        ///Thank you - NaolShow.
-        /// </summary>
-        internal static string lang_readme {
-            get {
-                return ResourceManager.GetString("lang_readme", resourceCulture);
             }
         }
     }

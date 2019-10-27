@@ -8,12 +8,12 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Wolfy")]
-[assembly: AssemblyDescription("Voice recognition software by NaolShow")]
+[assembly: AssemblyDescription("Voice recognition software")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ToWolf")]
 [assembly: AssemblyProduct("Wolfy")]
-[assembly: AssemblyCopyright("ToWolf © 2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright ToWolf © 2019")]
+[assembly: AssemblyTrademark("950F4F80-6205-4247-9CFB-60B85E0227F1")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1")]
-[assembly: AssemblyFileVersion("1.0.1")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]

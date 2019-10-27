@@ -2,97 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!--
-    
-        The language files that are proposed by default by the Wolfy software,
-        are rewritten each time the software is launched.
-    
-        If you want to make changes, please copy and paste a template and rename it!
-    
-    -->
-    
     <!-- Language properties -->
-    <sys:String x:Key="language_name">it</sys:String>
-    <sys:String x:Key="language_display_name">Italiano</sys:String>
+    <sys:String x:Key="lang_name">it</sys:String>
+    <sys:String x:Key="lang_display">Italiano</sys:String>
 
     <!-- General -->
-    <sys:String x:Key="wolfy_loaded">Wolfy è carico!</sys:String>
     <sys:String x:Key="cancel">Annulla</sys:String>
-    <sys:String x:Key="ok">OK</sys:String>
-    <sys:String x:Key="apply">Applicare</sys:String>
-
-    <sys:String x:Key="name">Nome</sys:String>
-    <sys:String x:Key="value">Valore</sys:String>
-    <sys:String x:Key="add">Aggiungi</sys:String>
 
     <!-- Updates -->
-    <sys:String x:Key="update_request">È disponibile una nuova versione del software.\n Vuoi installarlo?</sys:String>
-    <sys:String x:Key="update_downloading">Scaricare {0}/{1} [{2}%]</sys:String>
-    <sys:String x:Key="update_install">Installare ({0}s)</sys:String>
-    <sys:String x:Key="update_check_error">Si è verificato un errore durante la verifica di una potenziale nuova versione disponibile.</sys:String>
-    <sys:String x:Key="update_install_error">Si è verificato un errore durante l'installazione dell'aggiornamento.\n (File mancanti e/o nessun diritto di accesso)</sys:String>
-
-    <!-- Profiles -->
-    <sys:String x:Key="default_profile_name">Profilo</sys:String>
-    <sys:String x:Key="profile_name">Nome del profilo</sys:String>
-    <sys:String x:Key="create_profile">Crea profilo</sys:String>
-    <sys:String x:Key="remove_profile">Rimuovere il profilo</sys:String>
-    <sys:String x:Key="remove_profile_confirm">Vuoi davvero cancellare questo profilo?</sys:String>
-
-    <sys:String x:Key="default_command_name">Comando</sys:String>
-    <sys:String x:Key="create_command">Crea comando</sys:String>
-    <sys:String x:Key="remove_command">Rimuovi comando</sys:String>
-    <sys:String x:Key="remove_command_confirm">Vuoi davvero cancellare questo comando?</sys:String>
-
-    <sys:String x:Key="command_name">Nome del comando</sys:String>
-    <sys:String x:Key="command_already_exist">Questo nome di comando è già utilizzato !</sys:String>
-    <sys:String x:Key="variable_already_exist">Questo nome di variabile è già utilizzato!</sys:String>
-
-    <sys:String x:Key="no_profile">Non ci sono profili esistenti</sys:String>
-    <sys:String x:Key="profile_doesnt_exist">Il profilo selezionato non esiste</sys:String>
-    <sys:String x:Key="profile_already_exist">Esiste già un profilo con questo nome</sys:String>
-
-    <sys:String x:Key="profile_loaded">Il profilo '{0}' è ora caricato con i comandi '{1}'</sys:String>
-    <sys:String x:Key="commands_stopped">Tutti i comandi sono stati fermati</sys:String>
+    <sys:String x:Key="update_ask" xml:space="preserve">È disponibile un nuovo aggiornamento.
+Vuoi installarlo?
     
-    <sys:String x:Key="profile_window_title">'{0}' : '{1}'</sys:String>
-    <sys:String x:Key="search_command">Ricerca di un comando...</sys:String>
-
-    <!-- Recognizer -->
-    <sys:String x:Key="no_speech_language">Non è stata trovata una lingua di riconoscimento</sys:String>
-    <sys:String x:Key="no_microphone">Nessun microfono è stato rilevato</sys:String>
-    <sys:String x:Key="recognizer_loaded">Il modulo di riconoscimento è stato caricato con successo ({0})</sys:String>
-    <sys:String x:Key="command_recognized">Il comando '{0}' è stato riconosciuto con una soglia di '{1}'</sys:String>
-
-    <sys:String x:Key="microphone_disabled">Il microfono è stato disattivato</sys:String>
-    <sys:String x:Key="microphone_enabled">Il microfono è ora attivato</sys:String>
-    <sys:String x:Key="microphone_no_commands">Non è possibile attivare o disattivare il microfono. Perché il profilo non ha comandi</sys:String>
-
-    <!-- Synthesizer -->
-    <sys:String x:Key="synthesizer_no_voice">Il sintetizzatore vocale non può essere caricato. Non è installata alcuna voce.</sys:String>
-    <sys:String x:Key="synthesizer_loaded">Il sintetizzatore vocale è stato caricato con successo ({0})</sys:String>
-    
-    <!-- Settings -->
-    <sys:String x:Key="settings">Impostazioni</sys:String>
-
-    <sys:String x:Key="general">Generale</sys:String>
-    <sys:String x:Key="application">Applicazione</sys:String>
-    <sys:String x:Key="language">Lingua:</sys:String>
-    <sys:String x:Key="translation_error">Errore di traduzione?</sys:String>
-    <sys:String x:Key="theme">Tema:</sys:String>
-    <sys:String x:Key="color">Colore:</sys:String>
-
-    <sys:String x:Key="load_profile_startup">Selezionare un profilo all'avvio</sys:String>
-
-    <sys:String x:Key="launch_startup">Avviare il software all'avvio</sys:String>
-    <sys:String x:Key="check_for_updates">Controlla gli aggiornamenti al momento del lancio</sys:String>
-    <sys:String x:Key="system_tray_startup">Ridurre alla barra delle applicazioni</sys:String>
-
-    <sys:String x:Key="recognition">Riconoscimento</sys:String>
-    <sys:String x:Key="recognition_threshold">Soglia di riconoscimento:</sys:String>
-    <sys:String x:Key="recognition_at_launch">Abilita il riconoscimento vocale al lancio</sys:String>
-
-    <sys:String x:Key="synthesizer">Sintetizzatore</sys:String>
-    <sys:String x:Key="voice">Voce:</sys:String>
+Versione corrente: {0}
+Ultima versione: {1}</sys:String>
+    <sys:String x:Key="update_error" xml:space="preserve">Si è verificato un errore, l'aggiornamento potrebbe essere danneggiato. 
+Questo può essere dovuto alla vostra connessione, controllate di essere connessi a Internet. 
+Se si è ben collegati a Internet, è possibile fare clic su sì per riavviare l'aggiornamento.</sys:String>
+    <sys:String x:Key="update_downloading">Scaricare... {0} / {1} ({2}%)</sys:String>
 
 </ResourceDictionary>

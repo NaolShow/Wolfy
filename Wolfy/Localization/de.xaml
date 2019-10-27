@@ -2,97 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!--
-    
-        The language files that are proposed by default by the Wolfy software,
-        are rewritten each time the software is launched.
-    
-        If you want to make changes, please copy and paste a template and rename it!
-    
-    -->
-    
     <!-- Language properties -->
-    <sys:String x:Key="language_name">de</sys:String>
-    <sys:String x:Key="language_display_name">Deutsch</sys:String>
+    <sys:String x:Key="lang_name">de</sys:String>
+    <sys:String x:Key="lang_display">Deutsch</sys:String>
 
     <!-- General -->
-    <sys:String x:Key="wolfy_loaded">Wolfy ist jetzt geladen!</sys:String>
     <sys:String x:Key="cancel">Abbrechen</sys:String>
-    <sys:String x:Key="ok">OK</sys:String>
-    <sys:String x:Key="apply">Anwenden</sys:String>
-
-    <sys:String x:Key="name">Name</sys:String>
-    <sys:String x:Key="value">Wert</sys:String>
-    <sys:String x:Key="add">Hinzufügen</sys:String>
 
     <!-- Updates -->
-    <sys:String x:Key="update_request">Eine neue Version der Software ist verfügbar.\n Möchten Sie es installieren?</sys:String>
-    <sys:String x:Key="update_downloading">Herunterladen {0}/{1} [{2}%]</sys:String>
-    <sys:String x:Key="update_install">Installieren ({0}s)</sys:String>
-    <sys:String x:Key="update_check_error">Bei der Überprüfung einer eventuell verfügbaren neuen Version ist ein Fehler aufgetreten.</sys:String>
-    <sys:String x:Key="update_install_error">Bei der Installation des Updates ist ein Fehler aufgetreten.\n (Fehlende Dateien und/oder keine Zugriffsrechte)</sys:String>
-
-    <!-- Profiles -->
-    <sys:String x:Key="default_profile_name">Profil</sys:String>
-    <sys:String x:Key="profile_name">Profilname</sys:String>
-    <sys:String x:Key="create_profile">Profil erstellen</sys:String>
-    <sys:String x:Key="remove_profile">Profil entfernen</sys:String>
-    <sys:String x:Key="remove_profile_confirm">Möchten Sie dieses Profil wirklich löschen?</sys:String>
-
-    <sys:String x:Key="default_command_name">Befehl</sys:String>
-    <sys:String x:Key="create_command">Befehl Create</sys:String>
-    <sys:String x:Key="remove_command">Befehl entfernen</sys:String>
-    <sys:String x:Key="remove_command_confirm">Möchten Sie diesen Befehl wirklich löschen?</sys:String>
-
-    <sys:String x:Key="command_name">Befehlsname</sys:String>
-    <sys:String x:Key="command_already_exist">Dieser Befehlsname wird bereits verwendet !</sys:String>
-    <sys:String x:Key="variable_already_exist">Dieser Variablenname wird bereits verwendet !</sys:String>
-
-    <sys:String x:Key="no_profile">Es sind keine Profile vorhanden.</sys:String>
-    <sys:String x:Key="profile_doesnt_exist">Das ausgewählte Profil ist nicht vorhanden</sys:String>
-    <sys:String x:Key="profile_already_exist">Es existiert bereits ein Profil mit diesem Namen</sys:String>
-
-    <sys:String x:Key="profile_loaded">Das Profil '{0}' wird nun mit '{1}' Befehlen geladen</sys:String>
-    <sys:String x:Key="commands_stopped">Alle Befehle wurden gestoppt.</sys:String>
+    <sys:String x:Key="update_ask" xml:space="preserve">Ein neues Update ist verfügbar.
+Möchten Sie es installieren?
     
-    <sys:String x:Key="profile_window_title">'{0}' : '{1}'</sys:String>
-    <sys:String x:Key="search_command">Nach einem Befehl suchen...</sys:String>
-
-    <!-- Recognizer -->
-    <sys:String x:Key="no_speech_language">Es wurde keine Erkennungssprache gefunden.</sys:String>
-    <sys:String x:Key="no_microphone">Es wurde kein Mikrofon erkannt.</sys:String>
-    <sys:String x:Key="recognizer_loaded">Das Erkennungsmodul wurde erfolgreich geladen. ({0})</sys:String>
-    <sys:String x:Key="command_recognized">Der Befehl '{0}' wurde mit einem Schwellenwert von '{1}' erkannt.</sys:String>
-
-    <sys:String x:Key="microphone_disabled">Das Mikrofon ist nun stummgeschaltet.</sys:String>
-    <sys:String x:Key="microphone_enabled">Das Mikrofon ist nun aktiviert.</sys:String>
-    <sys:String x:Key="microphone_no_commands">Sie können das Mikrofon nicht ein- und ausschalten. Da das Profil keine Befehle hat.</sys:String>
-
-    <!-- Synthesizer -->
-    <sys:String x:Key="synthesizer_no_voice">Der Sprachsynthesizer kann nicht geladen werden. Es ist keine Stimme installiert.</sys:String>
-    <sys:String x:Key="synthesizer_loaded">Der Sprachsynthesizer wurde erfolgreich geladen. ({0})</sys:String>
-    
-    <!-- Settings -->
-    <sys:String x:Key="settings">Einstellungen</sys:String>
-
-    <sys:String x:Key="general">Allgemeines</sys:String>
-    <sys:String x:Key="application">Anwendung</sys:String>
-    <sys:String x:Key="language">Sprache:</sys:String>
-    <sys:String x:Key="translation_error">Übersetzungsfehler?</sys:String>
-    <sys:String x:Key="theme">Thema:</sys:String>
-    <sys:String x:Key="color">Farbe:</sys:String>
-
-    <sys:String x:Key="load_profile_startup">Beim Start ein Profil auswählen</sys:String>
-
-    <sys:String x:Key="launch_startup">Starten Sie die Software beim Start.</sys:String>
-    <sys:String x:Key="check_for_updates">Nach Updates beim Start suchen</sys:String>
-    <sys:String x:Key="system_tray_startup">In die Taskleiste reduzieren</sys:String>
-
-    <sys:String x:Key="recognition">Anerkennung</sys:String>
-    <sys:String x:Key="recognition_threshold">Erkennungsschwelle:</sys:String>
-    <sys:String x:Key="recognition_at_launch">Spracherkennung beim Start aktivieren</sys:String>
-
-    <sys:String x:Key="synthesizer">Synthesizer</sys:String>
-    <sys:String x:Key="voice">Stimme:</sys:String>
+Aktuelle Version: {0}
+Aktuelle Version: {1}</sys:String>
+    <sys:String x:Key="update_error" xml:space="preserve">Es ist ein Fehler aufgetreten, das Update könnte beschädigt sein. 
+Dies kann an Ihrer Verbindung liegen, bitte überprüfen Sie, ob Sie mit dem Internet verbunden sind. 
+Wenn Sie gut mit dem Internet verbunden sind, können Sie auf Ja klicken, um das Update neu zu starten.</sys:String>
+    <sys:String x:Key="update_downloading">Herunterladen... {0} / {1} ({2}%)</sys:String>
 
 </ResourceDictionary>

@@ -1,44 +1,41 @@
 ﻿using System;
-using System.Windows;
-using Wolfy.Files.Json;
-using Wolfy.Windows;
+using System.IO;
+using System.Reflection;
 
 namespace Wolfy.Classes {
+
     public static class Reference {
 
-        /** ----------------| Useful Variables |---------------- **/
-        public static readonly string AppName = Application.ResourceAssembly.GetName().Name;
-        public static readonly string AppVersion = "1.0.1";
-        public static readonly string AppPath = System.AppDomain.CurrentDomain.BaseDirectory;
+        // ---- General
 
-        /** ----------------| Windows Variables |---------------- **/
-        public static Main MainWindow;
+        private static readonly Assembly Assembly = Assembly.GetExecutingAssembly();
 
-        /** ----------------| Update Variables |---------------- **/
-        public static readonly string UpdateLink = @"https://dl.dropbox.com/s/09rmbalpk1exlr9/update.txt";
-        public static readonly string TempUpdateFile = TempUpdatePath + "update.exe";
-        // Update files
-        public static readonly string TempUpdatePath = AppPath + @"update.temp\";
-        public static readonly string TempUpdateZip = AppPath + @"update.temp.zip";
+        public static bool IsPortable;
 
-        /** ----------------| Folders Variables |---------------- **/
-        public static readonly string SettingsPath = AppPath + @"Settings\";
-        public static readonly string LangsPath = AppPath + @"Langs\";
-        public static readonly string ProfilesPath = AppPath + @"Profiles\";
-        public static readonly string ModulesPath = AppPath + @"Modules\";
-        public static readonly string[] Folders = new string[] {
-            SettingsPath,
-            LangsPath,
-            ProfilesPath,
-            ModulesPath
-        };
+        public static readonly string AppName = Assembly.GetName().Name;
+        public static readonly Version AppVersion = Assembly.GetName().Version;
 
-        /** ----------------| Files Variables |---------------- **/
-        public static readonly String Settings = AppPath + @"Settings\settings.json";
-        public static readonly String IronModules = ModulesPath + @"IronPythonLib.zip";
+        public static readonly string AppFile = Assembly.Location;
+        public static readonly string AppPath = Path.GetDirectoryName(AppFile);
+        public static readonly string AppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), AppName);
 
-        /** ----------------| Json Variables |---------------- **/
-        public static JsonSettings JsonSettings;
+        // ---- Folders
+
+        public static class Folders {
+
+            public static string Langs { get => Path.Combine((IsPortable) ? AppPath : AppData, "Langs"); }
+
+        }
+
+        // ---- Files
+
+        public static class Files {
+
+            public static string Update { get => Path.Combine((IsPortable) ? AppPath : AppData, "Update.rar"); }
+            public static string Settings { get => Path.Combine((IsPortable) ? AppPath : AppData, "Settings.json"); }
+
+        }
 
     }
+
 }
